@@ -11,7 +11,6 @@ namespace PayrollManagement
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// Hello
         [STAThread]
         static void Main()
         {
