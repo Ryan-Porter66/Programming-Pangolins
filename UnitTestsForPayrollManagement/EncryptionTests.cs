@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PayrollManagement.Classes;
-using System;
 using System.Diagnostics;
 
 namespace PayrollManagementUnitTests
