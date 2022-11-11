@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using iText.Kernel.Pdf.Canvas.Draw;
 using iText.Layout.Borders;
 using iText.Kernel.Geom;
+using System.IO;
 
 namespace PayrollManagement.Classes
 {
@@ -154,7 +155,45 @@ namespace PayrollManagement.Classes
 
         public static void createNachaFile()
         {
+            try
+            {
+                string filePath = getSaveLocation("NACHA");
+                DateTime todayDate = DateTime.Now;
 
+                using (StreamWriter streamWriter = new StreamWriter(filePath, false))
+                {
+                    //file header
+                    streamWriter.WriteLine(String.Format("101 {0} 1{1}{2}{3}A094101{4}{5}{6}", 
+                        getSubString("999999999", 9), getSubString("999999999", 9), todayDate.ToString("yyMMdd"), todayDate.ToString("HHmm"), 
+                        getSubString("Bank of America", 23).PadRight(23), getSubString("Ryan Corps.", 23).PadRight(23), "".PadRight(8)));
+
+                    //batch header
+                    streamWriter.WriteLine(String.Format("5220{0}{1}1{2}PPDPayroll{3}{4}{4}{3}1{5}0000001", 
+                        getSubString("Ryan Corps.", 16).PadRight(16), "".PadRight(20), getSubString("999999999", 9), "".PadRight(3), 
+                        todayDate.ToString("yyMMdd"), getSubString("999999999", 8)));
+
+                    //entry detail/transcation
+                    //WILL NEED TO BE IN LOOP
+                    streamWriter.WriteLine(String.Format("622{0}{1}{2}{3}{4}{5}{6}0{7}{8}", 
+                        getSubString("999999999", 8).PadRight(8), "999999999".Substring("999999999".Length - 1), getSubString("999999999", 17).PadRight(17), 
+                        "9999.99".Replace(".", string.Empty).PadLeft(10, '0'), "".PadRight(15), getSubString(String.Format("{0} {1}", "Ryan", "Porter"), 22).PadRight(22), 
+                        "".PadRight(2), getSubString("999999999", 8), "0000001"));
+
+                    //batch footer
+                    streamWriter.WriteLine(String.Format("8220{0}{1}{2}{3}1{4}{5}{6}0000001", 
+                        "1".PadLeft(6, '0'), getLastSubString("123456789010", 10).PadLeft(10, '0'), "".PadRight(12, '0'), "1234566".PadLeft(12, '0'),
+                        getSubString("999999999", 9), "".PadRight(25), getSubString("999999999", 8)));
+
+                    //file footer
+                    streamWriter.WriteLine(String.Format("9{0}{1}{2}{3}{4}{5}",
+                        "1".PadLeft(6, '0'), "1".PadLeft(6, '0'), "1".PadLeft(8, '0'), getLastSubString("123456789010", 10).PadLeft(10, '0'),
+                        "".PadRight(12, '0'), "1234566".PadLeft(12, '0')));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         
         //this retrives the location of where to save a file
@@ -190,6 +229,22 @@ namespace PayrollManagement.Classes
                     .Add(new Paragraph(cellText));
 
             table.AddCell(cellToAdd);
+        }
+
+        //this function will get the first digits of a string
+        //https://stackoverflow.com/questions/15941985/how-to-get-the-first-five-character-of-a-string
+        private static string getSubString(string stringToTruncate, int digits)
+        {
+            return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
+                    ? stringToTruncate.Substring(0, digits)
+                    : stringToTruncate;
+        }
+
+        private static string getLastSubString(string stringToTruncate, int digits)
+        {
+            return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
+                    ? stringToTruncate.Substring(stringToTruncate.Length - 10)
+                    : stringToTruncate;
         }
     }
 }

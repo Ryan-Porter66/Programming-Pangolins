@@ -12,5 +12,11 @@ namespace UnitTestsForPayrollManagement
         {
             Reports.createPayStubsPDF();
         }
+
+        [TestMethod]
+        public void TestCreateNachaFile()
+        {
+            Reports.createNachaFile();
+        }
     }
 }
