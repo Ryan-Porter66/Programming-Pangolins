@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using iText.Kernel.Pdf;
 using iText.Layout.Element;
 using iText.Layout.Properties;
@@ -224,6 +220,11 @@ namespace PayrollManagement.Classes
         //this prints a cell to the talbe
         private static void printCellToTable(string cellText, Table table)
         {
+            if (cellText == null || cellText.Length < 1)
+            {
+                throw new ArgumentNullException("cellText");
+            }
+
             Cell cellToAdd = new Cell(1, 1)
                     .SetBorder(Border.NO_BORDER)
                     .Add(new Paragraph(cellText));
@@ -235,13 +236,24 @@ namespace PayrollManagement.Classes
         //https://stackoverflow.com/questions/15941985/how-to-get-the-first-five-character-of-a-string
         private static string getSubString(string stringToTruncate, int digits)
         {
+            if (stringToTruncate == null || stringToTruncate.Length < 1)
+            {
+                throw new ArgumentNullException("stringToTruncate");
+            }
+
             return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
                     ? stringToTruncate.Substring(0, digits)
                     : stringToTruncate;
         }
 
+        //this function will return the last number (digits) of characters from the string
         private static string getLastSubString(string stringToTruncate, int digits)
         {
+            if (stringToTruncate == null || stringToTruncate.Length < 1)
+            {
+                throw new ArgumentNullException("stringToTruncate");
+            }
+
             return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
                     ? stringToTruncate.Substring(stringToTruncate.Length - 10)
                     : stringToTruncate;

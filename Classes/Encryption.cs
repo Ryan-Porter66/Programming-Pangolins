@@ -11,12 +11,17 @@ namespace PayrollManagement.Classes
         //https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.sha256?view=net-6.0
         //https://www.c-sharpcorner.com/article/compute-sha256-hash-in-c-sharp/
         //https://stackoverflow.com/questions/12416249/hashing-a-string-with-sha256
-        public static string SHA256Encryption(string stringtoEncrypt)
+        public static string SHA256Encryption(string stringToEncrypt)
         {
+            if(stringToEncrypt == null || stringToEncrypt.Length < 1)
+            {
+                throw new ArgumentNullException("stringToEncrypt");
+            }
+
             using (SHA256 mySHA256Return = SHA256.Create())
             {
                 //this gets the byte array using UTF8 encoding
-                byte[] byteArray = mySHA256Return.ComputeHash(Encoding.UTF8.GetBytes(stringtoEncrypt));
+                byte[] byteArray = mySHA256Return.ComputeHash(Encoding.UTF8.GetBytes(stringToEncrypt));
                 StringBuilder hash = new StringBuilder();
                 foreach(byte theByte in byteArray)
                 {
@@ -40,6 +45,11 @@ namespace PayrollManagement.Classes
         //this function will encrypt information that needs to be decrypted
         public static string AESEncryption(string stringToEncrypt)
         {
+            if (stringToEncrypt == null || stringToEncrypt.Length < 1)
+            {
+                throw new ArgumentNullException("stringToEncrypt.");
+            }
+
             byte[] encryptedArray;
             using (Aes myAES = Aes.Create())
             {
@@ -70,6 +80,11 @@ namespace PayrollManagement.Classes
         //this function will decrypt any AES encryption strings that were generated before
         public static string AESDecryption(string stringToDecrypt)
         {
+            if (stringToDecrypt == null || stringToDecrypt.Length < 1)
+            {
+                throw new ArgumentNullException("stringToDecrypt");
+            }
+
             string decryptedString = null;
 
             //byte[] bytes = new byte[stringToDecrypt.Length * sizeof(char)];
