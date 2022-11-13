@@ -6,69 +6,145 @@ using System.Threading.Tasks;
 
 namespace Payroll.ClassDiagram
 {
+    
     public abstract class Employee
     {
-        string firstName;
-        string lastName;
-        string address;
-        string city;
-        string postalCode;
-        string state;
-        BankAccount bank;
-        int employeeID;
-        decimal federalTaxRate;
-        string permissions;
-        int SSN;
-        DateTime DOB;
-        DateTime hireDate;
-        int phoneNumber;
-        string department;
-        List<Deduction> deductionList;
-        decimal netPay;
-        decimal stateTaxRate;
-
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string Address { get => address; set => address = value; }
-        public string City { get => city; set => city = value; }
-        public string PostalCode { get => postalCode; set => postalCode = value; }
-        public string State { get => state; set => state = value; }
-        public BankAccount Bank { get => bank; set => bank = value; }
-        public int EmployeeID { get => employeeID; set => employeeID = value; }
-        public decimal FederalTaxRate { get => federalTaxRate; set => federalTaxRate = value; }
-        public string Permissions { get => permissions; set => permissions = value; }
-        public int SSN1 { get => SSN; set => SSN = value; }
-        public DateTime DOB1 { get => DOB; set => DOB = value; }
-        public DateTime HireDate { get => hireDate; set => hireDate = value; }
-        public int PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
-        public string Department { get => department; set => department = value; }
-        public List<Deduction> DeductionList { get => deductionList; set => deductionList = value; }
-        public decimal NetPay { get => netPay; set => netPay = value; }
-        public decimal StateTaxRate { get => stateTaxRate; set => stateTaxRate = value; }
-
-        protected Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, int ssn, DateTime dob, DateTime hireDate, int phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
+        #region Variables
+        private string _firstName;
+        public string firstName
         {
-            this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            this.LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-            this.Address = address ?? throw new ArgumentNullException(nameof(address));
-            this.City = city ?? throw new ArgumentNullException(nameof(city));
-            this.PostalCode = postalCode ?? throw new ArgumentNullException(nameof(postalCode));
-            this.State = state ?? throw new ArgumentNullException(nameof(state));
-            this.Bank = bank ?? throw new ArgumentNullException(nameof(bank));
-            this.EmployeeID = employeeID;
-            this.FederalTaxRate = federalTaxRate;
-            this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
-            SSN1 = ssn;
-            DOB1 = dob;
-            this.HireDate = hireDate;
-            this.PhoneNumber = phoneNumber;
-            this.Department = department ?? throw new ArgumentNullException(nameof(department));
-            this.DeductionList = deductionList ?? throw new ArgumentNullException(nameof(deductionList));
-            this.NetPay = netPay;
-            this.StateTaxRate = stateTaxRate;
+            get { return _firstName; }
+            private set { _firstName = value; }
+        }
+        private string _lastName;
+        public string lastName
+        {
+            get { return _lastName; }
+            private set { _lastName = value; }
+        }
+        private string _address;
+        public string address
+        {
+            get { return _address; }
+            private set { _address = value; }
+        }
+        private string _city;
+        public string city
+        {
+            get { return _city; }
+            private set { _city = value; }
+        }
+        private string _postalCode;
+        public string postalCode
+        {
+            get { return _postalCode; }
+            private set { _postalCode = value; }
+        }
+        private string _state;
+        public string state
+        {
+            get { return _state; }
+            private set { _state = value; }
+        }
+        private BankAccount _bank;
+        public BankAccount bank
+        {
+            get { return _bank; }
+            private set { _bank = value; }
+        }
+        private int _employeeID;
+        public int employeeID
+        {
+            get { return _employeeID; }
+            private set { _employeeID = value; }
+        }
+        private decimal _federalTaxRate;
+        public decimal federalTaxRate
+        {
+            get { return _federalTaxRate; }
+            private set { _federalTaxRate = value; }
+        }
+        private string _permissions;
+        public string permissions
+        {
+            get { return _permissions; }
+            private set { _permissions = value; }
+        }
+        private int _ssn;
+        public int ssn
+        {
+            get { return _ssn; }
+            private set { _ssn = value; }
+        }
+        private DateTime _dob;
+        public DateTime dob
+        {
+            get { return _dob; }
+            private set { _dob = value; }
+        }
+        private DateTime _hireDate;
+        public DateTime hireDate
+        {
+            get { return _hireDate; }
+            private set { _hireDate = value; }
+        }
+        private int _phoneNumber;
+        public int phoneNumber
+        {
+            get { return _phoneNumber; }
+            private set { _phoneNumber = value; }
+        }
+        private string _department;
+        public string department
+        {
+            get { return _department; }
+            private set { _department = value; }
+        }
+        private List<Deduction> _deductionList;
+        public List<Deduction> deductionList
+        {
+            get { return _deductionList; }
+            private set { _deductionList = value; }
+        }
+        private decimal _netPay;
+        public decimal netPay
+        {
+            get { return _netPay; }
+            private set { _netPay = value; }
+        }
+        private decimal _stateTaxRate;
+        public decimal stateTaxRate
+        {
+            get { return _stateTaxRate; }
+            private set { _stateTaxRate = value; }
+        }
+        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, int ssn, DateTime dob, DateTime hireDate, int phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
+        {
+            this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
+            this.address = address ?? throw new ArgumentNullException(nameof(address));
+            this.city = city ?? throw new ArgumentNullException(nameof(city));
+            this.postalCode = postalCode ?? throw new ArgumentNullException(nameof(postalCode));
+            this.state = state ?? throw new ArgumentNullException(nameof(state));
+            this.bank = bank ?? throw new ArgumentNullException(nameof(bank));
+            this.employeeID = employeeID;
+            this.federalTaxRate = federalTaxRate;
+            this.permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
+            this.ssn = ssn;
+            this.dob = dob;
+            this.hireDate = hireDate;
+            this.phoneNumber = phoneNumber;
+            this.department = department ?? throw new ArgumentNullException(nameof(department));
+            this.deductionList = deductionList ?? throw new ArgumentNullException(nameof(deductionList));
+            this.netPay = netPay;
+            this.stateTaxRate = stateTaxRate;
         }
 
+
+        #endregion
+
         public abstract decimal calculateGrossPay();
+
 
         public decimal calculateFederalTax()
         {
