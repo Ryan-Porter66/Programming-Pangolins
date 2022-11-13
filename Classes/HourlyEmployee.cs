@@ -17,12 +17,13 @@ namespace Payroll.ClassDiagram
 
         public override decimal calculateGrossPay()
         {
+            decimal grossPay = payPerHour * hoursWorked;
             throw new NotImplementedException();
         }
 
         public decimal getPayrollHours()
         {
-            throw new NotImplementedException();
+            return hoursWorked;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Payroll.ClassDiagram
 
         public override decimal calculateGrossPay()
         {
-            throw new NotImplementedException();
+            return salaryPerPayPeriod;
         }
     }
 }

@@ -11,113 +11,117 @@ namespace Payroll.ClassDiagram
     {
         #region Variables
         private string _firstName;
+        private string _lastName;
+        private string _address;
+        private string _city;        
+        private string _postalCode;        
+        private string _state;        
+        private BankAccount _bank;        
+        private int _employeeID;        
+        private decimal _federalTaxRate;
+        private string _permissions;        
+        private int _ssn;
+        private DateTime _dob;
+        private DateTime _hireDate;
+        private int _phoneNumber;
+        private string _department;
+        private List<Deduction> _deductionList;
+        private decimal _netPay;
+        private decimal _stateTaxRate;
+        #endregion
+        #region Get/Set
         public string firstName
         {
             get { return _firstName; }
             private set { _firstName = value; }
         }
-        private string _lastName;
         public string lastName
         {
             get { return _lastName; }
             private set { _lastName = value; }
         }
-        private string _address;
         public string address
         {
             get { return _address; }
             private set { _address = value; }
         }
-        private string _city;
         public string city
         {
             get { return _city; }
             private set { _city = value; }
         }
-        private string _postalCode;
         public string postalCode
         {
             get { return _postalCode; }
             private set { _postalCode = value; }
         }
-        private string _state;
         public string state
         {
             get { return _state; }
             private set { _state = value; }
         }
-        private BankAccount _bank;
         public BankAccount bank
         {
             get { return _bank; }
             private set { _bank = value; }
         }
-        private int _employeeID;
         public int employeeID
         {
             get { return _employeeID; }
             private set { _employeeID = value; }
         }
-        private decimal _federalTaxRate;
         public decimal federalTaxRate
         {
             get { return _federalTaxRate; }
             private set { _federalTaxRate = value; }
         }
-        private string _permissions;
         public string permissions
         {
             get { return _permissions; }
             private set { _permissions = value; }
         }
-        private int _ssn;
         public int ssn
         {
             get { return _ssn; }
             private set { _ssn = value; }
         }
-        private DateTime _dob;
         public DateTime dob
         {
             get { return _dob; }
             private set { _dob = value; }
         }
-        private DateTime _hireDate;
         public DateTime hireDate
         {
             get { return _hireDate; }
             private set { _hireDate = value; }
         }
-        private int _phoneNumber;
         public int phoneNumber
         {
             get { return _phoneNumber; }
             private set { _phoneNumber = value; }
         }
-        private string _department;
         public string department
         {
             get { return _department; }
             private set { _department = value; }
         }
-        private List<Deduction> _deductionList;
         public List<Deduction> deductionList
         {
             get { return _deductionList; }
             private set { _deductionList = value; }
         }
-        private decimal _netPay;
         public decimal netPay
         {
             get { return _netPay; }
             private set { _netPay = value; }
         }
-        private decimal _stateTaxRate;
         public decimal stateTaxRate
         {
             get { return _stateTaxRate; }
             private set { _stateTaxRate = value; }
         }
+        #endregion
+        #region Constructor
         public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, int ssn, DateTime dob, DateTime hireDate, int phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
         {
             this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
@@ -142,7 +146,7 @@ namespace Payroll.ClassDiagram
 
 
         #endregion
-
+        #region Methods
         public abstract decimal calculateGrossPay();
 
 
@@ -175,5 +179,6 @@ namespace Payroll.ClassDiagram
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
