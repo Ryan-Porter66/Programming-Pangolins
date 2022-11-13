@@ -10,7 +10,7 @@ namespace Payroll.ClassDiagram
     {
         decimal percentage;
 
-        public decimal calculateDeductionAmount(decimal grossPay)
+        public override decimal calculateDeductionAmount(decimal grossPay)
         {
             throw new NotImplementedException();
         }
