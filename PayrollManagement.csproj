@@ -154,6 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Class1.cs" />
+    <Compile Include="Classes\BankAccount.cs" />
+    <Compile Include="Classes\SalaryEmployee.cs" />
+    <Compile Include="Classes\PercentageDeduction.cs" />
+    <Compile Include="Classes\HourlyEmployee.cs" />
+    <Compile Include="Classes\FlatDeduction.cs" />
+    <Compile Include="Classes\EmployeeList.cs" />
+    <Compile Include="Classes\Deduction.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\Company.cs" />
     <Compile Include="Classes\Encryption.cs" />
     <Compile Include="Classes\Reports.cs" />
     <Compile Include="Forms\Form1.cs">
