@@ -8,8 +8,19 @@ namespace Payroll.ClassDiagram
 {
     public class EmployeeList
     {
-        List<Employee> employeeList;
-        Company employeesCompany;
+        List<Employee> _employeeList;
+        Company _employeesCompany;
+
+        public List<Employee> Employees
+        {
+            get { return this._employeeList; }
+            set { this._employeeList = value; }
+        }
+        public Company Company
+        {
+            get { return this._employeesCompany; }
+            set { this._employeesCompany = value; }
+        }
 
         public void generateEmployeeList(int compFedID)
         {
@@ -33,7 +44,7 @@ namespace Payroll.ClassDiagram
 
         public int getSizeOfList()
         {
-            throw new NotImplementedException();
+            return this._employeeList.Count();
         }
 
         public int getSumOfFirst8DigitsRoute()

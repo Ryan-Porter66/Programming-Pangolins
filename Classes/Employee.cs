@@ -20,10 +20,10 @@ namespace Payroll.ClassDiagram
         private int _employeeID;        
         private decimal _federalTaxRate;
         private string _permissions;        
-        private int _ssn;
+        private string _ssn;
         private DateTime _dob;
         private DateTime _hireDate;
-        private int _phoneNumber;
+        private string _phoneNumber;
         private string _department;
         private List<Deduction> _deductionList;
         private decimal _netPay;
@@ -80,7 +80,7 @@ namespace Payroll.ClassDiagram
             get { return _permissions; }
             private set { _permissions = value; }
         }
-        public int ssn
+        public string ssn
         {
             get { return _ssn; }
             private set { _ssn = value; }
@@ -95,7 +95,7 @@ namespace Payroll.ClassDiagram
             get { return _hireDate; }
             private set { _hireDate = value; }
         }
-        public int phoneNumber
+        public string phoneNumber
         {
             get { return _phoneNumber; }
             private set { _phoneNumber = value; }
@@ -122,7 +122,7 @@ namespace Payroll.ClassDiagram
         }
         #endregion
         #region Constructor
-        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, int ssn, DateTime dob, DateTime hireDate, int phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
+        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
         {
             this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));

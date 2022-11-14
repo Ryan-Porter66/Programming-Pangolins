@@ -8,22 +8,34 @@ namespace Payroll.ClassDiagram
 {
     public class HourlyEmployee : Employee
     {
-        decimal payPerHour;
-        decimal hoursWorked;
+        decimal _payPerHour;
+        decimal _hoursWorked;
 
-        public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, int ssn, DateTime dob, DateTime hireDate, int phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, netPay, stateTaxRate)
+        public decimal HoursWorked
+        {
+            get { return _hoursWorked; }
+            set { _hoursWorked = value; }
+        }
+
+        public decimal PayPerHour
+        {
+            get { return _payPerHour; }
+            set { _payPerHour = value; }
+        }
+
+        public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, netPay, stateTaxRate)
         {
         }
 
         public override decimal calculateGrossPay()
         {
-            decimal grossPay = payPerHour * hoursWorked;
+            decimal grossPay = PayPerHour * HoursWorked;
             throw new NotImplementedException();
         }
 
         public decimal getPayrollHours()
         {
-            return hoursWorked;
+            return HoursWorked;
         }
     }
 }
