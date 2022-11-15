@@ -13,6 +13,7 @@ namespace PayrollManagement.Classes
         //https://stackoverflow.com/questions/12416249/hashing-a-string-with-sha256
         public static string SHA256Encryption(string stringToEncrypt)
         {
+            //check if string is valid
             if(stringToEncrypt == null || stringToEncrypt.Length < 1)
             {
                 throw new ArgumentNullException("stringToEncrypt");
@@ -38,13 +39,14 @@ namespace PayrollManagement.Classes
         //https://stackoverflow.com/questions/9031537/really-simple-encryption-with-c-sharp-and-symmetricalgorithm
         //https://stackoverflow.com/questions/472906/how-do-i-get-a-consistent-byte-representation-of-strings-in-c-sharp-without-manu
         //https://stackoverflow.com/questions/951487/how-to-convert-a-byte-array-to-a-string
-        //This is horrible practice to store keys in the code, but this will work (will change later if have more time)
+        //This is horrible practice to store keys in the code, but this will work for now (will change later if have more time)
         private static readonly byte[] initializeVector = { 66, 3, 1, 2, 66, 7, 10, 13, 77, 11, 76, 8, 5, 1, 2, 5  };
         private static readonly byte[] key = { 66, 3, 1, 2, 66, 7, 10, 13, 77, 11, 76, 8, 5, 1, 2, 5, 66, 3, 1, 2, 66, 7, 10, 13, 77, 11, 76, 8, 5, 1, 2, 5 };
 
         //this function will encrypt information that needs to be decrypted
         public static string AESEncryption(string stringToEncrypt)
         {
+            //check is parameter is valid
             if (stringToEncrypt == null || stringToEncrypt.Length < 1)
             {
                 throw new ArgumentNullException("stringToEncrypt.");
@@ -80,6 +82,7 @@ namespace PayrollManagement.Classes
         //this function will decrypt any AES encryption strings that were generated before
         public static string AESDecryption(string stringToDecrypt)
         {
+            //check if parameter is valid
             if (stringToDecrypt == null || stringToDecrypt.Length < 1)
             {
                 throw new ArgumentNullException("stringToDecrypt");
