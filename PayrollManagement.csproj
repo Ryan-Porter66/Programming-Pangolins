@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BankAccount.cs" />
+    <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\SalaryEmployee.cs" />
     <Compile Include="Classes\PercentageDeduction.cs" />
     <Compile Include="Classes\HourlyEmployee.cs" />
@@ -209,5 +210,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Server\webserver.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
