@@ -153,9 +153,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Prompt.cs" />
     <Compile Include="Classes\BankAccount.cs" />
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\InputValidation.cs" />
     <Compile Include="Classes\SalaryEmployee.cs" />
     <Compile Include="Classes\PercentageDeduction.cs" />
     <Compile Include="Classes\HourlyEmployee.cs" />
