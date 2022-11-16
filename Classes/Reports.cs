@@ -20,6 +20,7 @@ namespace PayrollManagement.Classes
         //this function will create the PDF paystubs
         public static void createPayStubsPDF(EmployeeList empList)
         {
+            //ensure the list is bigger than 0
             if (empList == null || empList.getSizeOfList() < 1)
             {
                 throw new ArgumentNullException("empList");
