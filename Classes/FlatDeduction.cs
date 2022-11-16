@@ -12,7 +12,7 @@ namespace Payroll.ClassDiagram
 
         public override decimal calculateDeductionAmount(decimal grossPay)
         {
-            return (1 - flat) * grossPay;
+            return flat;
         }
     }
 }

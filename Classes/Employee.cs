@@ -28,6 +28,8 @@ namespace Payroll.ClassDiagram
         private List<Deduction> _deductionList;
         private decimal _netPay;
         private decimal _stateTaxRate;
+        private decimal _ficaTax = 0.062m;
+        private decimal _medTax = 0.0145m;
         #endregion
         #region Get/Set
         public string firstName
@@ -148,36 +150,47 @@ namespace Payroll.ClassDiagram
         #endregion
         #region Methods
         public abstract decimal calculateGrossPay();
-
+  
 
         public decimal calculateFederalTax()
         {
-            throw new NotImplementedException();
+            decimal fedTax = this._federalTaxRate * calculateGrossPay();
+            return fedTax;
         }
 
         public decimal calculateStateTax()
         {
-            throw new NotImplementedException();
+            decimal stateTax = this._stateTaxRate * calculateGrossPay();
+            return stateTax;
         }
 
         public decimal calculateFICATax()
         {
-            throw new NotImplementedException();
+            decimal ficaTax = this._ficaTax * calculateGrossPay();
+            return ficaTax;
         }
 
         public decimal calculateMedTax()
         {
-            throw new NotImplementedException();
+            decimal medTax = this._medTax * calculateGrossPay();
+            return medTax;
         }
 
         public decimal calculateTotalNonTaxDeductionAmount()
         {
-            throw new NotImplementedException();
+            decimal gross = this.calculateGrossPay();
+            decimal dedAmt = 0;
+            foreach(Deduction ded in _deductionList)
+            {
+                dedAmt += ded.calculateDeductionAmount(gross);
+            }
+            return dedAmt;
         }
 
-        public void calculateNetPay(int grossPay)
+        public decimal calculateNetPay(int grossPay)
         {
-            throw new NotImplementedException();
+            decimal netPay = grossPay - calculateFederalTax() - calculateFICATax() - calculateMedTax() - calculateStateTax() - calculateTotalNonTaxDeductionAmount();
+            return netPay;
         }
         #endregion
     }

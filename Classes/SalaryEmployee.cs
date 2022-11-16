@@ -22,6 +22,7 @@ namespace Payroll.ClassDiagram
 
         public override decimal calculateGrossPay()
         {
+            //add check for hours > 0
             return SalaryPerPayPeriod;
         }
     }
