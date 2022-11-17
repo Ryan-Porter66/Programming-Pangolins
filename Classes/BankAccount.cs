@@ -44,9 +44,15 @@ namespace PayrollManagement.Classes
         #region Methods
         public string returnFirstEightOfRoute()
         {
-            //pull the first 8 digits starting @ position 0 in the routing number string
-            string firstEight = bankRoutingNumber.Substring(0, 8);
-            return firstEight;
+            if(InputValidation.isNumberStringValid(bankRoutingNumber, 8, 17)) //verify that the bankAccount # is at least 8 digits
+            {
+                string firstEight = bankRoutingNumber.Substring(0, 8);//pull the first 8 digits starting @ position 0 in the routing number string
+                return firstEight;
+            }  
+            else
+            {
+                throw new ArgumentException("Bank account must be 8 or more digits");
+            }
         }
         #endregion
     }

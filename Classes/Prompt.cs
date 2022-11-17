@@ -56,8 +56,5 @@ namespace PayrollManagement.Classes
             prompt.ShowDialog();
             return sUserInput;
         }
-
-        public void Dispose()
-        { prompt.Dispose(); }
     }
 }

@@ -45,8 +45,7 @@ namespace PayrollManagement.Classes
             }
             else
             {
-                grossPay = 0.00m;
-                return grossPay;
+                throw new ArgumentException("Invalid Hour or Pay Per Hour data");
             }
         }
 
@@ -56,7 +55,7 @@ namespace PayrollManagement.Classes
             //should have text for specific employee
             do
             {
-                string sTextFromUser = PopUpBox.GetUserInput("Enter employee hours", "Employee Hours");
+                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.firstName + " " +this.lastName +" hours",  "Employee Hours");
                 if (sTextFromUser == "")
                 {
                     DialogResult dialogResult = MessageBox.Show("You did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
@@ -67,8 +66,10 @@ namespace PayrollManagement.Classes
                     else if (dialogResult == DialogResult.No)
                     {
                         //exit/cancel
-                        MessageBox.Show("operation cancelled");
+                        MessageBox.Show("Operation Cancelled");
                         boolTryAgain = false;
+                        throw new ArgumentException("No data provided");
+                        
                     }//end if
                 }
                 else
@@ -76,6 +77,7 @@ namespace PayrollManagement.Classes
                     if (sTextFromUser == "cancel")
                     {
                         MessageBox.Show("Operation Cancelled!");
+                        throw new ArgumentException("No data provided");
                     }
                     else
                     {
