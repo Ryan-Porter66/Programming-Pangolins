@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payroll.ClassDiagram
+namespace PayrollManagement.Classes
 {
     public class BankAccount
     {

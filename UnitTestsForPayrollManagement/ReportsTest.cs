@@ -1,11 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using PayrollManagement.Classes;
-using Payroll.ClassDiagram;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace UnitTestsForPayrollManagement
+namespace PayrollManagementUnitTests
 {
     [TestClass]
     public class ReportsTest
