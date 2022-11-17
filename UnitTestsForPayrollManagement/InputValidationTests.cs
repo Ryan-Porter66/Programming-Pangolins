@@ -62,19 +62,22 @@ namespace PayrollManagementUnitTests
             Assert.IsTrue(InputValidation.isHourStringValid("40.00"));
             Assert.IsTrue(InputValidation.isHourStringValid("40"));
             Assert.IsTrue(InputValidation.isHourStringValid("40.00"));
+            Assert.IsTrue(InputValidation.isHourStringValid(".20"));
             Assert.IsFalse(InputValidation.isHourStringValid("999"));
             Assert.IsFalse(InputValidation.isHourStringValid("99.999"));
             Assert.IsFalse(InputValidation.isHourStringValid("0"));
             Assert.IsFalse(InputValidation.isHourStringValid("00.00"));
+            Assert.IsFalse(InputValidation.isHourStringValid("999.00"));
         }
 
         [TestMethod]
         public void TestIsPayStringValid()
         {
             Assert.IsTrue(InputValidation.isPayStringValid("1399.99"));
-            Assert.IsTrue(InputValidation.isPayStringValid("17."));
+            Assert.IsTrue(InputValidation.isPayStringValid("17"));
             Assert.IsTrue(InputValidation.isPayStringValid("19.99"));
             Assert.IsTrue(InputValidation.isPayStringValid("999"));
+            Assert.IsFalse(InputValidation.isPayStringValid(".99"));
             Assert.IsFalse(InputValidation.isPayStringValid("99.999"));
             Assert.IsFalse(InputValidation.isPayStringValid("0"));
             Assert.IsFalse(InputValidation.isPayStringValid("00.00"));

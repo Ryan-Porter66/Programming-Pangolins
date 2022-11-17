@@ -7,6 +7,7 @@ namespace PayrollManagement.Classes
 {
     public class Encryption
     {
+        #region SHA256
         //this function will take in a string and return the SHA256 hash of it
         //https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.sha256?view=net-6.0
         //https://www.c-sharpcorner.com/article/compute-sha256-hash-in-c-sharp/
@@ -31,8 +32,8 @@ namespace PayrollManagement.Classes
                 return hash.ToString();
             }
         }
-
-
+        #endregion
+        #region AES
         //https://www.codeproject.com/Articles/1278566/Simple-AES-Encryption-using-Csharp
         //https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.aes?view=net-6.0
         //https://www.c-sharpcorner.com/article/aes-encryption-in-c-sharp/
@@ -112,5 +113,6 @@ namespace PayrollManagement.Classes
             }
             return decryptedString;
         }
+        #endregion
     }
 }

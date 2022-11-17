@@ -28,8 +28,8 @@ namespace PayrollManagement.Classes
         private List<Deduction> _deductionList;
         private decimal _netPay;
         private decimal _stateTaxRate;
-        private decimal _ficaTax = 0.062m;
-        private decimal _medTax = 0.0145m;
+        private const decimal _ficaTax = 0.062m;
+        private const decimal _medTax = 0.0145m;
         #endregion
         #region Get/Set
         public string firstName
@@ -124,7 +124,7 @@ namespace PayrollManagement.Classes
         }
         #endregion
         #region Constructor
-        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate)
+        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate)
         {
             this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
@@ -142,37 +142,33 @@ namespace PayrollManagement.Classes
             this.phoneNumber = phoneNumber;
             this.department = department ?? throw new ArgumentNullException(nameof(department));
             this.deductionList = deductionList ?? throw new ArgumentNullException(nameof(deductionList));
-            this.netPay = netPay;
             this.stateTaxRate = stateTaxRate;
         }
-
-
         #endregion
         #region Methods
         public abstract decimal calculateGrossPay();
   
-
         public decimal calculateFederalTax()
         {
-            decimal fedTax = this._federalTaxRate * calculateGrossPay();
+            decimal fedTax = federalTaxRate * calculateGrossPay();
             return fedTax;
         }
 
         public decimal calculateStateTax()
         {
-            decimal stateTax = this._stateTaxRate * calculateGrossPay();
+            decimal stateTax = stateTaxRate * calculateGrossPay();
             return stateTax;
         }
 
         public decimal calculateFICATax()
         {
-            decimal ficaTax = this._ficaTax * calculateGrossPay();
+            decimal ficaTax = _ficaTax * calculateGrossPay();
             return ficaTax;
         }
 
         public decimal calculateMedTax()
         {
-            decimal medTax = this._medTax * calculateGrossPay();
+            decimal medTax = _medTax * calculateGrossPay();
             return medTax;
         }
 
@@ -180,7 +176,7 @@ namespace PayrollManagement.Classes
         {
             decimal gross = this.calculateGrossPay();
             decimal dedAmt = 0;
-            foreach(Deduction ded in _deductionList)
+            foreach(Deduction ded in deductionList)
             {
                 dedAmt += ded.calculateDeductionAmount(gross);
             }

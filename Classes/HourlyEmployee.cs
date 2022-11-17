@@ -1,6 +1,7 @@
 ﻿using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,9 @@ namespace PayrollManagement.Classes
         }
         #endregion
         #region Constructor
-        public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal netPay, decimal stateTaxRate) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, netPay, stateTaxRate)
+        public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate, decimal payHours) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, stateTaxRate)
         {
-            this._hoursWorked = HoursWorked;
-            this._payPerHour = PayPerHour;
+            PayPerHour = payHours;
         }
         #endregion
         #region Methods
@@ -75,7 +75,7 @@ namespace PayrollManagement.Classes
                 {
                     if (sTextFromUser == "cancel")
                     {
-                        MessageBox.Show("operation cancelled");
+                        MessageBox.Show("Operation Cancelled!");
                     }
                     else
                     {

@@ -24,7 +24,7 @@ namespace PayrollManagementUnitTests
                 new FlatDeduction()
             };
             SalaryEmployee tempEm = new SalaryEmployee("Ryan", "Porter", "515 Jones Street", "Aberdeen", "57401", "SD", tempEmpBank, 75, 0.01m, " ", "888888888", tempEmpDob, tempEmpHire, 
-                "6053803739", "Accounting", tempDeduct, 9546.78m, .05m);
+                "6053803739", "Accounting", tempDeduct, .05m, 999.99m);
 
 
             //create company

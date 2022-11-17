@@ -4,6 +4,7 @@ using Org.BouncyCastle.Crypto.Tls;
 using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace PayrollManagementUnitTests
 {
@@ -22,16 +23,10 @@ namespace PayrollManagementUnitTests
                 new FlatDeduction(),
                 new FlatDeduction()
             };
-            HourlyEmployee emp = new HourlyEmployee("first", "last", "101 N 57th St", "Springfield", "10101", "MI", bank, 0001, .25m, "all", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 1234.32m, 0.06m);
-            emp.PayPerHour = 24.00m;
+            HourlyEmployee emp = new HourlyEmployee("first", "last", "101 N 57th St", "Springfield", "10101", "MI", bank, 0001, .25m, "all", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
+            //emp.PayPerHour = 24.00m;
             emp.getPayrollHours();
-            emp.calculateGrossPay();
-
-
-
-
-
-
+            Debug.WriteLine(emp.calculateGrossPay());
         }
     }
 }

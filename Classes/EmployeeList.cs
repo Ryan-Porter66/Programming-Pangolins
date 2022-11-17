@@ -8,9 +8,11 @@ namespace PayrollManagement.Classes
 {
     public class EmployeeList
     {
+        #region Variables
         List<Employee> _employeeList;
         Company _employeesCompany;
-
+        #endregion
+        #region Getter/Setter
         public List<Employee> Employees
         {
             get { return this._employeeList; }
@@ -21,7 +23,10 @@ namespace PayrollManagement.Classes
             get { return this._employeesCompany; }
             set { this._employeesCompany = value; }
         }
-
+        #endregion
+        #region Constructor
+        #endregion
+        #region Methods
         public void generateEmployeeList(int compFedID)
         {
             throw new NotImplementedException();
@@ -51,6 +56,7 @@ namespace PayrollManagement.Classes
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
 

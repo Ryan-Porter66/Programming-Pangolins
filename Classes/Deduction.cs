@@ -8,8 +8,15 @@ namespace PayrollManagement.Classes
 {
     public abstract class Deduction
     {
+        #region Variables
         string name;
-
+        #endregion
+        #region Getters/Setters
+        #endregion
+        #region Constructor
+        #endregion
+        #region Methods
         public abstract decimal calculateDeductionAmount(decimal grossPay);
+        #endregion
     }
 }

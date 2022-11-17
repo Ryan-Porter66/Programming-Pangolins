@@ -16,7 +16,7 @@ namespace PayrollManagement.Classes
         const string stateStringPattern = @"^[A-Za-z]{2}$";
         const string rateStringPattern = @"^0?(\.\d{1,4})?$";
         const string numberStringPattern = @"^\d+$";
-        const string hourStringPattern = @"^\d?\d(\.\d{0,2})?$";
+        const string hourStringPattern = @"^\d{0,2}(\.\d{0,2})?$";
         const string payStringPattern = @"^\d{1,6}(\.\d{0,2})?$";
         const string dateStringPatterns = "MMddyyyy";
         #endregion

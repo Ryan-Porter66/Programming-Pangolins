@@ -14,6 +14,7 @@ namespace PayrollManagement.Classes
 {
     public class Reports
     {
+        #region Main Methods
         //https://www.codeguru.com/dotnet/generating-a-pdf-document-using-c-net-and-itext-7/
         //https://stackoverflow.com/questions/46928562/itext-7-set-width-of-cells
         //https://kb.itextpdf.com/home/it7kb/faq/how-to-add-a-table-to-the-bottom-of-the-last-page
@@ -204,7 +205,8 @@ namespace PayrollManagement.Classes
                 MessageBox.Show(ex.Message);
             }
         }
-
+        #endregion
+        #region Helper Functions
         //this retrives the location of where to save a file
         private static string getSaveLocation(string fileType)
         {
@@ -272,5 +274,6 @@ namespace PayrollManagement.Classes
                     ? stringToTruncate.Substring(stringToTruncate.Length - 10)
                     : stringToTruncate;
         }
+        #endregion
     }
 }
