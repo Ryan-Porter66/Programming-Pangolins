@@ -4,7 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace UnitTestsForPayrollManagement
+namespace PayrollManagementUnitTests
 {
     [TestClass]
     public class DatabaseTests

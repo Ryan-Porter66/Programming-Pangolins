@@ -1,11 +1,11 @@
 ﻿using iText.Layout.Element;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Org.BouncyCastle.Crypto.Tls;
-using Payroll.ClassDiagram;
+using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
 
-namespace UnitTestsForPayrollManagement
+namespace PayrollManagementUnitTests
 {
     [TestClass]
     public class EmployeeTest

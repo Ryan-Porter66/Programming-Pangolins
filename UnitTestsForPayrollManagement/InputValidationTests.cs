@@ -2,7 +2,7 @@
 using System;
 using PayrollManagement.Classes;
 
-namespace UnitTestsForPayrollManagement
+namespace PayrollManagementUnitTests
 {
     [TestClass]
     public class InputValidationTests

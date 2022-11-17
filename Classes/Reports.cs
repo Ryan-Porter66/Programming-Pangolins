@@ -5,7 +5,7 @@ using iText.Layout;
 using iText.Layout.Borders;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using Payroll.ClassDiagram;
+using PayrollManagement.Classes;
 using System;
 using System.IO;
 using System.Windows.Forms;
