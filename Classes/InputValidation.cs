@@ -14,8 +14,10 @@ namespace PayrollManagement.Classes
         #region Regex
         const string normalStringPattern = @"^[\w][\w\-\s]+$";
         const string stateStringPattern = @"^[A-Za-z]{2}$";
-        const string rateStringPattern = @"^0(\.\d{1,4})?$";
+        const string rateStringPattern = @"^0?(\.\d{1,4})?$";
         const string numberStringPattern = @"^\d+$";
+        const string hourStringPattern = @"^\d?\d(\.\d{0,2})?$";
+        const string payStringPattern = @"^\d{1,6}(\.\d{0,2})?$";
         const string dateStringPatterns = "MMddyyyy";
         #endregion
 
@@ -41,22 +43,24 @@ namespace PayrollManagement.Classes
         }
 
         //this check decimal number to make sure it is between 0 and 1 (not including 1), and at most 4 digits right of the period
-        public static bool isRateValid(decimal decimalToValidate)
+        public static bool isRateValid(string stringToValidate)
         {
-            if(decimalToValidate < 0 || decimalToValidate >= 1)
+            
+            if (Regex.Match(stringToValidate, rateStringPattern).Success)
             {
-                return false;
+                //Debug.WriteLine(stringToValidate);
+                decimal decimalToValidate;
+                if(Decimal.TryParse(stringToValidate, out decimalToValidate))
+                {
+                    if(decimalToValidate < 0 || decimalToValidate >= 1)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                
             }
             
-            string decimalString = decimalToValidate.ToString();
-
-            Debug.WriteLine(decimalString);
-
-            if (Regex.Match(decimalString, rateStringPattern).Success)
-            {
-                return true;
-            }
-
             return false;
         }
 
@@ -85,6 +89,42 @@ namespace PayrollManagement.Classes
  
             }
 
+            return false;
+        }
+
+        //this checks the input hours for hourly employees (99.99)
+        public static bool isHourStringValid(string stringToValidate)
+        {
+            if(Regex.Match(stringToValidate, hourStringPattern).Success)
+            {
+                decimal stringDecimal;
+
+                if(Decimal.TryParse(stringToValidate, out stringDecimal))
+                {
+                    if(stringDecimal > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        //this check input pay (hourly or salary) and has the form of 999999.99
+        public static bool isPayStringValid(string stringToValidate)
+        {
+            if (Regex.Match(stringToValidate, payStringPattern).Success)
+            {
+                decimal stringDecimal;
+
+                if (Decimal.TryParse(stringToValidate, out stringDecimal))
+                {
+                    if (stringDecimal > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
             return false;
         }
 

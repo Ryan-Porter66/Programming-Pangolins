@@ -27,11 +27,11 @@ namespace UnitTestsForPayrollManagement
         [TestMethod]
         public void TestIsRateValid()
         {
-            Assert.IsTrue(InputValidation.isRateValid(0m));
-            Assert.IsTrue(InputValidation.isRateValid(.11m));
-            Assert.IsTrue(InputValidation.isRateValid(.1645m));
-            Assert.IsFalse(InputValidation.isRateValid(1m));
-            Assert.IsFalse(InputValidation.isRateValid(.67866m));
+            Assert.IsTrue(InputValidation.isRateValid("0"));
+            Assert.IsTrue(InputValidation.isRateValid("0.11"));
+            Assert.IsTrue(InputValidation.isRateValid(".1645"));
+            Assert.IsFalse(InputValidation.isRateValid("1"));
+            Assert.IsFalse(InputValidation.isRateValid(".67866"));
         }
 
         [TestMethod]
@@ -54,6 +54,30 @@ namespace UnitTestsForPayrollManagement
             Assert.IsFalse(InputValidation.isDateStringValid("04221899"));
             Assert.IsFalse(InputValidation.isDateStringValid("04222100"));
             Assert.IsFalse(InputValidation.isDateStringValid(" "));
+        }
+
+        [TestMethod]
+        public void TestIsHourStringValid()
+        {
+            Assert.IsTrue(InputValidation.isHourStringValid("40.00"));
+            Assert.IsTrue(InputValidation.isHourStringValid("40"));
+            Assert.IsTrue(InputValidation.isHourStringValid("40.00"));
+            Assert.IsFalse(InputValidation.isHourStringValid("999"));
+            Assert.IsFalse(InputValidation.isHourStringValid("99.999"));
+            Assert.IsFalse(InputValidation.isHourStringValid("0"));
+            Assert.IsFalse(InputValidation.isHourStringValid("00.00"));
+        }
+
+        [TestMethod]
+        public void TestIsPayStringValid()
+        {
+            Assert.IsTrue(InputValidation.isPayStringValid("1399.99"));
+            Assert.IsTrue(InputValidation.isPayStringValid("17."));
+            Assert.IsTrue(InputValidation.isPayStringValid("19.99"));
+            Assert.IsTrue(InputValidation.isPayStringValid("999"));
+            Assert.IsFalse(InputValidation.isPayStringValid("99.999"));
+            Assert.IsFalse(InputValidation.isPayStringValid("0"));
+            Assert.IsFalse(InputValidation.isPayStringValid("00.00"));
         }
     }
 }
