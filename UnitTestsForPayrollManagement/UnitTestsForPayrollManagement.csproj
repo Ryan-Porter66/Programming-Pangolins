@@ -135,6 +135,7 @@
     <Compile Include="ReportsTest.cs" />
     <Compile Include="DatabaseTests.cs" />
     <Compile Include="EmployeeTest.cs" />
+    <Compile Include="EmployeeListTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
