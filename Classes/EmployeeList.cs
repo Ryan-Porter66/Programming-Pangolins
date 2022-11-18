@@ -27,7 +27,7 @@ namespace PayrollManagement.Classes
         #region Constructor
         #endregion
         #region Methods
-        public void generateEmployeeList(int compFedID)
+        public void generateEmployeeList(string compFedID)
         {
             throw new NotImplementedException();
         }
