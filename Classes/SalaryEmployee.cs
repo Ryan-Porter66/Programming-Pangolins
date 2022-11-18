@@ -27,9 +27,9 @@ namespace PayrollManagement.Classes
         #region Methods
         public override decimal calculateGrossPay()
         {
-            if (_salaryPerPayPeriod > 0)
+            if (SalaryPerPayPeriod > 0)
             {
-                return _salaryPerPayPeriod;
+                return SalaryPerPayPeriod;
             }
             else
             {

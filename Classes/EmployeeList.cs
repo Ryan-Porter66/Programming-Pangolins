@@ -37,14 +37,19 @@ namespace PayrollManagement.Classes
             throw new NotImplementedException();
         }
 
-        public void calculateGrossPayAllEmployeesInList()
+        public decimal getNetPayAllEmployeesInList()
         {
-            throw new NotImplementedException();
-        }
+            if (this._employeesCompany == null || this.getSizeOfList() < 1)
+            {
+                throw new ArgumentNullException("Employee List is Empty");
+            }
 
-        public decimal getGrossPayCombined()
-        {
-            throw new NotImplementedException();
+            decimal totalNetPay = 0m;
+            foreach (Employee emp in _employeeList)
+            {
+                totalNetPay += emp.calculateNetPay(emp.calculateGrossPay());
+            }
+            return totalNetPay;
         }
 
         public int getSizeOfList()
@@ -52,9 +57,19 @@ namespace PayrollManagement.Classes
             return this._employeeList.Count();
         }
 
-        public int getSumOfFirst8DigitsRoute()
+        public string getSumOfFirst8DigitsRoute()
         {
-            throw new NotImplementedException();
+            if(this._employeesCompany == null || this.getSizeOfList() < 1)
+            {
+                throw new ArgumentNullException("Employee List is Empty");
+            }
+
+            long totalOfDigits = 0;
+            foreach(Employee emp in _employeeList)
+            {
+                totalOfDigits += long.Parse(emp.bank.returnFirstEightOfRoute());
+            }
+            return totalOfDigits.ToString();
         }
         #endregion
     }

@@ -183,10 +183,10 @@ namespace PayrollManagement.Classes
             return dedAmt;
         }
 
-        public decimal calculateNetPay(int grossPay)
+        public decimal calculateNetPay(decimal grossPay)
         {
             decimal netPay = grossPay - calculateFederalTax() - calculateFICATax() - calculateMedTax() - calculateStateTax() - calculateTotalNonTaxDeductionAmount();
-            return netPay;
+            return Math.Round(netPay, 2);
         }
         #endregion
     }
