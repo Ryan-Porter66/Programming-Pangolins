@@ -1,8 +1,12 @@
-﻿using System;
+﻿using PayrollManagement.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+
 
 namespace PayrollManagement.Classes
 {
@@ -23,18 +27,28 @@ namespace PayrollManagement.Classes
             get { return this._employeesCompany; }
             set { this._employeesCompany = value; }
         }
+
         #endregion
         #region Constructor
         #endregion
         #region Methods
-        public void generateEmployeeList(int compFedID)
+        public void generateEmployeeList(string compFedID)
         {
             throw new NotImplementedException();
         }
 
         public void displaySelectableEmployeeList()
         {
-            throw new NotImplementedException();
+            Form2 form = new Form2();
+            form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", "Name", "Employee ID"));
+            foreach (Employee emp in _employeeList)
+            {
+                form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", emp.firstName +" "+ emp.lastName, emp.employeeID));
+                
+            }
+            form.listBox1.EndUpdate();
+            form.ShowDialog();
+            //throw new NotImplementedException();
         }
 
         public decimal getNetPayAllEmployeesInList()

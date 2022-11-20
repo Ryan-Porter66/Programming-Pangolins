@@ -20,10 +20,10 @@ namespace PayrollManagementUnitTests
             BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
             List<Deduction> tempDeduct = new List<Deduction>
             {
-                new FlatDeduction(),
-                new FlatDeduction()
+                new FlatDeduction("flat", 20.00m),
+                new PercentageDeduction("Percentage", 0.03m)
             };
-            HourlyEmployee emp = new HourlyEmployee("first", "last", "101 N 57th St", "Springfield", "10101", "MI", bank, 0001, .25m, "all", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
+            HourlyEmployee emp = new HourlyEmployee("John", "Doe", "101 N 57th St", "Springfield", "10101", "MI", bank, 0001, .25m, "all", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
             //emp.PayPerHour = 24.00m;
             emp.getPayrollHours();
             Debug.WriteLine(emp.calculateGrossPay());

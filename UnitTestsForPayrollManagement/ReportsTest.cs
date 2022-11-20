@@ -77,8 +77,8 @@ namespace PayrollManagementUnitTests
             BankAccount tempEmpBank = new BankAccount("789456123", "123456789", "American Bank and Loans");
             List<Deduction> tempDeduct = new List<Deduction>
             {
-                new FlatDeduction(),
-                new FlatDeduction()
+                new FlatDeduction("flat1", 10.00m),
+                new FlatDeduction("flat2", 5.00m)
             };
             SalaryEmployee tempEm = new SalaryEmployee("Ryan", "Porter", "515 Jones Street", "Aberdeen", "57401", "SD", tempEmpBank, 75, 0.01m, " ", "888888888", tempEmpDob, tempEmpHire,
                 "6053803739", "Accounting", tempDeduct, .05m, 549.86m);
@@ -92,8 +92,8 @@ namespace PayrollManagementUnitTests
             tempEmpBank = new BankAccount("75273275", "883275374", "Great Plains bank");
             tempDeduct = new List<Deduction>
             {
-                new FlatDeduction(),
-                new FlatDeduction()
+                new FlatDeduction("flat1", 10.00m),
+                new FlatDeduction("flat2", 5.00m)
             };
             HourlyEmployee tempEm2 = new HourlyEmployee("First", "Last", "Address", "City", "ZIP", "HW", tempEmpBank, 99, 0.02m, "ALL", "123456789", tempEmpDob, tempEmpHire,
                 "6053803739", "Payroll", tempDeduct, .065m, 13.75m);
