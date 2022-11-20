@@ -71,6 +71,7 @@ namespace PayrollManagementUnitTests
             EmployeeList tempEmList = new EmployeeList();
 
             //create employee 1
+            //should get Net Pay 474.8, FICA: 34.09, Med: 7.97, Fed 5.5
             DateTime tempEmpDob = new DateTime(1995, 4, 11);
             DateTime tempEmpHire = new DateTime(2011, 8, 25);
             BankAccount tempEmpBank = new BankAccount("789456123", "123456789", "American Bank and Loans");
