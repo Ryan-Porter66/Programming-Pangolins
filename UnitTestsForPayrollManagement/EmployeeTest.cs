@@ -25,8 +25,8 @@ namespace PayrollManagementUnitTests
             };
             HourlyEmployee emp = new HourlyEmployee("John", "Doe", "101 N 57th St", "Springfield", "10101", "MI", bank, 0001, .25m, "all", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
             //emp.PayPerHour = 24.00m;
-            emp.getPayrollHours();
-            Debug.WriteLine(emp.calculateGrossPay());
+            emp.GetPayrollHours();
+            Debug.WriteLine(emp.CalculateGrossPay());
         }
     }
 }

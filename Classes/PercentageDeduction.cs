@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PayrollManagement.Classes
 {
@@ -10,10 +6,9 @@ namespace PayrollManagement.Classes
     {
         #region Variables
         private decimal _percentage;
-
         #endregion
         #region Getters/Setters
-        public decimal percentage
+        public decimal Percentage
         {
             get { return _percentage; }
             private set { _percentage = value; }
@@ -22,15 +17,15 @@ namespace PayrollManagement.Classes
         #region Constructor
         public PercentageDeduction(string name, decimal percentage) : base(name)
         {
-            this.percentage = percentage;
+            this.Percentage = percentage;
         }
         #endregion
         #region Methods
-        public override decimal calculateDeductionAmount(decimal grossPay)
+        public override decimal CalculateDeductionAmount(decimal grossPay)
         {
-            if (percentage > 0 && percentage < 1)
+            if (Percentage > 0 && Percentage < 1)
             {
-                return percentage * grossPay;
+                return Percentage * grossPay;
             }
             else
             {

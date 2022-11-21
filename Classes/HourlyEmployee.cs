@@ -1,10 +1,5 @@
-﻿using PayrollManagement.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PayrollManagement.Classes
@@ -35,7 +30,7 @@ namespace PayrollManagement.Classes
         }
         #endregion
         #region Methods
-        public override decimal calculateGrossPay()
+        public override decimal CalculateGrossPay()
         {
             decimal grossPay;
             if (HoursWorked > 0 && HoursWorked < 200 && PayPerHour > 0)
@@ -49,13 +44,13 @@ namespace PayrollManagement.Classes
             }
         }
 
-        public decimal getPayrollHours()
+        public decimal GetPayrollHours()
         {
             bool boolTryAgain = false;
             //should have text for specific employee
             do
             {
-                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.firstName + " " +this.lastName +" hours",  "Employee Hours");
+                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.FirstName + " " +this.LastName +" hours",  "Employee Hours");
                 if (sTextFromUser == "")
                 {
                     DialogResult dialogResult = MessageBox.Show("You did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);

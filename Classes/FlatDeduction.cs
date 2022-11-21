@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayrollManagement.Classes
+﻿namespace PayrollManagement.Classes
 {
     public class FlatDeduction : Deduction
     {
         #region Variables
         private decimal _flat;
-
-
         #endregion
         #region Getters/Setters
-        public decimal flat
+        public decimal Flat
         {
             get { return _flat; }
             private set { _flat = value; }
@@ -24,13 +15,13 @@ namespace PayrollManagement.Classes
         #region Constructor
         public FlatDeduction(string name, decimal flat) : base(name)
         {
-            this.flat = flat;
+            this.Flat = flat;
         }
         #endregion
         #region Methods
-        public override decimal calculateDeductionAmount(decimal grossPay)
+        public override decimal CalculateDeductionAmount(decimal grossPay)
         {
-            return flat;
+            return Flat;
         }
         #endregion
     }

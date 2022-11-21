@@ -42,7 +42,7 @@ namespace UnitTestsForPayrollManagement
             };
             tempEmList.Employees = tempEmployees;
 
-            tempEmList.displaySelectableEmployeeList();
+            tempEmList.DisplaySelectableEmployeeList();
 
 
         }

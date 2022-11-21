@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PayrollManagement.Classes
 {
@@ -32,92 +29,92 @@ namespace PayrollManagement.Classes
         private const decimal _medTax = 0.0145m;
         #endregion
         #region Get/Set
-        public string firstName
+        public string FirstName
         {
             get { return _firstName; }
             private set { _firstName = value; }
         }
-        public string lastName
+        public string LastName
         {
             get { return _lastName; }
             private set { _lastName = value; }
         }
-        public string address
+        public string Address
         {
             get { return _address; }
             private set { _address = value; }
         }
-        public string city
+        public string City
         {
             get { return _city; }
             private set { _city = value; }
         }
-        public string postalCode
+        public string PostalCode
         {
             get { return _postalCode; }
             private set { _postalCode = value; }
         }
-        public string state
+        public string State
         {
             get { return _state; }
             private set { _state = value; }
         }
-        public BankAccount bank
+        public BankAccount Bank
         {
             get { return _bank; }
             private set { _bank = value; }
         }
-        public int employeeID
+        public int EmployeeID
         {
             get { return _employeeID; }
             private set { _employeeID = value; }
         }
-        public decimal federalTaxRate
+        public decimal FederalTaxRate
         {
             get { return _federalTaxRate; }
             private set { _federalTaxRate = value; }
         }
-        public string permissions
+        public string Permissions
         {
             get { return _permissions; }
             private set { _permissions = value; }
         }
-        public string ssn
+        public string Ssn
         {
             get { return _ssn; }
             private set { _ssn = value; }
         }
-        public DateTime dob
+        public DateTime Dob
         {
             get { return _dob; }
             private set { _dob = value; }
         }
-        public DateTime hireDate
+        public DateTime HireDate
         {
             get { return _hireDate; }
             private set { _hireDate = value; }
         }
-        public string phoneNumber
+        public string PhoneNumber
         {
             get { return _phoneNumber; }
             private set { _phoneNumber = value; }
         }
-        public string department
+        public string Department
         {
             get { return _department; }
             private set { _department = value; }
         }
-        public List<Deduction> deductionList
+        public List<Deduction> DeductionList
         {
             get { return _deductionList; }
             private set { _deductionList = value; }
         }
-        public decimal netPay
+        public decimal NetPay
         {
             get { return _netPay; }
             private set { _netPay = value; }
         }
-        public decimal stateTaxRate
+        public decimal StateTaxRate
         {
             get { return _stateTaxRate; }
             private set { _stateTaxRate = value; }
@@ -126,66 +123,66 @@ namespace PayrollManagement.Classes
         #region Constructor
         public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate)
         {
-            this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-            this.address = address ?? throw new ArgumentNullException(nameof(address));
-            this.city = city ?? throw new ArgumentNullException(nameof(city));
-            this.postalCode = postalCode ?? throw new ArgumentNullException(nameof(postalCode));
-            this.state = state ?? throw new ArgumentNullException(nameof(state));
-            this.bank = bank ?? throw new ArgumentNullException(nameof(bank));
-            this.employeeID = employeeID;
-            this.federalTaxRate = federalTaxRate;
-            this.permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
-            this.ssn = ssn;
-            this.dob = dob;
-            this.hireDate = hireDate;
-            this.phoneNumber = phoneNumber;
-            this.department = department ?? throw new ArgumentNullException(nameof(department));
-            this.deductionList = deductionList ?? throw new ArgumentNullException(nameof(deductionList));
-            this.stateTaxRate = stateTaxRate;
+            this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            this.LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
+            this.Address = address ?? throw new ArgumentNullException(nameof(address));
+            this.City = city ?? throw new ArgumentNullException(nameof(city));
+            this.PostalCode = postalCode ?? throw new ArgumentNullException(nameof(postalCode));
+            this.State = state ?? throw new ArgumentNullException(nameof(state));
+            this.Bank = bank ?? throw new ArgumentNullException(nameof(bank));
+            this.EmployeeID = employeeID;
+            this.FederalTaxRate = federalTaxRate;
+            this.Permissions = permissions ?? throw new ArgumentNullException(nameof(permissions));
+            this.Ssn = ssn;
+            this.Dob = dob;
+            this.HireDate = hireDate;
+            this.PhoneNumber = phoneNumber;
+            this.Department = department ?? throw new ArgumentNullException(nameof(department));
+            this.DeductionList = deductionList ?? throw new ArgumentNullException(nameof(deductionList));
+            this.StateTaxRate = stateTaxRate;
         }
         #endregion
         #region Methods
-        public abstract decimal calculateGrossPay();
+        public abstract decimal CalculateGrossPay();
   
-        public decimal calculateFederalTax()
+        public decimal CalculateFederalTax()
         {
-            decimal fedTax = federalTaxRate * calculateGrossPay();
+            decimal fedTax = FederalTaxRate * CalculateGrossPay();
             return fedTax;
         }
 
-        public decimal calculateStateTax()
+        public decimal CalculateStateTax()
         {
-            decimal stateTax = stateTaxRate * calculateGrossPay();
+            decimal stateTax = StateTaxRate * CalculateGrossPay();
             return stateTax;
         }
 
-        public decimal calculateFICATax()
+        public decimal CalculateFICATax()
         {
-            decimal ficaTax = _ficaTax * calculateGrossPay();
+            decimal ficaTax = _ficaTax * CalculateGrossPay();
             return ficaTax;
         }
 
-        public decimal calculateMedTax()
+        public decimal CalculateMedTax()
         {
-            decimal medTax = _medTax * calculateGrossPay();
+            decimal medTax = _medTax * CalculateGrossPay();
             return medTax;
         }
 
-        public decimal calculateTotalNonTaxDeductionAmount()
+        public decimal CalculateTotalNonTaxDeductionAmount()
         {
-            decimal gross = this.calculateGrossPay();
+            decimal gross = this.CalculateGrossPay();
             decimal dedAmt = 0;
-            foreach(Deduction ded in deductionList)
+            foreach(Deduction ded in DeductionList)
             {
-                dedAmt += ded.calculateDeductionAmount(gross);
+                dedAmt += ded.CalculateDeductionAmount(gross);
             }
             return dedAmt;
         }
 
-        public decimal calculateNetPay(decimal grossPay)
+        public decimal CalculateNetPay(decimal grossPay)
         {
-            decimal netPay = grossPay - calculateFederalTax() - calculateFICATax() - calculateMedTax() - calculateStateTax() - calculateTotalNonTaxDeductionAmount();
+            decimal netPay = grossPay - CalculateFederalTax() - CalculateFICATax() - CalculateMedTax() - CalculateStateTax() - CalculateTotalNonTaxDeductionAmount();
             return Math.Round(netPay, 2);
         }
         #endregion

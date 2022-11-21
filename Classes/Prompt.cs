@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Drawing;
-
 
 namespace PayrollManagement.Classes
 {
     public class PopUpBox
     {
-        private static Form prompt { get; set; }
-
+        #region Getter/Setter
+        private static Form Prompt { get; set; }
+        #endregion
+        #region Methods
         public static string GetUserInput(string instructions, string caption)
         {
             string sUserInput = "";
-            prompt = new Form() //create a new form at run time
+            Prompt = new Form() //create a new form at run time
             {
                 Width = 500,
                 Height = 150,
@@ -34,12 +30,12 @@ namespace PayrollManagement.Classes
             btnOK.Click += (sender, e) =>
             {
                 sUserInput = txtTextInput.Text;
-                prompt.Close();
+                Prompt.Close();
             };
-            prompt.Controls.Add(txtTextInput);
-            prompt.Controls.Add(btnOK);
-            prompt.Controls.Add(lblTitle);
-            prompt.AcceptButton = btnOK;
+            Prompt.Controls.Add(txtTextInput);
+            Prompt.Controls.Add(btnOK);
+            Prompt.Controls.Add(lblTitle);
+            Prompt.AcceptButton = btnOK;
             ///////////////////////////////////////
 
             //////////////////////////Cancel button
@@ -47,14 +43,15 @@ namespace PayrollManagement.Classes
             btnCancel.Click += (sender, e) =>
             {
                 sUserInput = "cancel";
-                prompt.Close();
+                Prompt.Close();
             };
-            prompt.Controls.Add(btnCancel);
-            prompt.CancelButton = btnCancel;
+            Prompt.Controls.Add(btnCancel);
+            Prompt.CancelButton = btnCancel;
             ///////////////////////////////////////
 
-            prompt.ShowDialog();
+            Prompt.ShowDialog();
             return sUserInput;
         }
+        #endregion
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PayrollManagement.Classes
 {
@@ -25,7 +22,7 @@ namespace PayrollManagement.Classes
         }
         #endregion
         #region Methods
-        public override decimal calculateGrossPay()
+        public override decimal CalculateGrossPay()
         {
             if (SalaryPerPayPeriod > 0)
             {

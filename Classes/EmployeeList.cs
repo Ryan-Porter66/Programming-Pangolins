@@ -27,23 +27,22 @@ namespace PayrollManagement.Classes
             get { return this._employeesCompany; }
             set { this._employeesCompany = value; }
         }
-
         #endregion
         #region Constructor
         #endregion
         #region Methods
-        public void generateEmployeeList(string compFedID)
+        public void GenerateEmployeeList(string compFedID)
         {
             throw new NotImplementedException();
         }
 
-        public void displaySelectableEmployeeList()
+        public void DisplaySelectableEmployeeList()
         {
             Form2 form = new Form2();
             form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", "Name", "Employee ID"));
             foreach (Employee emp in _employeeList)
             {
-                form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", emp.firstName +" "+ emp.lastName, emp.employeeID));
+                form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", emp.FirstName +" "+ emp.LastName, emp.EmployeeID));
                 
             }
             form.listBox1.EndUpdate();
@@ -51,9 +50,9 @@ namespace PayrollManagement.Classes
             //throw new NotImplementedException();
         }
 
-        public decimal getNetPayAllEmployeesInList()
+        public decimal GetNetPayAllEmployeesInList()
         {
-            if (this._employeesCompany == null || this.getSizeOfList() < 1)
+            if (this._employeesCompany == null || this.GetSizeOfList() < 1)
             {
                 throw new ArgumentNullException("Employee List is Empty");
             }
@@ -61,19 +60,19 @@ namespace PayrollManagement.Classes
             decimal totalNetPay = 0m;
             foreach (Employee emp in _employeeList)
             {
-                totalNetPay += emp.calculateNetPay(emp.calculateGrossPay());
+                totalNetPay += emp.CalculateNetPay(emp.CalculateGrossPay());
             }
             return totalNetPay;
         }
 
-        public int getSizeOfList()
+        public int GetSizeOfList()
         {
             return this._employeeList.Count();
         }
 
-        public string getSumOfFirst8DigitsRoute()
+        public string GetSumOfFirst8DigitsRoute()
         {
-            if(this._employeesCompany == null || this.getSizeOfList() < 1)
+            if(this._employeesCompany == null || this.GetSizeOfList() < 1)
             {
                 throw new ArgumentNullException("Employee List is Empty");
             }
@@ -81,7 +80,7 @@ namespace PayrollManagement.Classes
             long totalOfDigits = 0;
             foreach(Employee emp in _employeeList)
             {
-                totalOfDigits += long.Parse(emp.bank.returnFirstEightOfRoute());
+                totalOfDigits += long.Parse(emp.Bank.ReturnFirstEightOfRoute());
             }
             return totalOfDigits.ToString();
         }

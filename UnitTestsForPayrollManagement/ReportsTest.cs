@@ -112,7 +112,7 @@ namespace PayrollManagementUnitTests
             BankAccount tempComBank = new BankAccount("65454354651", "941753985", "Great Western");
             tempEmList.Company = new Company("Automaxx", tempComBank, "151515151", "515 Jones Ave", "Ipswitch", "SD", "57252", "6007256299");
 
-            Reports.compilePayrollData(tempEmList);
+            Reports.CompilePayrollData(tempEmList);
         }
     }
 }

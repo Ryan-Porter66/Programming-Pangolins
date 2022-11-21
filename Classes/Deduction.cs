@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayrollManagement.Classes
+﻿namespace PayrollManagement.Classes
 {
     public abstract class Deduction
     {
@@ -12,7 +6,7 @@ namespace PayrollManagement.Classes
         private string _name;
         #endregion
         #region Getters/Setters
-        public string name
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
@@ -21,11 +15,11 @@ namespace PayrollManagement.Classes
         #region Constructor
         public Deduction(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
         #endregion
         #region Methods
-        public abstract decimal calculateDeductionAmount(decimal grossPay);
+        public abstract decimal CalculateDeductionAmount(decimal grossPay);
         #endregion
     }
 }
