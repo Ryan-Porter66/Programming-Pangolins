@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 
@@ -35,19 +37,25 @@ namespace PayrollManagement.Classes
         {
             throw new NotImplementedException();
         }
-
+        //allow user to select employees for the list
         public void DisplaySelectableEmployeeList()
         {
-            Form2 form = new Form2();
-            form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", "Name", "Employee ID"));
-            foreach (Employee emp in _employeeList)
+            EmployeeListBoxForm employeeListForm = new EmployeeListBoxForm();
+
+            employeeListForm.employeeListBox.DisplayMember = "EmployeeID";
+            employeeListForm.employeeListBox.DataSource = this.Employees;
+            employeeListForm.employeeListBox.ClearSelected();
+            employeeListForm.ShowDialog();
+
+            List<Employee> newEmpList = new List<Employee>();
+            foreach (object selectedItem in employeeListForm.employeeListBox.SelectedItems)
             {
-                form.listBox1.Items.Add(String.Format("{0,-20} {1,15}", emp.FirstName +" "+ emp.LastName, emp.EmployeeID));
-                
+                Employee item = (Employee)selectedItem;
+                newEmpList.Add(item);
             }
-            form.listBox1.EndUpdate();
-            form.ShowDialog();
-            //throw new NotImplementedException();
+            this.Employees = newEmpList;
+
+            employeeListForm.Dispose(); //need to dispose manually since ShowDialog was used
         }
 
         public decimal GetNetPayAllEmployeesInList()

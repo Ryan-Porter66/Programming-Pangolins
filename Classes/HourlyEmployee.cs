@@ -50,7 +50,7 @@ namespace PayrollManagement.Classes
             //should have text for specific employee
             do
             {
-                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.FirstName + " " +this.LastName +" hours",  "Employee Hours");
+                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.FirstName + " " +this.LastName +"'s hours worked.",  "Employee Hours");
                 if (sTextFromUser == "")
                 {
                     DialogResult dialogResult = MessageBox.Show("You did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
@@ -62,10 +62,9 @@ namespace PayrollManagement.Classes
                     {
                         //exit/cancel
                         MessageBox.Show("Operation Cancelled");
-                        boolTryAgain = false;
                         throw new ArgumentException("No data provided");
                         
-                    }//end if
+                    }
                 }
                 else
                 {
@@ -80,9 +79,7 @@ namespace PayrollManagement.Classes
                         //do something here with the user input
                         //error check from string to decimal
                         HoursWorked = decimal.Parse(sTextFromUser);
-
                     }
-
                 }
             } while (boolTryAgain == true);
 
