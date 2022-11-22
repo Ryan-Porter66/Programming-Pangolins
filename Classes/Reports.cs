@@ -29,6 +29,7 @@ namespace PayrollManagement.Classes
                 }
                 CreatePayStubsPDF(empList);
                 CreateNachaFile(empList);
+                MessageBox.Show("Payroll Successfully Completed!");
             }
             catch (Exception ex)
             {

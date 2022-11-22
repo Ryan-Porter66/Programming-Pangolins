@@ -2,6 +2,7 @@
 using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace UnitTestsForPayrollManagement
 {
@@ -9,7 +10,7 @@ namespace UnitTestsForPayrollManagement
     public class EmployeeListTest
     {
         [TestMethod]
-        public void EmployeeTest()
+        public void SelectEmployeeTest()
         {
             EmployeeList tempEmList = new EmployeeList();
 
@@ -32,7 +33,7 @@ namespace UnitTestsForPayrollManagement
                 new FlatDeduction("flat", 20.00m),
                 new PercentageDeduction("Percentage", 0.03m)
             };
-            HourlyEmployee emp1 = new HourlyEmployee("Jane", "Doe", "108 N 7th St", "Springfield", "10101", "MI", bank1, 0001, .25m, "all", "101-12-1234", dob1, hire1, "407-98-2134", "IT", tempDeduct1, 0.06m, 19.99m);
+            HourlyEmployee emp1 = new HourlyEmployee("Jane", "Doe", "108 N 7th St", "Springfield", "10101", "MI", bank1, 0002, .25m, "all", "101-12-1234", dob1, hire1, "407-98-2134", "IT", tempDeduct1, 0.06m, 19.99m);
 
 
             List<Employee> tempEmployees = new List<Employee>
@@ -43,8 +44,7 @@ namespace UnitTestsForPayrollManagement
             tempEmList.Employees = tempEmployees;
 
             tempEmList.DisplaySelectableEmployeeList();
-
-
+            MessageBox.Show(tempEmList.GetSizeOfList().ToString());
         }
     }
 }
