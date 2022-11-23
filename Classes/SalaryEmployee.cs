@@ -30,7 +30,7 @@ namespace PayrollManagement.Classes
             }
             else
             {
-                throw new ArgumentException("Salary must be more than 0");
+                throw new ArgumentException(this.FirstName + " " + this.LastName + "'s salary must be greater than 0!");
             }
         }
         #endregion

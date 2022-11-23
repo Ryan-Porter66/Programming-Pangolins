@@ -23,10 +23,9 @@ namespace PayrollManagement.Classes
         private string _phoneNumber;
         private string _department;
         private List<Deduction> _deductionList;
-        private decimal _netPay;
         private decimal _stateTaxRate;
-        private const decimal _ficaTax = 0.062m;
-        private const decimal _medTax = 0.0145m;
+        private const decimal FICA_TAX = 0.062m;
+        private const decimal MED_TAX = 0.0145m;
         #endregion
         #region Get/Set
         public string FirstName
@@ -109,11 +108,6 @@ namespace PayrollManagement.Classes
             get { return _deductionList; }
             private set { _deductionList = value; }
         }
-        public decimal NetPay
-        {
-            get { return _netPay; }
-            private set { _netPay = value; }
-        }
         public decimal StateTaxRate
         {
             get { return _stateTaxRate; }
@@ -159,13 +153,13 @@ namespace PayrollManagement.Classes
 
         public decimal CalculateFICATax()
         {
-            decimal ficaTax = _ficaTax * CalculateGrossPay();
+            decimal ficaTax = FICA_TAX * CalculateGrossPay();
             return ficaTax;
         }
 
         public decimal CalculateMedTax()
         {
-            decimal medTax = _medTax * CalculateGrossPay();
+            decimal medTax = MED_TAX * CalculateGrossPay();
             return medTax;
         }
 
@@ -183,9 +177,9 @@ namespace PayrollManagement.Classes
         public decimal CalculateNetPay(decimal grossPay)
         {
             decimal netPay = grossPay - CalculateFederalTax() - CalculateFICATax() - CalculateMedTax() - CalculateStateTax() - CalculateTotalNonTaxDeductionAmount();
-            if(NetPay < 0)
+            if(netPay < 0)
             {
-                throw new ArgumentException("Netpay cannot be negative");
+                throw new ArgumentException("Netpay cannot be negative for " + this.FirstName + " " + this.LastName + ". Check your deductions.");
             }
             return Math.Round(netPay, 2);
         }

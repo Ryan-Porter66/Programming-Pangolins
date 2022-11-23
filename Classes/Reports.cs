@@ -33,7 +33,7 @@ namespace PayrollManagement.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "! Cancelling Payroll");
+                MessageBox.Show(ex.Message + " Cancelling Payroll");
             }
 
         }

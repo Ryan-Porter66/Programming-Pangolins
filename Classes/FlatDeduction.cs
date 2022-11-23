@@ -1,4 +1,6 @@
-﻿namespace PayrollManagement.Classes
+﻿using System;
+
+namespace PayrollManagement.Classes
 {
     public class FlatDeduction : Deduction
     {
@@ -21,7 +23,14 @@
         #region Methods
         public override decimal CalculateDeductionAmount(decimal grossPay)
         {
-            return Flat;
+            if (Flat > 0)
+            {
+                return Flat;
+            }
+            else
+            {
+                throw new ArgumentException(this.Name + "'s value must be greater than 0!");
+            }
         }
         #endregion
     }

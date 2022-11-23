@@ -40,23 +40,20 @@ namespace PayrollManagement.Classes
             }
             else
             {
-                throw new ArgumentException("Invalid Hour or Pay Per Hour data");
+                throw new ArgumentException("Invalid Hour or Pay Per Hour data for "+ this.FirstName + " " + this.LastName + "!");
             }
         }
 
         public decimal GetPayrollHours()
         {
-            bool boolTryAgain = false;
-            double hours;
-            //should have text for specific employee
+            bool boolTryAgain;
             do
             {
                 boolTryAgain = false;
-                string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.FirstName + " " +this.LastName +"'s hours worked.",  "Employee Hours");
-                hours = Convert.ToDouble(sTextFromUser);
-                if (sTextFromUser == "")
+                string sTextFromUser = PopUpBox.GetUserInput("Enter " + this.FirstName + " " + this.LastName + "'s hours worked.", "Employee Hours");
+                if (sTextFromUser == "" || sTextFromUser == "cancel")
                 {
-                    DialogResult dialogResult = MessageBox.Show("You did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("You cancelled or did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         boolTryAgain = true; //will reopen the dialog for user to input text again
@@ -64,14 +61,14 @@ namespace PayrollManagement.Classes
                     else if (dialogResult == DialogResult.No)
                     {
                         //exit/cancel
-                        MessageBox.Show("Operation Cancelled");
-                        throw new ArgumentException("No data provided");
-                        
+                        //MessageBox.Show("Operation Cancelled!");
+                        throw new ArgumentException("Hours not provided!");
+
                     }
                 }
-                if (double.IsNaN(hours))
+                else if (!InputValidation.IsHourStringValid(sTextFromUser) || !Decimal.TryParse(sTextFromUser, out decimal hours))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Entered value is not a number", "Error", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Format Required: 99.99 - Try Again?", "Error", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         boolTryAgain = true; //will reopen the dialog for user to input text again
@@ -79,8 +76,8 @@ namespace PayrollManagement.Classes
                     else if (dialogResult == DialogResult.No)
                     {
                         //exit/cancel
-                        MessageBox.Show("Operation Cancelled");
-                        throw new ArgumentException("No data provided");
+                        //MessageBox.Show("Operation Cancelled!");
+                        throw new ArgumentException("Hours not provided!");
 
                     }
                 }
@@ -88,15 +85,13 @@ namespace PayrollManagement.Classes
                 {
                     if (sTextFromUser == "cancel")
                     {
-                        MessageBox.Show("Operation Cancelled!");
-                        throw new ArgumentException("No data provided");
+                        //MessageBox.Show("Operation Cancelled!");
+                        throw new ArgumentException("Hours not provided!");
                     }
                     else
                     {
-                        //MessageBox.Show("Here is the text you entered: '" + sTextFromUser + "'");
-                        //do something here with the user input
-                        //error check from string to decimal
-                        HoursWorked = decimal.Parse(sTextFromUser);
+                        //MessageBox.Show("Here is the text you entered: " + hours);
+                        HoursWorked = hours;
                     }
                 }
             } while (boolTryAgain == true);

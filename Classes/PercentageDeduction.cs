@@ -29,7 +29,7 @@ namespace PayrollManagement.Classes
             }
             else
             {
-                throw new ArgumentException("Percentage value must be between 0 and 1");
+                throw new ArgumentException(this.Name + "'s value must be between 0 and 1!");
             }
         }
         #endregion
