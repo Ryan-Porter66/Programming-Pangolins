@@ -47,10 +47,13 @@ namespace PayrollManagement.Classes
         public decimal GetPayrollHours()
         {
             bool boolTryAgain = false;
+            double hours;
             //should have text for specific employee
             do
             {
+                boolTryAgain = false;
                 string sTextFromUser = PopUpBox.GetUserInput("Enter " +this.FirstName + " " +this.LastName +"'s hours worked.",  "Employee Hours");
+                hours = Convert.ToDouble(sTextFromUser);
                 if (sTextFromUser == "")
                 {
                     DialogResult dialogResult = MessageBox.Show("You did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
@@ -64,6 +67,21 @@ namespace PayrollManagement.Classes
                         MessageBox.Show("Operation Cancelled");
                         throw new ArgumentException("No data provided");
                         
+                    }
+                }
+                if (double.IsNaN(hours))
+                {
+                    DialogResult dialogResult = MessageBox.Show("Entered value is not a number", "Error", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        boolTryAgain = true; //will reopen the dialog for user to input text again
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //exit/cancel
+                        MessageBox.Show("Operation Cancelled");
+                        throw new ArgumentException("No data provided");
+
                     }
                 }
                 else
