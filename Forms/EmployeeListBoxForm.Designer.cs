@@ -58,6 +58,7 @@
             // 
             // CancelButton
             // 
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Location = new System.Drawing.Point(211, 259);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
@@ -86,6 +87,7 @@
             this.Controls.Add(this.ContinueButton);
             this.Controls.Add(this.employeeListBox);
             this.Name = "EmployeeListBoxForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Employees";
             this.ResumeLayout(false);
 

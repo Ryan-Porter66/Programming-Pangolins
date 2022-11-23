@@ -46,7 +46,7 @@ namespace PayrollManagement.Classes
             }  
             else
             {
-                throw new ArgumentException("Bank account must be 8 or more digits");
+                throw new ArgumentException("Bank routing number must be 8 or more digits");
             }
         }
         #endregion
