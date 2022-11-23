@@ -183,6 +183,10 @@ namespace PayrollManagement.Classes
         public decimal CalculateNetPay(decimal grossPay)
         {
             decimal netPay = grossPay - CalculateFederalTax() - CalculateFICATax() - CalculateMedTax() - CalculateStateTax() - CalculateTotalNonTaxDeductionAmount();
+            if(NetPay < 0)
+            {
+                throw new ArgumentException("Netpay cannot be negative");
+            }
             return Math.Round(netPay, 2);
         }
         #endregion
