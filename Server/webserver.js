@@ -85,6 +85,7 @@ app.post('/addemp', async function (request, response) {
     let hourlyrate = request.body.hourlyrate;
     let salary = request.body.salary;
     let exempt = request.body.exempt;
+    let fedtax = request.body.fedtax;
     let passwordhash = request.body.passwordhash;
     let permissionlevel = request.body.permissionlevel;
     let street = request.body.street;
@@ -113,10 +114,10 @@ app.post('/addemp', async function (request, response) {
             database: db
         };
 
-        const statement = "call add_emp(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        const statement = "call add_emp(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         const values = [firstName, lastName, ssn, dob, phonenumber, hiredate, exempt, hourlyrate,
-                        salary, passwordhash, permissionlevel, street, city, state, postalcode,
+                        salary, fedtax, passwordhash, permissionlevel, street, city, state, postalcode,
                         bankname, routingnum, accountnum, department];
 
         var pool = mysql.createPool(config);
