@@ -5,14 +5,11 @@ namespace PayrollManagement.Classes
     public class FlatDeduction : Deduction
     {
         #region Variables
-        private decimal _flat;
+
         #endregion
         #region Getters/Setters
-        public decimal Flat
-        {
-            get { return _flat; }
-            private set { _flat = value; }
-        }
+        public decimal Flat { get; private set; }
+
         #endregion
         #region Constructor
         public FlatDeduction(string name, decimal flat) : base(name)

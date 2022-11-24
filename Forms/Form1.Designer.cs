@@ -1,4 +1,4 @@
-﻿namespace PayrollManagement
+﻿namespace PayrollManagement.Forms
 {
     partial class Form1
     {

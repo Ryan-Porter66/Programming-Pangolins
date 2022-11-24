@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PayrollManagement.Classes
 {
-    public class Encryption
+    public static class Encryption
     {
         #region SHA256
         //this function will take in a string and return the SHA256 hash of it
@@ -15,9 +15,9 @@ namespace PayrollManagement.Classes
         public static string SHA256Encryption(string stringToEncrypt)
         {
             //check if string is valid
-            if(stringToEncrypt == null || stringToEncrypt.Length < 1)
+            if(string.IsNullOrEmpty(stringToEncrypt))
             {
-                throw new ArgumentNullException("stringToEncrypt");
+                throw new ArgumentNullException(nameof(stringToEncrypt));
             }
 
             using (SHA256 mySHA256Return = SHA256.Create())
@@ -48,9 +48,9 @@ namespace PayrollManagement.Classes
         public static string AESEncryption(string stringToEncrypt)
         {
             //check is parameter is valid
-            if (stringToEncrypt == null || stringToEncrypt.Length < 1)
+            if (string.IsNullOrEmpty(stringToEncrypt))
             {
-                throw new ArgumentNullException("stringToEncrypt.");
+                throw new ArgumentNullException(nameof(stringToEncrypt));
             }
 
             byte[] encryptedArray;
@@ -84,12 +84,12 @@ namespace PayrollManagement.Classes
         public static string AESDecryption(string stringToDecrypt)
         {
             //check if parameter is valid
-            if (stringToDecrypt == null || stringToDecrypt.Length < 1)
+            if (string.IsNullOrEmpty(stringToDecrypt))
             {
-                throw new ArgumentNullException("stringToDecrypt");
+                throw new ArgumentNullException(nameof(stringToDecrypt));
             }
 
-            string decryptedString = null;
+            string decryptedString;
 
             //byte[] bytes = new byte[stringToDecrypt.Length * sizeof(char)];
             //Buffer.BlockCopy(stringToDecrypt.ToCharArray(), 0, bytes, 0, bytes.Length);

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PayrollManagement.Classes
 {
-    public class PopUpBox
+    public static class PopUpBox
     {
         #region Getter/Setter
         private static Form Prompt { get; set; }
@@ -22,11 +22,11 @@ namespace PayrollManagement.Classes
                 TopMost = true
             };
             //create a label for the form which will have instructions for user input
-            Label lblTitle = new Label() { Left = 50, Top = 20, Text = instructions, Dock = DockStyle.Top, TextAlign = ContentAlignment.TopCenter };
-            TextBox txtTextInput = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Label lblTitle = new Label { Left = 50, Top = 20, Text = instructions, Dock = DockStyle.Top, TextAlign = ContentAlignment.TopCenter };
+            TextBox txtTextInput = new TextBox { Left = 50, Top = 50, Width = 400 };
 
             ////////////////////////////OK button
-            Button btnOK = new Button() { Text = "OK", Left = 250, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            Button btnOK = new Button { Text = @"OK", Left = 250, Width = 100, Top = 70, DialogResult = DialogResult.OK };
             btnOK.Click += (sender, e) =>
             {
                 sUserInput = txtTextInput.Text;
@@ -39,7 +39,7 @@ namespace PayrollManagement.Classes
             ///////////////////////////////////////
 
             //////////////////////////Cancel button
-            Button btnCancel = new Button() { Text = "Cancel", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.Cancel };
+            Button btnCancel = new Button { Text = @"Cancel", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.Cancel };
             btnCancel.Click += (sender, e) =>
             {
                 sUserInput = "cancel";

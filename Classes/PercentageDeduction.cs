@@ -5,14 +5,11 @@ namespace PayrollManagement.Classes
     public class PercentageDeduction : Deduction
     {
         #region Variables
-        private decimal _percentage;
+
         #endregion
         #region Getters/Setters
-        public decimal Percentage
-        {
-            get { return _percentage; }
-            private set { _percentage = value; }
-        }
+        public decimal Percentage { get; set; }
+
         #endregion
         #region Constructor
         public PercentageDeduction(string name, decimal percentage) : base(name)
@@ -27,10 +24,8 @@ namespace PayrollManagement.Classes
             {
                 return Percentage * grossPay;
             }
-            else
-            {
-                throw new ArgumentException(this.Name + "'s value must be between 0 and 1!");
-            }
+
+            throw new ArgumentException(this.Name + "'s value must be between 0 and 1!");
         }
         #endregion
     }

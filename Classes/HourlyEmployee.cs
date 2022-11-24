@@ -7,21 +7,13 @@ namespace PayrollManagement.Classes
     public class HourlyEmployee : Employee
     {
         #region Variables
-        decimal _payPerHour;
-        decimal _hoursWorked;
+
         #endregion
         #region Get / Set
-        public decimal HoursWorked
-        {
-            get { return _hoursWorked; }
-            set { _hoursWorked = value; }
-        }
+        public decimal HoursWorked { get; set; }
 
-        public decimal PayPerHour
-        {
-            get { return _payPerHour; }
-            set { _payPerHour = value; }
-        }
+        public decimal PayPerHour { get; set; }
+
         #endregion
         #region Constructor
         public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate, decimal payHours) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, stateTaxRate)
@@ -32,19 +24,16 @@ namespace PayrollManagement.Classes
         #region Methods
         public override decimal CalculateGrossPay()
         {
-            decimal grossPay;
             if (HoursWorked > 0 && HoursWorked < 200 && PayPerHour > 0)
             {
-                grossPay = PayPerHour * HoursWorked;
+                decimal grossPay = PayPerHour * HoursWorked;
                 return grossPay;
             }
-            else
-            {
-                throw new ArgumentException("Invalid Hour or Pay Per Hour data for "+ this.FirstName + " " + this.LastName + "!");
-            }
+
+            throw new ArgumentException("Invalid Hour or Pay Per Hour data for "+ this.FirstName + " " + this.LastName + "!");
         }
 
-        public decimal GetPayrollHours()
+        public void GetPayrollHours()
         {
             bool boolTryAgain;
             do
@@ -53,32 +42,30 @@ namespace PayrollManagement.Classes
                 string sTextFromUser = PopUpBox.GetUserInput("Enter " + this.FirstName + " " + this.LastName + "'s hours worked.", "Employee Hours");
                 if (sTextFromUser == "" || sTextFromUser == "cancel")
                 {
-                    DialogResult dialogResult = MessageBox.Show("You cancelled or did not enter anything. Try again?", "Error", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    DialogResult dialogResult = MessageBox.Show(@"You cancelled or did not enter anything. Try again?", @"Error", MessageBoxButtons.YesNo);
+                    switch (dialogResult)
                     {
-                        boolTryAgain = true; //will reopen the dialog for user to input text again
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //exit/cancel
-                        //MessageBox.Show("Operation Cancelled!");
-                        throw new ArgumentException("Hours not provided!");
-
+                        case DialogResult.Yes:
+                            boolTryAgain = true; //will reopen the dialog for user to input text again
+                            break;
+                        case DialogResult.No:
+                            //exit/cancel
+                            //MessageBox.Show("Operation Cancelled!");
+                            throw new ArgumentException("Hours not provided!");
                     }
                 }
                 else if (!InputValidation.IsHourStringValid(sTextFromUser) || !Decimal.TryParse(sTextFromUser, out decimal hours))
                 {
-                    DialogResult dialogResult = MessageBox.Show("Format Required: 99.99 - Try Again?", "Error", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    DialogResult dialogResult = MessageBox.Show(@"Format Required: 99.99 - Try Again?", @"Error", MessageBoxButtons.YesNo);
+                    switch (dialogResult)
                     {
-                        boolTryAgain = true; //will reopen the dialog for user to input text again
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //exit/cancel
-                        //MessageBox.Show("Operation Cancelled!");
-                        throw new ArgumentException("Hours not provided!");
-
+                        case DialogResult.Yes:
+                            boolTryAgain = true; //will reopen the dialog for user to input text again
+                            break;
+                        case DialogResult.No:
+                            //exit/cancel
+                            //MessageBox.Show("Operation Cancelled!");
+                            throw new ArgumentException("Hours not provided!");
                     }
                 }
                 else
@@ -88,15 +75,11 @@ namespace PayrollManagement.Classes
                         //MessageBox.Show("Operation Cancelled!");
                         throw new ArgumentException("Hours not provided!");
                     }
-                    else
-                    {
-                        //MessageBox.Show("Here is the text you entered: " + hours);
-                        HoursWorked = hours;
-                    }
-                }
-            } while (boolTryAgain == true);
 
-            return HoursWorked;
+                    //MessageBox.Show("Here is the text you entered: " + hours);
+                    HoursWorked = hours;
+                }
+            } while (boolTryAgain);
         }
         #endregion
     }
