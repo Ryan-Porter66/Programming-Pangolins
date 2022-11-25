@@ -21,6 +21,58 @@ namespace PayrollManagement.Classes
         // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Ogwjku+IAilV1MwVoYGp5l8c= getcompanyinfo
         // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWgbJ1lK1+IMwCEhpBgcPjKA= updatecompanyinfo
         // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og/UHpmwedS9XYv9cQmi5XYc= getemp
+        // Need to add GetDeductions for GetEmployeeList and GetEmployee
+
+
+        public static List<Deduction> GetDeductions(string username, string passwordHash, string empID)
+        {
+            string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og8XchcJ3PfjL23zEdih9kgM=";
+            string url = Encryption.AESDecryption(enc);
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+
+            var postData = "username=" + Uri.EscapeDataString(username);
+            postData += "&password=" + Uri.EscapeDataString(passwordHash);
+            postData += "&empid=" + Uri.EscapeDataString(empID);
+
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string responseText = reader.ReadToEnd();
+
+            List<Deduction> deductions = new List<Deduction>();
+            var Jarr = (JArray)JsonConvert.DeserializeObject(responseText);
+            foreach (JObject item in Jarr)
+            {
+                string name = item["deduction_name"].ToString();
+                int isflat = Int32.Parse(item["isflat"].ToString());
+                decimal flat = Decimal.Parse(item["flat_amount"].ToString());
+                decimal percentage = Decimal.Parse(item["percent"].ToString());
+
+                if(isflat == 1)
+                {
+                    FlatDeduction tempFlat = new FlatDeduction(name, flat);
+                    deductions.Add(tempFlat);
+                }
+                else if(isflat == 0)
+                {
+                    PercentageDeduction tempPercent = new PercentageDeduction(name, percentage);
+                    deductions.Add(tempPercent);
+                }
+            }
+
+            return deductions;
+        }
         public static void DeleteDeduction(string username, string passwordHash, string empID, Deduction deduction)
         {
             string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6H/DSP2X8RUmRIWTmhDDfjR1zD2hMDCkdNVjhaYDI3qk=";
@@ -154,11 +206,7 @@ namespace PayrollManagement.Classes
                 decimal StateTaxRate = Decimal.Parse(item["state_rate"].ToString());
                 decimal SalaryPerPayPeriod = Decimal.Parse(item["salary"].ToString());
                 decimal PayPerHour = Decimal.Parse(item["hourly_rate"].ToString());
-                List<Deduction> tempDeduct = new List<Deduction>
-                {
-                    new FlatDeduction("flat", 20.00m),
-                    new PercentageDeduction("Percentage", 0.03m)
-                };
+                List<Deduction> tempDeduct = Database.GetDeductions(username, passwordHash, EmployeeID.ToString());
 
                 if (string.Equals(item["exempt"].ToString(), "1" ))
                 {

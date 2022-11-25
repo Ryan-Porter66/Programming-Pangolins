@@ -138,5 +138,31 @@ namespace PayrollManagementUnitTests
             }
 
         }
+
+        [TestMethod]
+        public void TestGetDeductions()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                List<Deduction> deductions = Database.GetDeductions(username, password, "5");
+                string resp = string.Empty;
+                foreach(Deduction deduction in deductions)
+                {
+                    resp += deduction.Name + " - ";
+                }
+                Console.WriteLine(resp);
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
     }
 }
