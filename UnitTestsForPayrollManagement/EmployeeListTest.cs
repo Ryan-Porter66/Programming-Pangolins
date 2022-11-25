@@ -54,12 +54,11 @@ namespace UnitTestsForPayrollManagement
             {
                 string username = "2";
                 string password = "thisaintit";
-                List<Employee> empList = Database.GetEmployeeList(username, password);
 
                 EmployeeList tempEmpList = new EmployeeList();
-                tempEmpList.Employees = empList;
+                tempEmpList.GenerateEmployeeList(username, password);
 
-                foreach (Employee emp in empList)
+                foreach (Employee emp in tempEmpList.Employees)
                 {
                     Console.WriteLine(emp.EmployeeID.ToString() + " " + emp.FirstName + " " + emp.LastName);
                     Console.WriteLine(emp.Address + " " + emp.City + " " + emp.State + " " + emp.PostalCode);
@@ -89,6 +88,12 @@ namespace UnitTestsForPayrollManagement
                     Console.WriteLine();
                 }
                 // Just checking the function produces a list of Employee objects with employee ids
+                //tempEmpList.DisplaySelectableEmployeeList();
+
+                Console.WriteLine(tempEmpList.Company.Name + " " + tempEmpList.Company.FederalID + " " + tempEmpList.Company.PhoneNumber);
+                Console.WriteLine(tempEmpList.Company.Address + " " + tempEmpList.Company.City + ", " + tempEmpList.Company.State + " " + tempEmpList.Company.PostalCode);
+                Console.WriteLine(tempEmpList.Company.Bank.BankName + " " + tempEmpList.Company.Bank.BankRoutingNumber + " " + tempEmpList.Company.Bank.BankAccountNumber);
+
                 Assert.AreEqual(1, 1);
             }
             catch (Exception ex)
