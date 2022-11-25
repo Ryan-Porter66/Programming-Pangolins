@@ -72,6 +72,57 @@ async function login(u, p) {
     });
     return privelege;
 }
+
+app.post('/adddeduction', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let empid = request.body.empid;
+    let name = request.body.name;
+    let flat = request.body.flat;
+    let percent = request.body.percent;
+    let isflat = request.body.isflat;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "insert into deductions (emp_id, deduction_name, isflat, percent, flat_amount) " +
+            "values (?, ?, ?, ?, ?);";
+
+        const values = [empid, name, isflat, percent, flat];
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, values, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
 app.post('/addemp', async function (request, response) {
     // Capture the input fields
     let username = request.body.username;
@@ -82,6 +133,7 @@ app.post('/addemp', async function (request, response) {
     let dob = request.body.dob;
     let phonenumber = request.body.phonenumber;
     let hiredate = request.body.hiredate;
+    console.log(dob + " " + hiredate);
     let hourlyrate = request.body.hourlyrate;
     let salary = request.body.salary;
     let exempt = request.body.exempt;
@@ -134,6 +186,53 @@ app.post('/addemp', async function (request, response) {
                 empid = '-999';
             console.log(empid);
             response.json(result[0][0]);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
+app.post('/getemplist', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        //const statement = "CALL sp_get_emp_list;";
+        const statement = "select * from employees e "+
+                            "left join address a on e.address_id = a.address_id "+
+                            "left join bank_account b on e.bankacc_id = b.bankacc_id "+
+                            "left join department d on e.department_id = d.department_id "+
+                            "left join taxes t on a.state = t.state_name;"
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result);
             response.end();
 
         });

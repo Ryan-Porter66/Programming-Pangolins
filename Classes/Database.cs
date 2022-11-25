@@ -11,11 +11,66 @@ using System.Collections.Generic;
 using Org.BouncyCastle.Utilities.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Globalization;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace PayrollManagement.Classes
 {
     public static class Database
     {
+        public static void AddDeductions(string username, string passwordHash, string empID, List<Deduction> deductions)
+        {
+            foreach (Deduction deduction in deductions)
+            {
+                string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6jtQT8SYykjQof6/6Wrid2RW8Lhlv86Ow6HHE1+N4cxs=";
+                string url = Encryption.AESDecryption(enc);
+
+                var postData = "username=" + Uri.EscapeDataString(username);
+                postData += "&password=" + Uri.EscapeDataString(passwordHash);
+                postData += "&empid=" + Uri.EscapeDataString(empID);
+                if (deduction is FlatDeduction flatDeduction)
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(url);
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    postData += "&name=" + Uri.EscapeDataString(flatDeduction.Name);
+                    postData += "&flat=" + Uri.EscapeDataString(flatDeduction.Flat.ToString());
+                    postData += "&percent=" + Uri.EscapeDataString("0");
+                    postData += "&isflat=" + Uri.EscapeDataString("1");
+
+                    var data = Encoding.ASCII.GetBytes(postData);
+                    request.ContentLength = data.Length;
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                    var response = (HttpWebResponse)request.GetResponse();
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    string responseText = reader.ReadToEnd();
+                }
+                else if(deduction is PercentageDeduction percentageDeduction)
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(url);
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    postData += "&name=" + Uri.EscapeDataString(percentageDeduction.Name);
+                    postData += "&percent=" + Uri.EscapeDataString(percentageDeduction.Percentage.ToString());
+                    postData += "&flat=" + Uri.EscapeDataString("0");
+                    postData += "&isflat=" + Uri.EscapeDataString("0");
+
+                    var data = Encoding.ASCII.GetBytes(postData);
+                    request.ContentLength = data.Length;
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                    var response = (HttpWebResponse)request.GetResponse();
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    string responseText = reader.ReadToEnd();
+                }
+                postData = string.Empty;
+            }
+        }
+
         public static List<Employee> GetEmployeeList(string username, string passwordHash)
         {
             string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og89nKL6R+FmZRbnNsYE8Vyk=";
@@ -40,7 +95,6 @@ namespace PayrollManagement.Classes
             var response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string responseText = reader.ReadToEnd();
-            string okay = "";
 
             List<Employee> newEmpList = new List<Employee>();
             var Jarr = (JArray)JsonConvert.DeserializeObject(responseText);
@@ -150,6 +204,11 @@ namespace PayrollManagement.Classes
 
             var Jobj = (JObject)JsonConvert.DeserializeObject(responseText);
             string empid = Jobj["emp_id"].ToString();
+
+            if(Int32.Parse(empid) <= 0)
+                throw new ArgumentNullException("EmpID");
+
+            Database.AddDeductions(username, passwordHash, empid, emp.DeductionList);
 
             return empid;
         }
