@@ -72,12 +72,11 @@ namespace PayrollManagementUnitTests
             {
                 string username = "2";
                 string password = "thisaintit";
-                string resp = Encryption.AESEncryption("http://ec2-52-14-14-234.us-east-2.compute.amazonaws.com:5000/adddeduction");
-                //List<Employee> empList = Database.GetEmployeeList(username, password);
+                List<Employee> empList = Database.GetEmployeeList(username, password);
 
-                //string resp = "";
-                //foreach (Employee emp in empList)
-                  //  resp += emp.EmployeeID.ToString() + " - ";
+                string resp = "";
+                foreach (Employee emp in empList)
+                    resp += emp.EmployeeID.ToString() + " - ";
                 Console.WriteLine(resp);
                 // Just checking the function produces a list of Employee objects with employee ids
                 Assert.AreEqual(1, 1);
@@ -105,6 +104,30 @@ namespace PayrollManagementUnitTests
                 };
 
                 Database.AddDeductions(username, password, "5", tempDeduct);
+
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestDeleteDeduction()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                FlatDeduction flatDeduction = new FlatDeduction("flat", 20.00m);
+                PercentageDeduction percentageDeduction = new PercentageDeduction("Percentage", 0.03m);
+
+                Database.DeleteDeduction(username, password, "5", percentageDeduction);
 
                 Assert.AreEqual(1, 1);
 

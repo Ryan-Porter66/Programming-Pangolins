@@ -17,6 +17,37 @@ namespace PayrollManagement.Classes
 {
     public static class Database
     {
+        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWoGztr5VZA5saaPx3/caUDw= updateemp
+        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Ogwjku+IAilV1MwVoYGp5l8c= getcompanyinfo
+        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWgbJ1lK1+IMwCEhpBgcPjKA= updatecompanyinfo
+        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og/UHpmwedS9XYv9cQmi5XYc= getemp
+        public static void DeleteDeduction(string username, string passwordHash, string empID, Deduction deduction)
+        {
+            string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6H/DSP2X8RUmRIWTmhDDfjR1zD2hMDCkdNVjhaYDI3qk=";
+            string url = Encryption.AESDecryption(enc);
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+
+            var postData = "username=" + Uri.EscapeDataString(username);
+            postData += "&password=" + Uri.EscapeDataString(passwordHash);
+            postData += "&empid=" + Uri.EscapeDataString(empID);
+            postData += "&name=" + Uri.EscapeDataString(deduction.Name);
+
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string responseText = reader.ReadToEnd();
+        }
         public static void AddDeductions(string username, string passwordHash, string empID, List<Deduction> deductions)
         {
             foreach (Deduction deduction in deductions)

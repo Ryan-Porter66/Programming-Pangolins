@@ -73,6 +73,53 @@ async function login(u, p) {
     return privelege;
 }
 
+app.post('/deldeduction', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let empid = request.body.empid;
+    let name = request.body.name;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "update deductions inner join(select deduction_id from deductions where emp_id = ? and deduction_name = ?) d "+ 
+                            "on deductions.deduction_id = d.deduction_id set delete_indicator = 1;";
+
+        const values = [empid, name];
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, values, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
 app.post('/adddeduction', async function (request, response) {
     // Capture the input fields
     let username = request.body.username;
@@ -99,8 +146,8 @@ app.post('/adddeduction', async function (request, response) {
             database: db
         };
 
-        const statement = "insert into deductions (emp_id, deduction_name, isflat, percent, flat_amount) " +
-            "values (?, ?, ?, ?, ?);";
+        const statement = "insert into deductions (emp_id, deduction_name, isflat, percent, flat_amount, delete_indicator) " +
+            "values (?, ?, ?, ?, ?, 0);";
 
         const values = [empid, name, isflat, percent, flat];
 
@@ -217,12 +264,12 @@ app.post('/getemplist', async function (request, response) {
             database: db
         };
 
-        //const statement = "CALL sp_get_emp_list;";
-        const statement = "select * from employees e "+
-                            "left join address a on e.address_id = a.address_id "+
-                            "left join bank_account b on e.bankacc_id = b.bankacc_id "+
-                            "left join department d on e.department_id = d.department_id "+
-                            "left join taxes t on a.state = t.state_name;"
+        const statement = "select * from employees e " +
+            "left join address a on e.address_id = a.address_id " +
+            "left join bank_account b on e.bankacc_id = b.bankacc_id " +
+            "left join department d on e.department_id = d.department_id " +
+            "left join taxes t on a.state = t.state_name " +
+            "where e.delete_indicator = 0;";
 
         var pool = mysql.createPool(config);
         var resp = 'Error';
