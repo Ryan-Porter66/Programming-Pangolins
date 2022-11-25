@@ -164,5 +164,53 @@ namespace PayrollManagementUnitTests
             }
 
         }
+
+        [TestMethod]
+        public void TestGetCompany()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                Company company = Database.GetCompany(username, password);
+                string resp = string.Empty;
+                resp = company.Name;
+                Console.WriteLine(resp);
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestUpdateCompany()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+                BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
+                Company company = new Company("TestName", bank, "1357924680", "123 Another St", "Testcity", "ND", "54321", "7776664545");
+                Database.UpdateComany(username, password, company);
+                Company companyUpdate = Database.GetCompany(username, password);
+
+                string resp = companyUpdate.FederalID;
+                Console.WriteLine(resp);
+                Assert.AreEqual(company.FederalID, companyUpdate.FederalID);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
     }
 }

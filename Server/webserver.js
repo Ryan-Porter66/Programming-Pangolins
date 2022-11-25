@@ -73,6 +73,109 @@ async function login(u, p) {
     return privelege;
 }
 
+app.post('/updatecompanyinfo', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let companyname = request.body.companyname;
+    let phonenumber = request.body.phonenumber;
+    let federalid = request.body.federalid;
+    let address = request.body.address;
+    let city = request.body.city;
+    let state = request.body.state;
+    let postalcode = request.body.postalcode;
+    let bankname = request.body.bankname;
+    let routingnum = request.body.routingnum;
+    let accountnum = request.body.accountnum;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "update company c, address a, bank_account b " +
+            "set c.company_name = ?, c.phone_number = ?, c.federal_id = ?, " +
+            "a.street_address = ?, a.city = ?, a.state = ?, a.postal_code = ?, " +
+            "b.bank_name = ?, b.routing_num = ?, b.account_num = ? " +
+            "where c.address_id = a.address_id and c.bankacc_id = b.bankacc_id and c.company_id = 1;";
+
+        const values = [companyname, phonenumber, federalid,
+            address, city, state, postalcode,
+            bankname, routingnum, accountnum];
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, values, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
+app.post('/getcompanyinfo', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "select * from company c left join address a on c.address_id = a.address_id left join bank_account b on c.bankacc_id = b.bankacc_id " + 
+                            "where c.company_id = 1 limit 1;";
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result[0]);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
 app.post('/getdeductions', async function (request, response) {
     // Capture the input fields
     let username = request.body.username;
@@ -95,7 +198,7 @@ app.post('/getdeductions', async function (request, response) {
             database: db
         };
 
-        const statement = "select * from deductions where emp_id = ? and delete_indicator = 0; ";
+        const statement = "select * from deductions where emp_id = ? and delete_indicator = 0;";
 
         var pool = mysql.createPool(config);
         var resp = 'Error';
