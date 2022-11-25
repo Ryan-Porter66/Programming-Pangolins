@@ -1,4 +1,5 @@
 ﻿using PayrollManagement.Forms;
+using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,10 @@ namespace PayrollManagement.Classes
         #region Constructor
         #endregion
         #region Methods
-        public void GenerateEmployeeList(string compFedID)
+        public void GenerateEmployeeList(string compFedID, string username, string password)
         {
-            throw new NotImplementedException();
+            this.Employees = Database.GetEmployeeList(username, password);
+            //this.Company = Database.GetCompany(username, password);
         }
         //allow user to select employees for the list
         public void DisplaySelectableEmployeeList()

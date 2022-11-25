@@ -9,7 +9,7 @@ namespace PayrollManagement.Classes
         #region Variables
 
         #endregion
-        #region Get / Set
+        #region Get/Set
         public decimal HoursWorked { get; set; }
 
         public decimal PayPerHour { get; set; }

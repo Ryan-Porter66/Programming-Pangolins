@@ -46,5 +46,55 @@ namespace UnitTestsForPayrollManagement
             tempEmList.DisplaySelectableEmployeeList();
             MessageBox.Show(tempEmList.GetSizeOfList().ToString());
         }
+
+        [TestMethod]
+        public void GenerateEmployeeListTest()
+        {
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+                List<Employee> empList = Database.GetEmployeeList(username, password);
+
+                EmployeeList tempEmpList = new EmployeeList();
+                tempEmpList.Employees = empList;
+
+                foreach (Employee emp in empList)
+                {
+                    Console.WriteLine(emp.EmployeeID.ToString() + " " + emp.FirstName + " " + emp.LastName);
+                    Console.WriteLine(emp.Address + " " + emp.City + " " + emp.State + " " + emp.PostalCode);
+                    Console.WriteLine(emp.Bank.BankName + " " + emp.Bank.BankRoutingNumber + " " + emp.Bank.BankAccountNumber);
+                    Console.WriteLine(emp.FederalTaxRate.ToString() + " " + emp.StateTaxRate.ToString());
+                    Console.WriteLine(emp.Ssn + " " + emp.Permissions + " " + emp.Dob.ToString("yyyyMMdd") + " " + emp.HireDate.ToString("yyyyMMdd"));
+                    Console.WriteLine(emp.PhoneNumber + " " + emp.Department);
+                    foreach(Deduction ded in emp.DeductionList)
+                    {
+                        if(ded is PercentageDeduction pd)
+                        {
+                            Console.WriteLine(pd.Name + " " + pd.Percentage.ToString());
+                        }
+                        else if(ded is FlatDeduction fd)
+                        {
+                            Console.WriteLine(fd.Name + " " + fd.Flat.ToString());
+                        }
+                    }
+                    if(emp is SalaryEmployee se)
+                    {
+                        Console.WriteLine("Salary: " + se.SalaryPerPayPeriod.ToString());
+                    }
+                    else if(emp is HourlyEmployee he)
+                    {
+                        Console.WriteLine("Hourly: " + he.PayPerHour.ToString());
+                    }
+                    Console.WriteLine();
+                }
+                // Just checking the function produces a list of Employee objects with employee ids
+                Assert.AreEqual(1, 1);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
     }
 }
