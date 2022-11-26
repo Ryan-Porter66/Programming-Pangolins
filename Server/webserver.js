@@ -73,6 +73,127 @@ async function login(u, p) {
     return privelege;
 }
 
+app.post('/updateemp', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let firstName = request.body.firstName;
+    let lastName = request.body.lastName;
+    let ssn = request.body.ssn;
+    let dob = request.body.dob;
+    let phonenumber = request.body.phonenumber;
+    let hiredate = request.body.hiredate;
+    let hourlyrate = request.body.hourlyrate;
+    let salary = request.body.salary;
+    let exempt = request.body.exempt;
+    let fedtax = request.body.fedtax;
+    let passwordhash = request.body.passwordhash;
+    let permissionlevel = request.body.permissionlevel;
+    let street = request.body.street;
+    let city = request.body.city;
+    let state = request.body.state;
+    let postalcode = request.body.postalcode;
+    let bankname = request.body.bankname;
+    let routingnum = request.body.routingnum;
+    let accountnum = request.body.accountnum;
+    let department = request.body.department;
+    let empid = request.body.empid;
+
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "update employees e, address a, bank_account b, department d " +
+            "set e.firstname = ?, e.lastname = ?, e.ssn = ?, e.dob = ?, e.phone_number = ?, e.hire_date = ?, " +
+            "e.exempt = ?, e.hourly_rate = ?, e.salary = ?, e.federal_tax = ?, e.permission_level = ?, " +
+            "a.street_address = ?, a.city = ?, a.state = ?, a.postal_code = ?, " +
+            "b.bank_name = ?, b.routing_num = ?, b.account_num = ?, d.department_name = ? " +
+            "where e.address_id = a.address_id and e.bankacc_id = b.bankacc_id and e.department_id = d.department_id and e.emp_id = ?;";
+
+        const values = [firstName, lastName, ssn, dob, phonenumber, hiredate, exempt, hourlyrate,
+            salary, fedtax, permissionlevel, street, city, state, postalcode,
+            bankname, routingnum, accountnum, department, empid];
+
+        var pool = mysql.createPool(config);
+        pool.query(statement, values, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(empid);
+                response.end();
+            }
+            response.json(result);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
+app.post('/getemp', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let empid = request.body.empid;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "select * " +
+            "from employees e " +
+            "left join address a on e.address_id = a.address_id " +
+            "left join bank_account b on e.bankacc_id = b.bankacc_id " +
+            "left join department d on e.department_id = d.department_id " +
+            "left join taxes t on a.state = t.state_name " +
+            "where e.delete_indicator = 0 and e.emp_id = ?;";
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, empid, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result[0]);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
 app.post('/updatecompanyinfo', async function (request, response) {
     // Capture the input fields
     let username = request.body.username;

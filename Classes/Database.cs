@@ -20,7 +20,128 @@ namespace PayrollManagement.Classes
     public static class Database
     {
         // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWoGztr5VZA5saaPx3/caUDw= updateemp
-        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og/UHpmwedS9XYv9cQmi5XYc= getemp
+
+        public static void UpdateEmployee(string username, string passwordHash, Employee emp)
+        {
+            string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWoGztr5VZA5saaPx3/caUDw=";
+            string url = Encryption.AESDecryption(enc);
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+
+            var postData = "username=" + Uri.EscapeDataString(username);
+            postData += "&password=" + Uri.EscapeDataString(passwordHash);
+            postData += "&firstName=" + Uri.EscapeDataString(emp.FirstName);
+            postData += "&lastName=" + Uri.EscapeDataString(emp.LastName);
+            postData += "&ssn=" + Uri.EscapeDataString(emp.Ssn);
+            postData += "&dob=" + Uri.EscapeDataString(emp.Dob.ToString("yyyy-MM-dd"));
+            postData += "&phonenumber=" + Uri.EscapeDataString(emp.PhoneNumber);
+            postData += "&hiredate=" + Uri.EscapeDataString(emp.HireDate.ToString("yyyy-MM-dd"));
+
+            if (emp is HourlyEmployee hourlyEmployee)
+            {
+                postData += "&hourlyrate=" + Uri.EscapeDataString(hourlyEmployee.PayPerHour.ToString());
+                postData += "&salary=" + Uri.EscapeDataString("0");
+                postData += "&exempt=" + Uri.EscapeDataString("0");
+            }
+            else if (emp is SalaryEmployee salaryEmployee)
+            {
+                postData += "&salary=" + Uri.EscapeDataString(salaryEmployee.SalaryPerPayPeriod.ToString());
+                postData += "&hourlyrate=" + Uri.EscapeDataString("0");
+                postData += "&exempt=" + Uri.EscapeDataString("1");
+            }
+            postData += "&fedtax=" + Uri.EscapeDataString(emp.FederalTaxRate.ToString());
+            postData += "&permissionlevel=" + Uri.EscapeDataString(emp.Permissions);
+            postData += "&street=" + Uri.EscapeDataString(emp.Address);
+            postData += "&city=" + Uri.EscapeDataString(emp.City);
+            postData += "&state=" + Uri.EscapeDataString(emp.State);
+            postData += "&postalcode=" + Uri.EscapeDataString(emp.PostalCode);
+            postData += "&bankname=" + Uri.EscapeDataString(emp.Bank.BankName);
+            postData += "&routingnum=" + Uri.EscapeDataString(emp.Bank.BankRoutingNumber);
+            postData += "&accountnum=" + Uri.EscapeDataString(emp.Bank.BankAccountNumber);
+            postData += "&department=" + Uri.EscapeDataString(emp.Department);
+            postData += "&empid=" + Uri.EscapeDataString(emp.EmployeeID.ToString());
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string responseText = reader.ReadToEnd();
+        }
+
+        public static Employee GetEmployee(string username, string passwordHash, string empID)
+        {
+            string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6nnQGw1KLknpAFskuuJ5Og/UHpmwedS9XYv9cQmi5XYc=";
+            string url = Encryption.AESDecryption(enc);
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+
+            var postData = "username=" + Uri.EscapeDataString(username);
+            postData += "&password=" + Uri.EscapeDataString(passwordHash);
+            postData += "&empid=" + Uri.EscapeDataString(empID);
+
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string responseText = reader.ReadToEnd();
+
+            var item = (JObject)JsonConvert.DeserializeObject(responseText);
+
+            string FirstName = item["firstname"].ToString();
+            string LastName = item["lastname"].ToString();
+            string Address = item["street_address"].ToString();
+            string City = item["city"].ToString();
+            string PostalCode = item["postal_code"].ToString();
+            string State = item["state"].ToString();
+            string BankName = item["bank_name"].ToString();
+            string AccountNumber = item["account_num"].ToString();
+            string RoutingNumber = item["routing_num"].ToString();
+            BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
+            int EmployeeID = Int32.Parse(item["emp_id"].ToString());
+            string dt1 = item["dob"].ToString();
+            string dt2 = item["hire_date"].ToString();
+            decimal FederalTaxRate = Decimal.Parse(item["federal_tax"].ToString());
+            string Permissions = item["permission_level"].ToString();
+            string Ssn = item["ssn"].ToString();
+            DateTime Dob = DateTime.ParseExact(item["dob"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+            DateTime HireDate = DateTime.ParseExact(item["hire_date"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+            string PhoneNumber = item["phone_number"].ToString();
+            string Department = item["department_name"].ToString();
+            decimal StateTaxRate = Decimal.Parse(item["state_rate"].ToString());
+            decimal SalaryPerPayPeriod = Decimal.Parse(item["salary"].ToString());
+            decimal PayPerHour = Decimal.Parse(item["hourly_rate"].ToString());
+            List<Deduction> tempDeduct = Database.GetDeductions(username, passwordHash, EmployeeID.ToString());
+
+            if (string.Equals(item["exempt"].ToString(), "1"))
+            {
+                SalaryEmployee tempEmp = new SalaryEmployee(FirstName, LastName, Address, City, PostalCode, State,
+                    Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, SalaryPerPayPeriod);
+                return tempEmp;
+            }
+            else
+            {
+                HourlyEmployee tempEmp = new HourlyEmployee(FirstName, LastName, Address, City, PostalCode, State,
+                    Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, PayPerHour);
+                return tempEmp;
+            }
+        }
 
         public static void UpdateComany(string username, string passwordHash, Company company)
         {
@@ -270,8 +391,6 @@ namespace PayrollManagement.Classes
                 string RoutingNumber = item["routing_num"].ToString();
                 BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
                 int EmployeeID = Int32.Parse(item["emp_id"].ToString());
-                string dt1 = item["dob"].ToString();
-                string dt2 = item["hire_date"].ToString();
                 decimal FederalTaxRate = Decimal.Parse(item["federal_tax"].ToString());
                 string Permissions = item["permission_level"].ToString();
                 string Ssn = item["ssn"].ToString();
