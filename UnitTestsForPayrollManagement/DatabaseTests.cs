@@ -269,5 +269,26 @@ namespace PayrollManagementUnitTests
             }
 
         }
+
+        [TestMethod]
+        public void TestDeleteEmployee()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                Database.DeleteEmployee(username, password, "9");
+                
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
     }
 }

@@ -73,6 +73,49 @@ async function login(u, p) {
     return privelege;
 }
 
+app.post('/delemp', async function (request, response) {
+    // Capture the input fields
+    let username = request.body.username;
+    let password = request.body.password;
+    let empid = request.body.empid;
+    // Ensure the input fields exists and are not empty
+    if (username && password) {
+
+        let user = process.env.USR;
+        let pwd = process.env.PASSWORD;
+        let db = process.env.DATABASE;
+        let server = process.env.SERVER;
+
+
+        const config = {
+            connectionLimit: 25,
+            user: user,
+            password: pwd,
+            host: server,
+            database: db
+        };
+
+        const statement = "update employees e set e.delete_indicator = 1 where e.emp_id = ?;";
+
+        var pool = mysql.createPool(config);
+        var resp = 'Error';
+        pool.query(statement, empid, function (err, result) {
+            if (err) {
+                console.log(err);
+                response.send(resp);
+                response.end();
+            }
+            response.json(result);
+            response.end();
+
+        });
+
+    } else {
+        response.send('Please enter Username and Password!');
+        response.end();
+    }
+});
+
 app.post('/updateemp', async function (request, response) {
     // Capture the input fields
     let username = request.body.username;

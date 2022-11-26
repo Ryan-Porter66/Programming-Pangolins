@@ -17,9 +17,36 @@ using static System.Windows.Forms.AxHost;
 
 namespace PayrollManagement.Classes
 {
+
     public static class Database
     {
-        // yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6R2i3qOIaLnIx6RDNq13SWoGztr5VZA5saaPx3/caUDw= updateemp
+        // 
+        public static void DeleteEmployee(string username, string passwordHash, string empID)
+        {
+            string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6H/DSP2X8RUmRIWTmhDDfjS8oYJm1LQx1seXn3lxYtAI=";
+            string url = Encryption.AESDecryption(enc);
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+
+            var postData = "username=" + Uri.EscapeDataString(username);
+            postData += "&password=" + Uri.EscapeDataString(passwordHash);
+            postData += "&empid=" + Uri.EscapeDataString(empID);
+
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string responseText = reader.ReadToEnd();
+        }
 
         public static void UpdateEmployee(string username, string passwordHash, Employee emp)
         {
