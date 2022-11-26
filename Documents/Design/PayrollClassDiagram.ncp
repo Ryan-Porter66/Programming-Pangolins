@@ -5,39 +5,6 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>Employee</Name>
-        <Access>Public</Access>
-        <Location left="703" top="53" />
-        <Size width="287" height="509" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">string firstName</Member>
-        <Member type="Field">string lastName</Member>
-        <Member type="Field">string address</Member>
-        <Member type="Field">string city</Member>
-        <Member type="Field">string postalCode</Member>
-        <Member type="Field">string state</Member>
-        <Member type="Field">Bank bank</Member>
-        <Member type="Field">int employeeID</Member>
-        <Member type="Field">decimal federalTaxRate</Member>
-        <Member type="Field">string permissions</Member>
-        <Member type="Field">int SSN</Member>
-        <Member type="Field">date DOB</Member>
-        <Member type="Field">date hireDate</Member>
-        <Member type="Field">int phoneNumber</Member>
-        <Member type="Field">string department</Member>
-        <Member type="Field">list&lt;Deduction&gt; deductionList</Member>
-        <Member type="Field">decimal netPay</Member>
-        <Member type="Field">decimal stateTaxRate</Member>
-        <Member type="Method">public abstract decimal calculateGrossPay()</Member>
-        <Member type="Method">public decimal calculateFederalTax()</Member>
-        <Member type="Method">public decimal calculateStateTax()</Member>
-        <Member type="Method">public decimal calculateFICATax()</Member>
-        <Member type="Method">public decimal calculateMedTax()</Member>
-        <Member type="Method">public decimal calculateTotalNonTaxDeductionAmount()</Member>
-        <Member type="Method">public void calculateNetPay(int grossPay)</Member>
-        <Modifier>Abstract</Modifier>
-      </Entity>
-      <Entity type="Class">
         <Name>HourlyEmployee</Name>
         <Access>Public</Access>
         <Location left="541" top="693" />
@@ -46,7 +13,7 @@
         <Member type="Field">decimal payPerHour</Member>
         <Member type="Field">decimal hoursWorked</Member>
         <Member type="Method">public decimal calculateGrossPay()</Member>
-        <Member type="Method">public decimal getPayrollHours()</Member>
+        <Member type="Method">public void getPayrollHours()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -56,38 +23,38 @@
         <Size width="208" height="129" />
         <Collapsed>False</Collapsed>
         <Member type="Field">decimal salaryPerPayPeriod</Member>
-        <Member type="Method">public decimal calculateGrossPayroll()</Member>
+        <Member type="Method">public decimal calculateGrossPay()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>EmployeeList</Name>
         <Access>Public</Access>
         <Location left="1172" top="53" />
-        <Size width="334" height="213" />
+        <Size width="462" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">list&lt;Employee&gt; employeeList</Member>
         <Member type="Field">Company employeesCompany</Member>
-        <Member type="Method">public void generateEmployeeList(int compFedID)</Member>
+        <Member type="Method">public void generateEmployeeList(string username, string password)</Member>
         <Member type="Method">public void displaySelectableEmployeeList()</Member>
-        <Member type="Method">public void calculateGrossPayAllEmployeesInList()</Member>
-        <Member type="Method">public decimal getGrossPayCombined()</Member>
+        <Member type="Method">public decimal getNetPayAllEmployeesInList()</Member>
         <Member type="Method">public int getSizeOfList()</Member>
-        <Member type="Method">public int getSumOfFirst8DigitsRoute()</Member>
+        <Member type="Method">public string getSumOfFirst8DigitsRoute()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Company</Name>
         <Access>Public</Access>
         <Location left="1247" top="559" />
-        <Size width="233" height="196" />
+        <Size width="233" height="213" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">Bank bank</Member>
-        <Member type="Field">int federalID</Member>
+        <Member type="Field">BankAccount bank</Member>
+        <Member type="Field">string federalID</Member>
         <Member type="Field">string address</Member>
         <Member type="Field">string city</Member>
         <Member type="Field">string state</Member>
         <Member type="Field">string postalCode</Member>
-        <Member type="Field">int phoneNumber</Member>
+        <Member type="Field">string phoneNumber</Member>
+        <Member type="Field">string name</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -114,10 +81,10 @@
         <Name>FlatDeduction</Name>
         <Access>Public</Access>
         <Location left="24" top="388" />
-        <Size width="258" height="111" />
+        <Size width="309" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Field">decimal flat</Member>
-        <Member type="Method">public decimal calculateDeductionAmount()</Member>
+        <Member type="Method">public decimal calculateDeductionAmount(decimal grossPay)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -126,45 +93,110 @@
         <Location left="1116" top="316" />
         <Size width="228" height="145" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">int bankRoutingNumber</Member>
-        <Member type="Field">int bankAccountNumber</Member>
+        <Member type="Field">string bankRoutingNumber</Member>
+        <Member type="Field">string bankAccountNumber</Member>
         <Member type="Field">string bankName</Member>
-        <Member type="Method">public int returnFirstEightOfRoute()</Member>
+        <Member type="Method">public string returnFirstEightOfRoute()</Member>
         <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Employee</Name>
+        <Access>Public</Access>
+        <Location left="703" top="53" />
+        <Size width="287" height="519" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">string firstName</Member>
+        <Member type="Field">string lastName</Member>
+        <Member type="Field">string address</Member>
+        <Member type="Field">string city</Member>
+        <Member type="Field">string postalCode</Member>
+        <Member type="Field">string state</Member>
+        <Member type="Field">BankAccount bank</Member>
+        <Member type="Field">int employeeID</Member>
+        <Member type="Field">decimal federalTaxRate</Member>
+        <Member type="Field">string permissions</Member>
+        <Member type="Field">string SSN</Member>
+        <Member type="Field">date DOB</Member>
+        <Member type="Field">date hireDate</Member>
+        <Member type="Field">string phoneNumber</Member>
+        <Member type="Field">string department</Member>
+        <Member type="Field">list&lt;Deduction&gt; deductionList</Member>
+        <Member type="Field">decimal stateTaxRate</Member>
+        <Member type="Field">private const decimal FICA_TAX = .062</Member>
+        <Member type="Field">private const decimal MED_TAX = .0145</Member>
+        <Member type="Method">public abstract decimal calculateGrossPay()</Member>
+        <Member type="Method">public decimal calculateFederalTax()</Member>
+        <Member type="Method">public decimal calculateStateTax()</Member>
+        <Member type="Method">public decimal calculateFICATax()</Member>
+        <Member type="Method">public decimal calculateMedTax()</Member>
+        <Member type="Method">public decimal calculateTotalNonTaxDeductionAmount()</Member>
+        <Member type="Method">public void calculateNetPay(decimal grossPay)</Member>
+        <Modifier>Abstract</Modifier>
       </Entity>
     </Entities>
     <Containers />
     <Relationships>
-      <Relationship type="Generalization" first="1" second="0">
+      <Relationship type="Generalization" first="6" second="4">
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>842</X>
-          <Y>587</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Generalization" first="2" second="0">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>842</X>
-          <Y>591</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="3" second="0">
-        <Label>Contains</Label>
-        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1015</X>
-          <Y>170</Y>
+          <X>252</X>
+          <Y>296</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="5" second="4">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>252</X>
+          <Y>295</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="3" second="7">
+        <Label>Debits</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="2" second="3">
+        <Label>Works At</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1442</X>
+          <Y>311</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
-        <AssociationType>Aggregation</AssociationType>
+        <AssociationType>Association</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1..*</EndMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="0" second="4">
+      <Relationship type="Association" first="8" second="7">
+        <Label>Credits</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="8" second="4">
+        <Label>Has</Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>677</X>
+          <Y>421</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="8" second="3">
         <Label>Works At</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
@@ -181,65 +213,34 @@
         <StartMultiplicity>1..*</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="7" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>252</X>
-          <Y>296</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Generalization" first="6" second="5">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="False">
-          <X>252</X>
-          <Y>295</Y>
-        </BendPoint>
-      </Relationship>
-      <Relationship type="Association" first="0" second="5">
-        <Label>Has</Label>
+      <Relationship type="Association" first="2" second="8">
+        <Label>Contains</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>677</X>
-          <Y>421</Y>
+        <BendPoint relativeToStartShape="False">
+          <X>1015</X>
+          <Y>170</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
+        <AssociationType>Aggregation</AssociationType>
         <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>0..*</EndMultiplicity>
+        <EndMultiplicity>1..*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="0" second="8">
-        <Label>Credits</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="4" second="8">
-        <Label>Debits</Label>
+      <Relationship type="Generalization" first="1" second="8">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="3" second="4">
-        <Label>Works At</Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1442</X>
-          <Y>294</Y>
+        <BendPoint relativeToStartShape="False">
+          <X>842</X>
+          <Y>601</Y>
         </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Generalization" first="0" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>842</X>
+          <Y>597</Y>
+        </BendPoint>
       </Relationship>
     </Relationships>
   </ProjectItem>
