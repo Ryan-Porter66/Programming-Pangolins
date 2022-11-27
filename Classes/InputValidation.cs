@@ -17,9 +17,9 @@ namespace PayrollManagement.Classes
         #endregion
         #region Methods
         //this method will see if the string contains only alphanumeric and spaces with at least 1 character
-        public static bool IsNormalStringValid(string stringToValidate, int maxLength)
+        public static bool IsNormalStringValid(string stringToValidate, int minLength, int maxLength)
         {
-            return Regex.Match(stringToValidate, normalStringPattern).Success && stringToValidate.Length <= maxLength;
+            return Regex.Match(stringToValidate, normalStringPattern).Success && stringToValidate.Length <= maxLength && stringToValidate.Length >= minLength;
         }
 
         //this will check to see if a State string is valid (2 letters)
