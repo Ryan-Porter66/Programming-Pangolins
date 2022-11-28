@@ -51,7 +51,7 @@
             this.PayrollInfoLabel = new System.Windows.Forms.Label();
             this.OtherLabel = new System.Windows.Forms.Label();
             this.AdminUserCheckBox = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FNameTextBox = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -303,12 +303,12 @@
             this.AdminUserCheckBox.Text = "Admin User";
             this.AdminUserCheckBox.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // FNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(278, 244);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(727, 31);
-            this.textBox1.TabIndex = 23;
+            this.FNameTextBox.Location = new System.Drawing.Point(278, 244);
+            this.FNameTextBox.Name = "FNameTextBox";
+            this.FNameTextBox.Size = new System.Drawing.Size(727, 31);
+            this.FNameTextBox.TabIndex = 23;
             // 
             // textBox2
             // 
@@ -443,7 +443,7 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.FNameTextBox);
             this.Controls.Add(this.AdminUserCheckBox);
             this.Controls.Add(this.OtherLabel);
             this.Controls.Add(this.PayrollInfoLabel);
@@ -501,7 +501,7 @@
         private System.Windows.Forms.Label PayrollInfoLabel;
         private System.Windows.Forms.Label OtherLabel;
         private System.Windows.Forms.CheckBox AdminUserCheckBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FNameTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
