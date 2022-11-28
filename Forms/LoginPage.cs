@@ -17,7 +17,7 @@ namespace PayrollManagement.Forms
 
         }
         #endregion
-        #region Dynamic Methods
+        #region Buttons
         private void LoginButton1(object sender, System.EventArgs e)
         {
             try
@@ -32,11 +32,25 @@ namespace PayrollManagement.Forms
 
                 string response = Database.Login(username, password);
 
-                if(response == "Admin" || response == "Employee")
+                if(response == "Admin")
                 {
                     TextBoxUsername.Text = "";
                     TextBoxPassword.Text = "";
+
                     //call next form
+                    this.Hide();
+                    AdminPanel adminForm = new AdminPanel();
+                    adminForm.ShowDialog();
+                }
+                else if(response == "Employee")
+                {
+                    TextBoxUsername.Text = "";
+                    TextBoxPassword.Text = "";
+
+                    //call next form
+                    this.Hide();
+                    EmployeePanel employeeForm = new EmployeePanel();
+                    employeeForm.ShowDialog();
                 }
                 else if(response == "Denied")
                 {
@@ -54,8 +68,6 @@ namespace PayrollManagement.Forms
             }
 
         }
-        #endregion
-        #region Static Methods
         #endregion
     }
 }
