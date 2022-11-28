@@ -1,10 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using PayrollManagement.Classes;
 
 namespace PayrollManagement.Forms
 {
     public partial class LoginPage : Form
     {
-        #region Auto-Built 
+        #region Initializers 
         public LoginPage()
         {
             InitializeComponent();
@@ -18,45 +20,42 @@ namespace PayrollManagement.Forms
         #region Dynamic Methods
         private void LoginButton1(object sender, System.EventArgs e)
         {
-            string username;
-            string password;
+            try
+            {
+                if(string.IsNullOrEmpty(TextBoxUsername.Text) || string.IsNullOrEmpty(TextBoxPassword.Text))
+                {
+                    this.ErrorInvalidLogin.SetError(TextBoxPassword, "Please enter username and password!");
+                    return;
+                }
+                string username = TextBoxUsername.Text;
+                string password = Encryption.SHA256Encryption(TextBoxPassword.Text);
 
-            username = TextBoxUsername.Text;
-            password = TextBoxPassword.Text;
-            var combo = username + ":" + password;
+                string response = Database.Login(username, password);
 
-            MessageBox.Show(combo, "Test");
-
-        }
-        private void UsernameTextBox(object sender, System.EventArgs e)
-        {
-
-        }
-        private void PasswordTextbox(object sender, System.EventArgs e)
-        {
+                if(response == "Admin" || response == "Employee")
+                {
+                    TextBoxUsername.Text = "";
+                    TextBoxPassword.Text = "";
+                    //call next form
+                }
+                else if(response == "Denied")
+                {
+                    this.ErrorInvalidLogin.SetError(TextBoxPassword, "Username or password is incorrect!");
+                    return;
+                }
+                else
+                {
+                    throw new Exception("Error when connecting. Contact developer.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
         }
         #endregion
         #region Static Methods
-        private void textBox1_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, System.EventArgs e)
-        {
-
-        }
         #endregion
     }
 }
