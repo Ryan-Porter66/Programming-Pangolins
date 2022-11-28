@@ -22,11 +22,13 @@ namespace PayrollManagement.Forms
         {
             try
             {
+                
                 if(string.IsNullOrEmpty(TextBoxUsername.Text) || string.IsNullOrEmpty(TextBoxPassword.Text))
                 {
                     this.ErrorInvalidLogin.SetError(TextBoxPassword, "Please enter username and password!");
                     return;
                 }
+                this.ErrorInvalidLogin.SetError(TextBoxPassword, "");
                 string username = TextBoxUsername.Text;
                 string password = Encryption.SHA256Encryption(TextBoxPassword.Text);
 
