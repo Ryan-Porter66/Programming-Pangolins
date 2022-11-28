@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <PublisherName>Programming Pangolins</PublisherName>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.0.3</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="Classes\BankAccount.cs" />
     <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\FormMethods.cs" />
     <Compile Include="Classes\InputValidation.cs" />
     <Compile Include="Classes\Prompt.cs" />
     <Compile Include="Classes\SalaryEmployee.cs" />

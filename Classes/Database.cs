@@ -542,6 +542,7 @@ namespace PayrollManagement.Classes
             // Returns "Error" or an error message if something went wrong
             // Returns "Denied" if password wasn't correct
             // Returns "Admin"/"Employee" if password was correct. This is the user's privilege level
+            // Returns "Error: Incorrect Login" if username does not exist
         }
     }
 }
