@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(1894, 1009);
             this.Controls.Add(this.EmployeePayrollLabel);
             this.Name = "EmployeePanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeePanel";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

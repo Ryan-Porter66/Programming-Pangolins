@@ -43,6 +43,7 @@ namespace PayrollManagement.Forms
                     this.Hide();
                     AdminPanel adminForm = new AdminPanel();
                     adminForm.ShowDialog();
+                    this.Show();
                 }
                 else if(response == "Employee")
                 {
@@ -53,6 +54,7 @@ namespace PayrollManagement.Forms
                     this.Hide();
                     EmployeePanel employeeForm = new EmployeePanel();
                     employeeForm.ShowDialog();
+                    this.Show();
                 }
                 else if(response == "Denied")
                 {

@@ -27,7 +27,11 @@ namespace PayrollManagement.Forms
         #region Buttons
         private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
-
+            //call next addEmployee Form
+            this.Hide();
+            AddEmployeePanel addEmployeeForm = new AddEmployeePanel();
+            addEmployeeForm.ShowDialog();
+            this.Show();
         }
 
         private void DeleteEmployeeButton_Click(object sender, EventArgs e)
