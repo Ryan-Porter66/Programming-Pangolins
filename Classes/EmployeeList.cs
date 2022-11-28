@@ -20,10 +20,10 @@ namespace PayrollManagement.Classes
         #region Constructor
         #endregion
         #region Methods
-        public void GenerateEmployeeList(string compFedID, string username, string password)
+        public void GenerateEmployeeList(string username, string password)
         {
             this.Employees = Database.GetEmployeeList(username, password);
-            //this.Company = Database.GetCompany(username, password);
+            this.Company = Database.GetCompany(username, password);
         }
         //allow user to select employees for the list
         public void DisplaySelectableEmployeeList()

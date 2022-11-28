@@ -164,5 +164,131 @@ namespace PayrollManagementUnitTests
             }
 
         }
+
+        [TestMethod]
+        public void TestGetCompany()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                Company company = Database.GetCompany(username, password);
+                string resp = string.Empty;
+                resp = company.Name;
+                Console.WriteLine(resp);
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestUpdateCompany()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+                BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
+                Company company = new Company("TestName", bank, "1357924680", "123 Another St", "Testcity", "ND", "54321", "7776664545");
+                Database.UpdateComany(username, password, company);
+                Company companyUpdate = Database.GetCompany(username, password);
+
+                string resp = companyUpdate.FederalID;
+                Console.WriteLine(resp);
+                Assert.AreEqual(company.FederalID, companyUpdate.FederalID);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestGetEmployee()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                Employee employee = Database.GetEmployee(username, password, "5");
+
+                string resp = employee.Ssn;
+                Console.WriteLine(resp);
+                Assert.AreEqual("101-12-1234", resp);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestUpdateEmployee()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                DateTime dob = new DateTime(1990, 1, 2);
+                DateTime hire = new DateTime(2019, 3, 14);
+                BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
+                List<Deduction> tempDeduct = new List<Deduction>
+                {
+                    new FlatDeduction("flat", 20.00m),
+                    new PercentageDeduction("Percentage", 0.03m)
+                };
+                HourlyEmployee emp = new HourlyEmployee("John", "Doe", "101 N 57th St", "Springfield"
+                    , "10101", "MI", bank, 0009, .25m, "Employee", "101-12-1235", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
+                Database.UpdateEmployee(username, password, emp);
+                Employee employee = Database.GetEmployee(username, password, "9");
+
+                string resp = employee.Ssn;
+                Console.WriteLine(resp);
+                Assert.AreEqual(emp.Ssn, resp);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void TestDeleteEmployee()
+        {
+            // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
+            try
+            {
+                string username = "2";
+                string password = "thisaintit";
+
+                Database.DeleteEmployee(username, password, "9");
+                
+                Assert.AreEqual(1, 1);
+
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+
+        }
     }
 }
