@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PayrollManagement.Forms
@@ -25,31 +18,32 @@ namespace PayrollManagement.Forms
         #endregion
 
         #region Buttons
+        //calls addEmployee Form
         private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
-            //call next addEmployee Form
             this.Hide();
             AddEmployeePanel addEmployeeForm = new AddEmployeePanel();
             addEmployeeForm.ShowDialog();
+            addEmployeeForm.Dispose();
             this.Show();
         }
-
+        //call delete employee form
         private void DeleteEmployeeButton_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void EnterEditEmployPayInfoButton_Click(object sender, EventArgs e)
+        //call edit employee form
+        private void EditEmployPayInfoButton_Click(object sender, EventArgs e)
         {
 
         }
-
+        //call business button
         private void EditBusButton_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void CompleGeneratePayButton_Click(object sender, EventArgs e)
+        //call compile form
+        private void CompileGeneratePayButton_Click(object sender, EventArgs e)
         {
 
         }
