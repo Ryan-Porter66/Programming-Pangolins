@@ -41,7 +41,6 @@
             this.BankNameLabel = new System.Windows.Forms.Label();
             this.BankAccountNumberLabel = new System.Windows.Forms.Label();
             this.BankRoutingNumberLabel = new System.Windows.Forms.Label();
-            this.EmployeeIDLabel = new System.Windows.Forms.Label();
             this.DepartmentLabel = new System.Windows.Forms.Label();
             this.HireDateLabel = new System.Windows.Forms.Label();
             this.SalariedOrHourlyLabel = new System.Windows.Forms.Label();
@@ -55,20 +54,19 @@
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.CityTextBox = new System.Windows.Forms.TextBox();
-            this.ZipTextBox = new System.Windows.Forms.TextBox();
+            this.ZipCodeTextBox = new System.Windows.Forms.TextBox();
             this.StateTextBox = new System.Windows.Forms.TextBox();
             this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.DoBTextBox = new System.Windows.Forms.TextBox();
             this.BankNameTextBox = new System.Windows.Forms.TextBox();
             this.BankANTextBox = new System.Windows.Forms.TextBox();
             this.BankRNTextBox = new System.Windows.Forms.TextBox();
-            this.EmpIDTextBox = new System.Windows.Forms.TextBox();
             this.DepartmentTextBox = new System.Windows.Forms.TextBox();
             this.HireDateTextBox = new System.Windows.Forms.TextBox();
-            this.PayTextBox = new System.Windows.Forms.TextBox();
             this.SSNTextBox = new System.Windows.Forms.TextBox();
             this.FedRateTextBox = new System.Windows.Forms.TextBox();
             this.SubmitButton = new System.Windows.Forms.Button();
+            this.SalariedHourlyComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // EnterEmployeeInfoLabel
@@ -215,22 +213,11 @@
             this.BankRoutingNumberLabel.TabIndex = 12;
             this.BankRoutingNumberLabel.Text = "Bank Routing Number:";
             // 
-            // EmployeeIDLabel
-            // 
-            this.EmployeeIDLabel.AutoSize = true;
-            this.EmployeeIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeIDLabel.Location = new System.Drawing.Point(1040, 238);
-            this.EmployeeIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.EmployeeIDLabel.Name = "EmployeeIDLabel";
-            this.EmployeeIDLabel.Size = new System.Drawing.Size(206, 37);
-            this.EmployeeIDLabel.TabIndex = 13;
-            this.EmployeeIDLabel.Text = "Employee ID:";
-            // 
             // DepartmentLabel
             // 
             this.DepartmentLabel.AutoSize = true;
             this.DepartmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartmentLabel.Location = new System.Drawing.Point(1040, 287);
+            this.DepartmentLabel.Location = new System.Drawing.Point(1040, 244);
             this.DepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartmentLabel.Name = "DepartmentLabel";
             this.DepartmentLabel.Size = new System.Drawing.Size(193, 37);
@@ -241,7 +228,7 @@
             // 
             this.HireDateLabel.AutoSize = true;
             this.HireDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HireDateLabel.Location = new System.Drawing.Point(1040, 333);
+            this.HireDateLabel.Location = new System.Drawing.Point(1041, 292);
             this.HireDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HireDateLabel.Name = "HireDateLabel";
             this.HireDateLabel.Size = new System.Drawing.Size(160, 37);
@@ -252,7 +239,7 @@
             // 
             this.SalariedOrHourlyLabel.AutoSize = true;
             this.SalariedOrHourlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(1040, 387);
+            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(1040, 338);
             this.SalariedOrHourlyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SalariedOrHourlyLabel.Name = "SalariedOrHourlyLabel";
             this.SalariedOrHourlyLabel.Size = new System.Drawing.Size(282, 37);
@@ -263,7 +250,7 @@
             // 
             this.SSNLabel.AutoSize = true;
             this.SSNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SSNLabel.Location = new System.Drawing.Point(1040, 440);
+            this.SSNLabel.Location = new System.Drawing.Point(1041, 392);
             this.SSNLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SSNLabel.Name = "SSNLabel";
             this.SSNLabel.Size = new System.Drawing.Size(360, 37);
@@ -274,7 +261,7 @@
             // 
             this.FederalTaxRateLabel.AutoSize = true;
             this.FederalTaxRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FederalTaxRateLabel.Location = new System.Drawing.Point(1040, 498);
+            this.FederalTaxRateLabel.Location = new System.Drawing.Point(1040, 440);
             this.FederalTaxRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FederalTaxRateLabel.Name = "FederalTaxRateLabel";
             this.FederalTaxRateLabel.Size = new System.Drawing.Size(271, 37);
@@ -307,7 +294,7 @@
             // 
             this.OtherLabel.AutoSize = true;
             this.OtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OtherLabel.Location = new System.Drawing.Point(1000, 687);
+            this.OtherLabel.Location = new System.Drawing.Point(1000, 504);
             this.OtherLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OtherLabel.Name = "OtherLabel";
             this.OtherLabel.Size = new System.Drawing.Size(163, 55);
@@ -318,7 +305,7 @@
             // 
             this.AdminUserCheckBox.AutoSize = true;
             this.AdminUserCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminUserCheckBox.Location = new System.Drawing.Point(1048, 750);
+            this.AdminUserCheckBox.Location = new System.Drawing.Point(1048, 563);
             this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AdminUserCheckBox.Name = "AdminUserCheckBox";
             this.AdminUserCheckBox.Size = new System.Drawing.Size(217, 41);
@@ -358,13 +345,13 @@
             this.CityTextBox.Size = new System.Drawing.Size(822, 31);
             this.CityTextBox.TabIndex = 26;
             // 
-            // ZipTextBox
+            // ZipCodeTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(248, 446);
-            this.ZipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ZipTextBox.Name = "ZipTextBox";
-            this.ZipTextBox.Size = new System.Drawing.Size(746, 31);
-            this.ZipTextBox.TabIndex = 27;
+            this.ZipCodeTextBox.Location = new System.Drawing.Point(248, 446);
+            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ZipCodeTextBox.Name = "ZipCodeTextBox";
+            this.ZipCodeTextBox.Size = new System.Drawing.Size(746, 31);
+            this.ZipCodeTextBox.TabIndex = 27;
             // 
             // StateTextBox
             // 
@@ -414,17 +401,9 @@
             this.BankRNTextBox.Size = new System.Drawing.Size(552, 31);
             this.BankRNTextBox.TabIndex = 33;
             // 
-            // EmpIDTextBox
-            // 
-            this.EmpIDTextBox.Location = new System.Drawing.Point(1252, 244);
-            this.EmpIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.EmpIDTextBox.Name = "EmpIDTextBox";
-            this.EmpIDTextBox.Size = new System.Drawing.Size(590, 31);
-            this.EmpIDTextBox.TabIndex = 34;
-            // 
             // DepartmentTextBox
             // 
-            this.DepartmentTextBox.Location = new System.Drawing.Point(1240, 292);
+            this.DepartmentTextBox.Location = new System.Drawing.Point(1238, 250);
             this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DepartmentTextBox.Name = "DepartmentTextBox";
             this.DepartmentTextBox.Size = new System.Drawing.Size(604, 31);
@@ -432,23 +411,15 @@
             // 
             // HireDateTextBox
             // 
-            this.HireDateTextBox.Location = new System.Drawing.Point(1206, 338);
+            this.HireDateTextBox.Location = new System.Drawing.Point(1206, 298);
             this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.HireDateTextBox.Name = "HireDateTextBox";
             this.HireDateTextBox.Size = new System.Drawing.Size(636, 31);
             this.HireDateTextBox.TabIndex = 36;
             // 
-            // PayTextBox
-            // 
-            this.PayTextBox.Location = new System.Drawing.Point(1328, 392);
-            this.PayTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PayTextBox.Name = "PayTextBox";
-            this.PayTextBox.Size = new System.Drawing.Size(514, 31);
-            this.PayTextBox.TabIndex = 37;
-            // 
             // SSNTextBox
             // 
-            this.SSNTextBox.Location = new System.Drawing.Point(1406, 446);
+            this.SSNTextBox.Location = new System.Drawing.Point(1406, 398);
             this.SSNTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SSNTextBox.Name = "SSNTextBox";
             this.SSNTextBox.Size = new System.Drawing.Size(436, 31);
@@ -456,7 +427,7 @@
             // 
             // FedRateTextBox
             // 
-            this.FedRateTextBox.Location = new System.Drawing.Point(1328, 504);
+            this.FedRateTextBox.Location = new System.Drawing.Point(1328, 446);
             this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FedRateTextBox.Name = "FedRateTextBox";
             this.FedRateTextBox.Size = new System.Drawing.Size(514, 31);
@@ -465,7 +436,7 @@
             // SubmitButton
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitButton.Location = new System.Drawing.Point(1328, 687);
+            this.SubmitButton.Location = new System.Drawing.Point(1189, 687);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(440, 179);
             this.SubmitButton.TabIndex = 40;
@@ -473,25 +444,32 @@
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // SalariedHourlyComboBox
+            // 
+            this.SalariedHourlyComboBox.FormattingEnabled = true;
+            this.SalariedHourlyComboBox.Location = new System.Drawing.Point(1321, 341);
+            this.SalariedHourlyComboBox.Name = "SalariedHourlyComboBox";
+            this.SalariedHourlyComboBox.Size = new System.Drawing.Size(520, 33);
+            this.SalariedHourlyComboBox.TabIndex = 41;
+            // 
             // AddEmployeePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1894, 1010);
+            this.Controls.Add(this.SalariedHourlyComboBox);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.FedRateTextBox);
             this.Controls.Add(this.SSNTextBox);
-            this.Controls.Add(this.PayTextBox);
             this.Controls.Add(this.HireDateTextBox);
             this.Controls.Add(this.DepartmentTextBox);
-            this.Controls.Add(this.EmpIDTextBox);
             this.Controls.Add(this.BankRNTextBox);
             this.Controls.Add(this.BankANTextBox);
             this.Controls.Add(this.BankNameTextBox);
             this.Controls.Add(this.DoBTextBox);
             this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.StateTextBox);
-            this.Controls.Add(this.ZipTextBox);
+            this.Controls.Add(this.ZipCodeTextBox);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.LastNameTextBox);
@@ -505,7 +483,6 @@
             this.Controls.Add(this.SalariedOrHourlyLabel);
             this.Controls.Add(this.HireDateLabel);
             this.Controls.Add(this.DepartmentLabel);
-            this.Controls.Add(this.EmployeeIDLabel);
             this.Controls.Add(this.BankRoutingNumberLabel);
             this.Controls.Add(this.BankAccountNumberLabel);
             this.Controls.Add(this.BankNameLabel);
@@ -544,7 +521,6 @@
         private System.Windows.Forms.Label BankNameLabel;
         private System.Windows.Forms.Label BankAccountNumberLabel;
         private System.Windows.Forms.Label BankRoutingNumberLabel;
-        private System.Windows.Forms.Label EmployeeIDLabel;
         private System.Windows.Forms.Label DepartmentLabel;
         private System.Windows.Forms.Label HireDateLabel;
         private System.Windows.Forms.Label SalariedOrHourlyLabel;
@@ -558,19 +534,18 @@
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.TextBox CityTextBox;
-        private System.Windows.Forms.TextBox ZipTextBox;
+        private System.Windows.Forms.TextBox ZipCodeTextBox;
         private System.Windows.Forms.TextBox StateTextBox;
         private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.TextBox DoBTextBox;
         private System.Windows.Forms.TextBox BankNameTextBox;
         private System.Windows.Forms.TextBox BankANTextBox;
         private System.Windows.Forms.TextBox BankRNTextBox;
-        private System.Windows.Forms.TextBox EmpIDTextBox;
         private System.Windows.Forms.TextBox DepartmentTextBox;
         private System.Windows.Forms.TextBox HireDateTextBox;
-        private System.Windows.Forms.TextBox PayTextBox;
         private System.Windows.Forms.TextBox SSNTextBox;
         private System.Windows.Forms.TextBox FedRateTextBox;
         private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.ComboBox SalariedHourlyComboBox;
     }
 }

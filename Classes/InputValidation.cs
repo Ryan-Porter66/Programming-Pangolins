@@ -71,6 +71,12 @@ namespace PayrollManagement.Classes
             if (!decimal.TryParse(stringToValidate, out decimal stringDecimal)) return false;
             return stringDecimal > 0;
         }
+        public static bool IsSalariedOrHourlyValid(string stringToValidate)
+        {
+            if (stringToValidate == "") return false;
+            return true;
+
+        }
         #endregion
     }
 }
