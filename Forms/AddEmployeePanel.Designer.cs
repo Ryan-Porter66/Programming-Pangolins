@@ -68,6 +68,7 @@
             this.PayTextBox = new System.Windows.Forms.TextBox();
             this.SSNTextBox = new System.Windows.Forms.TextBox();
             this.FedRateTextBox = new System.Windows.Forms.TextBox();
+            this.SubmitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnterEmployeeInfoLabel
@@ -75,10 +76,10 @@
             this.EnterEmployeeInfoLabel.AutoSize = true;
             this.EnterEmployeeInfoLabel.BackColor = System.Drawing.Color.LightGray;
             this.EnterEmployeeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnterEmployeeInfoLabel.Location = new System.Drawing.Point(134, 15);
-            this.EnterEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EnterEmployeeInfoLabel.Location = new System.Drawing.Point(268, 29);
+            this.EnterEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnterEmployeeInfoLabel.Name = "EnterEmployeeInfoLabel";
-            this.EnterEmployeeInfoLabel.Size = new System.Drawing.Size(619, 55);
+            this.EnterEmployeeInfoLabel.Size = new System.Drawing.Size(1230, 108);
             this.EnterEmployeeInfoLabel.TabIndex = 0;
             this.EnterEmployeeInfoLabel.Text = "Enter Employee Information";
             // 
@@ -86,10 +87,10 @@
             // 
             this.PersonalInfoLabel.AutoSize = true;
             this.PersonalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonalInfoLabel.Location = new System.Drawing.Point(23, 95);
-            this.PersonalInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PersonalInfoLabel.Location = new System.Drawing.Point(46, 183);
+            this.PersonalInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PersonalInfoLabel.Name = "PersonalInfoLabel";
-            this.PersonalInfoLabel.Size = new System.Drawing.Size(174, 29);
+            this.PersonalInfoLabel.Size = new System.Drawing.Size(334, 55);
             this.PersonalInfoLabel.TabIndex = 1;
             this.PersonalInfoLabel.Text = "Personal Info:";
             // 
@@ -97,10 +98,10 @@
             // 
             this.FNameLabel.AutoSize = true;
             this.FNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FNameLabel.Location = new System.Drawing.Point(42, 124);
-            this.FNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FNameLabel.Location = new System.Drawing.Point(84, 238);
+            this.FNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FNameLabel.Name = "FNameLabel";
-            this.FNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.FNameLabel.Size = new System.Drawing.Size(184, 37);
             this.FNameLabel.TabIndex = 2;
             this.FNameLabel.Text = "First Name:";
             // 
@@ -108,10 +109,10 @@
             // 
             this.LNameLabel.AutoSize = true;
             this.LNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNameLabel.Location = new System.Drawing.Point(42, 149);
-            this.LNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LNameLabel.Location = new System.Drawing.Point(84, 287);
+            this.LNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LNameLabel.Name = "LNameLabel";
-            this.LNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.LNameLabel.Size = new System.Drawing.Size(182, 37);
             this.LNameLabel.TabIndex = 3;
             this.LNameLabel.Text = "Last Name:";
             // 
@@ -119,10 +120,10 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressLabel.Location = new System.Drawing.Point(42, 173);
-            this.AddressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AddressLabel.Location = new System.Drawing.Point(84, 333);
+            this.AddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(72, 20);
+            this.AddressLabel.Size = new System.Drawing.Size(144, 37);
             this.AddressLabel.TabIndex = 4;
             this.AddressLabel.Text = "Address:";
             // 
@@ -130,10 +131,10 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CityLabel.Location = new System.Drawing.Point(42, 201);
-            this.CityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CityLabel.Location = new System.Drawing.Point(84, 387);
+            this.CityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(39, 20);
+            this.CityLabel.Size = new System.Drawing.Size(80, 37);
             this.CityLabel.TabIndex = 5;
             this.CityLabel.Text = "City:";
             // 
@@ -141,10 +142,10 @@
             // 
             this.ZipCodeLabel.AutoSize = true;
             this.ZipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZipCodeLabel.Location = new System.Drawing.Point(42, 229);
-            this.ZipCodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ZipCodeLabel.Location = new System.Drawing.Point(84, 440);
+            this.ZipCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ZipCodeLabel.Name = "ZipCodeLabel";
-            this.ZipCodeLabel.Size = new System.Drawing.Size(77, 20);
+            this.ZipCodeLabel.Size = new System.Drawing.Size(156, 37);
             this.ZipCodeLabel.TabIndex = 6;
             this.ZipCodeLabel.Text = "Zip Code:";
             // 
@@ -152,10 +153,10 @@
             // 
             this.StateLabel.AutoSize = true;
             this.StateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StateLabel.Location = new System.Drawing.Point(42, 259);
-            this.StateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.StateLabel.Location = new System.Drawing.Point(84, 498);
+            this.StateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StateLabel.Name = "StateLabel";
-            this.StateLabel.Size = new System.Drawing.Size(52, 20);
+            this.StateLabel.Size = new System.Drawing.Size(100, 37);
             this.StateLabel.TabIndex = 7;
             this.StateLabel.Text = "State:";
             // 
@@ -163,10 +164,10 @@
             // 
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(42, 288);
-            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(84, 554);
+            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(119, 20);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(242, 37);
             this.PhoneNumberLabel.TabIndex = 8;
             this.PhoneNumberLabel.Text = "Phone Number:";
             // 
@@ -174,10 +175,10 @@
             // 
             this.DateOfBirthLabel.AutoSize = true;
             this.DateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateOfBirthLabel.Location = new System.Drawing.Point(42, 314);
-            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(84, 604);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(106, 20);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(211, 37);
             this.DateOfBirthLabel.TabIndex = 9;
             this.DateOfBirthLabel.Text = "Date Of Birth:";
             // 
@@ -185,10 +186,10 @@
             // 
             this.BankNameLabel.AutoSize = true;
             this.BankNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankNameLabel.Location = new System.Drawing.Point(42, 390);
-            this.BankNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankNameLabel.Location = new System.Drawing.Point(84, 750);
+            this.BankNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankNameLabel.Name = "BankNameLabel";
-            this.BankNameLabel.Size = new System.Drawing.Size(96, 20);
+            this.BankNameLabel.Size = new System.Drawing.Size(194, 37);
             this.BankNameLabel.TabIndex = 10;
             this.BankNameLabel.Text = "Bank Name:";
             // 
@@ -196,10 +197,10 @@
             // 
             this.BankAccountNumberLabel.AutoSize = true;
             this.BankAccountNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankAccountNumberLabel.Location = new System.Drawing.Point(42, 417);
-            this.BankAccountNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankAccountNumberLabel.Location = new System.Drawing.Point(84, 802);
+            this.BankAccountNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankAccountNumberLabel.Name = "BankAccountNumberLabel";
-            this.BankAccountNumberLabel.Size = new System.Drawing.Size(173, 20);
+            this.BankAccountNumberLabel.Size = new System.Drawing.Size(349, 37);
             this.BankAccountNumberLabel.TabIndex = 11;
             this.BankAccountNumberLabel.Text = "Bank Account Number:";
             // 
@@ -207,10 +208,10 @@
             // 
             this.BankRoutingNumberLabel.AutoSize = true;
             this.BankRoutingNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankRoutingNumberLabel.Location = new System.Drawing.Point(42, 445);
-            this.BankRoutingNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankRoutingNumberLabel.Location = new System.Drawing.Point(84, 856);
+            this.BankRoutingNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankRoutingNumberLabel.Name = "BankRoutingNumberLabel";
-            this.BankRoutingNumberLabel.Size = new System.Drawing.Size(170, 20);
+            this.BankRoutingNumberLabel.Size = new System.Drawing.Size(342, 37);
             this.BankRoutingNumberLabel.TabIndex = 12;
             this.BankRoutingNumberLabel.Text = "Bank Routing Number:";
             // 
@@ -218,10 +219,10 @@
             // 
             this.EmployeeIDLabel.AutoSize = true;
             this.EmployeeIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeIDLabel.Location = new System.Drawing.Point(520, 124);
-            this.EmployeeIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EmployeeIDLabel.Location = new System.Drawing.Point(1040, 238);
+            this.EmployeeIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EmployeeIDLabel.Name = "EmployeeIDLabel";
-            this.EmployeeIDLabel.Size = new System.Drawing.Size(104, 20);
+            this.EmployeeIDLabel.Size = new System.Drawing.Size(206, 37);
             this.EmployeeIDLabel.TabIndex = 13;
             this.EmployeeIDLabel.Text = "Employee ID:";
             // 
@@ -229,10 +230,10 @@
             // 
             this.DepartmentLabel.AutoSize = true;
             this.DepartmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartmentLabel.Location = new System.Drawing.Point(520, 149);
-            this.DepartmentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DepartmentLabel.Location = new System.Drawing.Point(1040, 287);
+            this.DepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartmentLabel.Name = "DepartmentLabel";
-            this.DepartmentLabel.Size = new System.Drawing.Size(98, 20);
+            this.DepartmentLabel.Size = new System.Drawing.Size(193, 37);
             this.DepartmentLabel.TabIndex = 14;
             this.DepartmentLabel.Text = "Department:";
             // 
@@ -240,10 +241,10 @@
             // 
             this.HireDateLabel.AutoSize = true;
             this.HireDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HireDateLabel.Location = new System.Drawing.Point(520, 173);
-            this.HireDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HireDateLabel.Location = new System.Drawing.Point(1040, 333);
+            this.HireDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HireDateLabel.Name = "HireDateLabel";
-            this.HireDateLabel.Size = new System.Drawing.Size(81, 20);
+            this.HireDateLabel.Size = new System.Drawing.Size(160, 37);
             this.HireDateLabel.TabIndex = 15;
             this.HireDateLabel.Text = "Hire Date:";
             // 
@@ -251,10 +252,10 @@
             // 
             this.SalariedOrHourlyLabel.AutoSize = true;
             this.SalariedOrHourlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(520, 201);
-            this.SalariedOrHourlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(1040, 387);
+            this.SalariedOrHourlyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SalariedOrHourlyLabel.Name = "SalariedOrHourlyLabel";
-            this.SalariedOrHourlyLabel.Size = new System.Drawing.Size(138, 20);
+            this.SalariedOrHourlyLabel.Size = new System.Drawing.Size(282, 37);
             this.SalariedOrHourlyLabel.TabIndex = 16;
             this.SalariedOrHourlyLabel.Text = "Salaried or Hourly:";
             // 
@@ -262,10 +263,10 @@
             // 
             this.SSNLabel.AutoSize = true;
             this.SSNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SSNLabel.Location = new System.Drawing.Point(520, 229);
-            this.SSNLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SSNLabel.Location = new System.Drawing.Point(1040, 440);
+            this.SSNLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SSNLabel.Name = "SSNLabel";
-            this.SSNLabel.Size = new System.Drawing.Size(177, 20);
+            this.SSNLabel.Size = new System.Drawing.Size(360, 37);
             this.SSNLabel.TabIndex = 17;
             this.SSNLabel.Text = "Social Security Number:";
             // 
@@ -273,10 +274,10 @@
             // 
             this.FederalTaxRateLabel.AutoSize = true;
             this.FederalTaxRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FederalTaxRateLabel.Location = new System.Drawing.Point(520, 259);
-            this.FederalTaxRateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FederalTaxRateLabel.Location = new System.Drawing.Point(1040, 498);
+            this.FederalTaxRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FederalTaxRateLabel.Name = "FederalTaxRateLabel";
-            this.FederalTaxRateLabel.Size = new System.Drawing.Size(135, 20);
+            this.FederalTaxRateLabel.Size = new System.Drawing.Size(271, 37);
             this.FederalTaxRateLabel.TabIndex = 18;
             this.FederalTaxRateLabel.Text = "Federal Tax Rate:";
             // 
@@ -284,10 +285,10 @@
             // 
             this.BankInfoLabel.AutoSize = true;
             this.BankInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankInfoLabel.Location = new System.Drawing.Point(23, 357);
-            this.BankInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankInfoLabel.Location = new System.Drawing.Point(46, 687);
+            this.BankInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankInfoLabel.Name = "BankInfoLabel";
-            this.BankInfoLabel.Size = new System.Drawing.Size(215, 29);
+            this.BankInfoLabel.Size = new System.Drawing.Size(417, 55);
             this.BankInfoLabel.TabIndex = 19;
             this.BankInfoLabel.Text = "Bank Information:";
             // 
@@ -295,10 +296,10 @@
             // 
             this.PayrollInfoLabel.AutoSize = true;
             this.PayrollInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayrollInfoLabel.Location = new System.Drawing.Point(500, 95);
-            this.PayrollInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PayrollInfoLabel.Location = new System.Drawing.Point(1000, 183);
+            this.PayrollInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PayrollInfoLabel.Name = "PayrollInfoLabel";
-            this.PayrollInfoLabel.Size = new System.Drawing.Size(238, 29);
+            this.PayrollInfoLabel.Size = new System.Drawing.Size(456, 55);
             this.PayrollInfoLabel.TabIndex = 20;
             this.PayrollInfoLabel.Text = "Payroll Information:";
             // 
@@ -306,10 +307,10 @@
             // 
             this.OtherLabel.AutoSize = true;
             this.OtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OtherLabel.Location = new System.Drawing.Point(500, 357);
-            this.OtherLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.OtherLabel.Location = new System.Drawing.Point(1000, 687);
+            this.OtherLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OtherLabel.Name = "OtherLabel";
-            this.OtherLabel.Size = new System.Drawing.Size(85, 29);
+            this.OtherLabel.Size = new System.Drawing.Size(163, 55);
             this.OtherLabel.TabIndex = 21;
             this.OtherLabel.Text = "Other:";
             // 
@@ -317,155 +318,167 @@
             // 
             this.AdminUserCheckBox.AutoSize = true;
             this.AdminUserCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminUserCheckBox.Location = new System.Drawing.Point(524, 390);
-            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AdminUserCheckBox.Location = new System.Drawing.Point(1048, 750);
+            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AdminUserCheckBox.Name = "AdminUserCheckBox";
-            this.AdminUserCheckBox.Size = new System.Drawing.Size(111, 24);
+            this.AdminUserCheckBox.Size = new System.Drawing.Size(217, 41);
             this.AdminUserCheckBox.TabIndex = 22;
             this.AdminUserCheckBox.Text = "Admin User";
             this.AdminUserCheckBox.UseVisualStyleBackColor = true;
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(133, 127);
-            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(266, 244);
+            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(366, 20);
+            this.FirstNameTextBox.Size = new System.Drawing.Size(728, 31);
             this.FirstNameTextBox.TabIndex = 23;
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(133, 152);
-            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastNameTextBox.Location = new System.Drawing.Point(266, 292);
+            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(366, 20);
+            this.LastNameTextBox.Size = new System.Drawing.Size(728, 31);
             this.LastNameTextBox.TabIndex = 24;
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(118, 176);
-            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddressTextBox.Location = new System.Drawing.Point(236, 338);
+            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(381, 20);
+            this.AddressTextBox.Size = new System.Drawing.Size(758, 31);
             this.AddressTextBox.TabIndex = 25;
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(86, 204);
-            this.CityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CityTextBox.Location = new System.Drawing.Point(172, 392);
+            this.CityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(413, 20);
+            this.CityTextBox.Size = new System.Drawing.Size(822, 31);
             this.CityTextBox.TabIndex = 26;
             // 
             // ZipTextBox
             // 
-            this.ZipTextBox.Location = new System.Drawing.Point(124, 232);
-            this.ZipTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ZipTextBox.Location = new System.Drawing.Point(248, 446);
+            this.ZipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ZipTextBox.Name = "ZipTextBox";
-            this.ZipTextBox.Size = new System.Drawing.Size(375, 20);
+            this.ZipTextBox.Size = new System.Drawing.Size(746, 31);
             this.ZipTextBox.TabIndex = 27;
             // 
             // StateTextBox
             // 
-            this.StateTextBox.Location = new System.Drawing.Point(96, 262);
-            this.StateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StateTextBox.Location = new System.Drawing.Point(192, 504);
+            this.StateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StateTextBox.Name = "StateTextBox";
-            this.StateTextBox.Size = new System.Drawing.Size(403, 20);
+            this.StateTextBox.Size = new System.Drawing.Size(802, 31);
             this.StateTextBox.TabIndex = 28;
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(166, 291);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PhoneTextBox.Location = new System.Drawing.Point(332, 560);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(332, 20);
+            this.PhoneTextBox.Size = new System.Drawing.Size(660, 31);
             this.PhoneTextBox.TabIndex = 29;
             // 
             // DoBTextBox
             // 
-            this.DoBTextBox.Location = new System.Drawing.Point(151, 317);
-            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoBTextBox.Location = new System.Drawing.Point(302, 610);
+            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DoBTextBox.Name = "DoBTextBox";
-            this.DoBTextBox.Size = new System.Drawing.Size(348, 20);
+            this.DoBTextBox.Size = new System.Drawing.Size(692, 31);
             this.DoBTextBox.TabIndex = 30;
             // 
             // BankNameTextBox
             // 
-            this.BankNameTextBox.Location = new System.Drawing.Point(143, 394);
-            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankNameTextBox.Location = new System.Drawing.Point(286, 758);
+            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BankNameTextBox.Name = "BankNameTextBox";
-            this.BankNameTextBox.Size = new System.Drawing.Size(356, 20);
+            this.BankNameTextBox.Size = new System.Drawing.Size(708, 31);
             this.BankNameTextBox.TabIndex = 31;
             // 
             // BankANTextBox
             // 
-            this.BankANTextBox.Location = new System.Drawing.Point(220, 420);
-            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankANTextBox.Location = new System.Drawing.Point(440, 808);
+            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BankANTextBox.Name = "BankANTextBox";
-            this.BankANTextBox.Size = new System.Drawing.Size(278, 20);
+            this.BankANTextBox.Size = new System.Drawing.Size(552, 31);
             this.BankANTextBox.TabIndex = 32;
             // 
             // BankRNTextBox
             // 
-            this.BankRNTextBox.Location = new System.Drawing.Point(220, 448);
-            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankRNTextBox.Location = new System.Drawing.Point(440, 862);
+            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BankRNTextBox.Name = "BankRNTextBox";
-            this.BankRNTextBox.Size = new System.Drawing.Size(278, 20);
+            this.BankRNTextBox.Size = new System.Drawing.Size(552, 31);
             this.BankRNTextBox.TabIndex = 33;
             // 
             // EmpIDTextBox
             // 
-            this.EmpIDTextBox.Location = new System.Drawing.Point(626, 127);
-            this.EmpIDTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmpIDTextBox.Location = new System.Drawing.Point(1252, 244);
+            this.EmpIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EmpIDTextBox.Name = "EmpIDTextBox";
-            this.EmpIDTextBox.Size = new System.Drawing.Size(297, 20);
+            this.EmpIDTextBox.Size = new System.Drawing.Size(590, 31);
             this.EmpIDTextBox.TabIndex = 34;
             // 
             // DepartmentTextBox
             // 
-            this.DepartmentTextBox.Location = new System.Drawing.Point(620, 152);
-            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DepartmentTextBox.Location = new System.Drawing.Point(1240, 292);
+            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DepartmentTextBox.Name = "DepartmentTextBox";
-            this.DepartmentTextBox.Size = new System.Drawing.Size(304, 20);
+            this.DepartmentTextBox.Size = new System.Drawing.Size(604, 31);
             this.DepartmentTextBox.TabIndex = 35;
             // 
             // HireDateTextBox
             // 
-            this.HireDateTextBox.Location = new System.Drawing.Point(603, 176);
-            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HireDateTextBox.Location = new System.Drawing.Point(1206, 338);
+            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.HireDateTextBox.Name = "HireDateTextBox";
-            this.HireDateTextBox.Size = new System.Drawing.Size(320, 20);
+            this.HireDateTextBox.Size = new System.Drawing.Size(636, 31);
             this.HireDateTextBox.TabIndex = 36;
             // 
             // PayTextBox
             // 
-            this.PayTextBox.Location = new System.Drawing.Point(664, 204);
-            this.PayTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PayTextBox.Location = new System.Drawing.Point(1328, 392);
+            this.PayTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PayTextBox.Name = "PayTextBox";
-            this.PayTextBox.Size = new System.Drawing.Size(259, 20);
+            this.PayTextBox.Size = new System.Drawing.Size(514, 31);
             this.PayTextBox.TabIndex = 37;
             // 
             // SSNTextBox
             // 
-            this.SSNTextBox.Location = new System.Drawing.Point(703, 232);
-            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SSNTextBox.Location = new System.Drawing.Point(1406, 446);
+            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SSNTextBox.Name = "SSNTextBox";
-            this.SSNTextBox.Size = new System.Drawing.Size(220, 20);
+            this.SSNTextBox.Size = new System.Drawing.Size(436, 31);
             this.SSNTextBox.TabIndex = 38;
             // 
             // FedRateTextBox
             // 
-            this.FedRateTextBox.Location = new System.Drawing.Point(664, 262);
-            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FedRateTextBox.Location = new System.Drawing.Point(1328, 504);
+            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FedRateTextBox.Name = "FedRateTextBox";
-            this.FedRateTextBox.Size = new System.Drawing.Size(259, 20);
+            this.FedRateTextBox.Size = new System.Drawing.Size(514, 31);
             this.FedRateTextBox.TabIndex = 39;
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitButton.Location = new System.Drawing.Point(1328, 687);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(440, 179);
+            this.SubmitButton.TabIndex = 40;
+            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // AddEmployeePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 525);
+            this.ClientSize = new System.Drawing.Size(1894, 1010);
+            this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.FedRateTextBox);
             this.Controls.Add(this.SSNTextBox);
             this.Controls.Add(this.PayTextBox);
@@ -506,7 +519,7 @@
             this.Controls.Add(this.FNameLabel);
             this.Controls.Add(this.PersonalInfoLabel);
             this.Controls.Add(this.EnterEmployeeInfoLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddEmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Employee";
@@ -558,5 +571,6 @@
         private System.Windows.Forms.TextBox PayTextBox;
         private System.Windows.Forms.TextBox SSNTextBox;
         private System.Windows.Forms.TextBox FedRateTextBox;
+        private System.Windows.Forms.Button SubmitButton;
     }
 }

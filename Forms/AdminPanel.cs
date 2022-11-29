@@ -21,9 +21,11 @@ namespace PayrollManagement.Forms
         private void AddEmployeeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddEmployeePanel addEmployeeForm = new AddEmployeePanel();
-            addEmployeeForm.ShowDialog();
-            addEmployeeForm.Dispose();
+            using (AddEmployeePanel addEmployeeForm = new AddEmployeePanel(Username, Password))
+            {
+                addEmployeeForm.ShowDialog();
+                addEmployeeForm.Dispose();
+            }
             this.Show();
         }
         //call delete employee form
@@ -34,12 +36,24 @@ namespace PayrollManagement.Forms
         //call edit employee form
         private void EditEmployPayInfoButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            using (editEmployeePanel editEmployeeForm = new editEmployeePanel(Username, Password))
+            {
+                editEmployeeForm.ShowDialog();
+                editEmployeeForm.Dispose();
+            }
+            this.Show();
         }
         //call business button
         private void EditBusButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            using (editBusinessInfoPanel editBusinessInfoForm = new editBusinessInfoPanel(Username, Password))
+            {
+                editBusinessInfoForm.ShowDialog();
+                editBusinessInfoForm.Dispose();
+            }
+            this.Show();
         }
         //call compile form
         private void CompileGeneratePayButton_Click(object sender, EventArgs e)
