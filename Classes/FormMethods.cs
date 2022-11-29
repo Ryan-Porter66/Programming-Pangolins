@@ -25,6 +25,10 @@ namespace PayrollManagement.Classes
         {
             return "Must have between 1 and 6 numbers to the left of the decimal and/or max 2 numbers to the right of it.";
         }
+        public static string ReturnSetLengthStringNumberFormat(int length)
+        {
+            return $"Must be {length} digits with no characters between the numbers.";
+        }
         #endregion
         #region Methods
         //this clears all text and errors for all textboxes
