@@ -17,8 +17,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("12345");
 
                 string privilege = Database.Login(username, password);
 
@@ -37,8 +37,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
                 DateTime dob = new DateTime(1990, 1, 2);
                 DateTime hire = new DateTime(2019, 3, 14);
                 BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
@@ -70,8 +70,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
                 List<Employee> empList = Database.GetEmployeeList(username, password);
 
                 string resp = "";
@@ -95,8 +95,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
                 List<Deduction> tempDeduct = new List<Deduction>
                 {
                     new FlatDeduction("flat", 20.00m),
@@ -121,8 +121,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 FlatDeduction flatDeduction = new FlatDeduction("flat", 20.00m);
                 PercentageDeduction percentageDeduction = new PercentageDeduction("Percentage", 0.03m);
@@ -145,8 +145,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 List<Deduction> deductions = Database.GetDeductions(username, password, "5");
                 string resp = string.Empty;
@@ -171,8 +171,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 Company company = Database.GetCompany(username, password);
                 string resp = string.Empty;
@@ -194,8 +194,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
                 BankAccount bank = new BankAccount("213985701", "7132894023", "Bank of America");
                 Company company = new Company("TestName", bank, "1357924680", "123 Another St", "Testcity", "ND", "54321", "7776664545");
                 Database.UpdateComany(username, password, company);
@@ -219,10 +219,10 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
-                Employee employee = Database.GetEmployee(username, password, "5");
+                Employee employee = Database.GetEmployee(username, password, "2");
 
                 string resp = employee.Ssn;
                 Console.WriteLine(resp);
@@ -242,8 +242,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 DateTime dob = new DateTime(1990, 1, 2);
                 DateTime hire = new DateTime(2019, 3, 14);
@@ -254,9 +254,9 @@ namespace PayrollManagementUnitTests
                     new PercentageDeduction("Percentage", 0.03m)
                 };
                 HourlyEmployee emp = new HourlyEmployee("John", "Doe", "101 N 57th St", "Springfield"
-                    , "10101", "MI", bank, 0009, .25m, "Employee", "101-12-1235", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
+                    , "10101", "MI", bank, 0009, .25m, "Employee", "101-12-1234", dob, hire, "407-98-2134", "IT", tempDeduct, 0.06m, 19.99m);
                 Database.UpdateEmployee(username, password, emp);
-                Employee employee = Database.GetEmployee(username, password, "9");
+                Employee employee = Database.GetEmployee(username, password, "1");
 
                 string resp = employee.Ssn;
                 Console.WriteLine(resp);
@@ -276,8 +276,8 @@ namespace PayrollManagementUnitTests
             // Note: This only passes when the webserver is turned on. Ping Blake in discord if it doesn't pass.
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 Database.DeleteEmployee(username, password, "9");
                 

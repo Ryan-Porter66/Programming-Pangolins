@@ -10,9 +10,9 @@ namespace PayrollManagementUnitTests
         [TestMethod]
         public void TestIsNormalStringValid()
         {
-            Assert.IsTrue(InputValidation.IsNormalStringValid("Ryan", 99));
-            Assert.IsFalse(InputValidation.IsNormalStringValid("   ", 99));
-            Assert.IsFalse(InputValidation.IsNormalStringValid("d   ", 3));
+            Assert.IsTrue(InputValidation.IsNormalStringValid("Ryan", 1, 99));
+            Assert.IsFalse(InputValidation.IsNormalStringValid("   ", 1, 99));
+            Assert.IsFalse(InputValidation.IsNormalStringValid("d   ", 1, 3));
         }
 
         [TestMethod]

@@ -52,8 +52,8 @@ namespace UnitTestsForPayrollManagement
         {
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 EmployeeList tempEmpList = new EmployeeList();
                 tempEmpList.GenerateEmployeeList(username, password);
@@ -88,7 +88,7 @@ namespace UnitTestsForPayrollManagement
                     Console.WriteLine();
                 }
                 // Just checking the function produces a list of Employee objects with employee ids
-                //tempEmpList.DisplaySelectableEmployeeList();
+                tempEmpList.DisplaySelectableEmployeeList();
 
                 Console.WriteLine(tempEmpList.Company.Name + " " + tempEmpList.Company.FederalID + " " + tempEmpList.Company.PhoneNumber);
                 Console.WriteLine(tempEmpList.Company.Address + " " + tempEmpList.Company.City + ", " + tempEmpList.Company.State + " " + tempEmpList.Company.PostalCode);
