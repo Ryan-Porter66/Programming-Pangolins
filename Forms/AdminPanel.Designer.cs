@@ -41,7 +41,7 @@
             this.AdminPayrollLabel.AutoSize = true;
             this.AdminPayrollLabel.BackColor = System.Drawing.Color.LightGray;
             this.AdminPayrollLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminPayrollLabel.Location = new System.Drawing.Point(145, 19);
+            this.AdminPayrollLabel.Location = new System.Drawing.Point(148, 19);
             this.AdminPayrollLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AdminPayrollLabel.Name = "AdminPayrollLabel";
             this.AdminPayrollLabel.Size = new System.Drawing.Size(657, 55);
@@ -52,7 +52,7 @@
             // 
             this.AddEmployeeButton.BackColor = System.Drawing.Color.LightGray;
             this.AddEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddEmployeeButton.Location = new System.Drawing.Point(154, 95);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(157, 95);
             this.AddEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddEmployeeButton.Name = "AddEmployeeButton";
             this.AddEmployeeButton.Size = new System.Drawing.Size(304, 121);
@@ -65,7 +65,7 @@
             // 
             this.EditEmployPayInfoButton.BackColor = System.Drawing.Color.LightGray;
             this.EditEmployPayInfoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditEmployPayInfoButton.Location = new System.Drawing.Point(154, 241);
+            this.EditEmployPayInfoButton.Location = new System.Drawing.Point(157, 241);
             this.EditEmployPayInfoButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditEmployPayInfoButton.Name = "EditEmployPayInfoButton";
             this.EditEmployPayInfoButton.Size = new System.Drawing.Size(304, 121);
@@ -78,7 +78,7 @@
             // 
             this.DeleteEmployeeButton.BackColor = System.Drawing.Color.LightGray;
             this.DeleteEmployeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteEmployeeButton.Location = new System.Drawing.Point(495, 95);
+            this.DeleteEmployeeButton.Location = new System.Drawing.Point(498, 95);
             this.DeleteEmployeeButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteEmployeeButton.Name = "DeleteEmployeeButton";
             this.DeleteEmployeeButton.Size = new System.Drawing.Size(304, 121);
@@ -91,7 +91,7 @@
             // 
             this.EditBusButton.BackColor = System.Drawing.Color.LightGray;
             this.EditBusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditBusButton.Location = new System.Drawing.Point(495, 241);
+            this.EditBusButton.Location = new System.Drawing.Point(498, 241);
             this.EditBusButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditBusButton.Name = "EditBusButton";
             this.EditBusButton.Size = new System.Drawing.Size(304, 121);
@@ -104,7 +104,7 @@
             // 
             this.CompleGeneratePayButton.BackColor = System.Drawing.Color.LightGray;
             this.CompleGeneratePayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CompleGeneratePayButton.Location = new System.Drawing.Point(341, 380);
+            this.CompleGeneratePayButton.Location = new System.Drawing.Point(344, 380);
             this.CompleGeneratePayButton.Margin = new System.Windows.Forms.Padding(2);
             this.CompleGeneratePayButton.Name = "CompleGeneratePayButton";
             this.CompleGeneratePayButton.Size = new System.Drawing.Size(304, 121);
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 525);
+            this.ClientSize = new System.Drawing.Size(952, 545);
             this.Controls.Add(this.CompleGeneratePayButton);
             this.Controls.Add(this.EditBusButton);
             this.Controls.Add(this.DeleteEmployeeButton);
@@ -128,7 +128,6 @@
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator Payroll Controls";
-            this.Load += new System.EventHandler(this.AdminPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,11 +11,6 @@ namespace PayrollManagement.Forms
         {
             InitializeComponent();
         }
-
-        private void LoginPage_Load(object sender, System.EventArgs e)
-        {
-
-        }
         #endregion
         #region Buttons
         private void LoginButton1(object sender, EventArgs e)
@@ -39,7 +34,7 @@ namespace PayrollManagement.Forms
 
                     //call next form
                     this.Hide();
-                    AdminPanel adminForm = new AdminPanel();
+                    AdminPanel adminForm = new AdminPanel(username, password);
                     adminForm.ShowDialog();
                     adminForm.Dispose();
                     this.Show();

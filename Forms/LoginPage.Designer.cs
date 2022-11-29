@@ -49,7 +49,7 @@
             this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(128, 48);
-            this.LoginButton.TabIndex = 0;
+            this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton1);
@@ -71,7 +71,7 @@
             this.TextBoxUsername.MaxLength = 20;
             this.TextBoxUsername.Name = "TextBoxUsername";
             this.TextBoxUsername.Size = new System.Drawing.Size(208, 20);
-            this.TextBoxUsername.TabIndex = 5;
+            this.TextBoxUsername.TabIndex = 0;
             // 
             // TextBoxPassword
             // 
@@ -81,7 +81,7 @@
             this.TextBoxPassword.Name = "TextBoxPassword";
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(208, 20);
-            this.TextBoxPassword.TabIndex = 6;
+            this.TextBoxPassword.TabIndex = 1;
             // 
             // LabelCommand
             // 
@@ -151,7 +151,6 @@
             this.Name = "LoginPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LabelInputBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorInvalidLogin)).EndInit();
             this.ResumeLayout(false);

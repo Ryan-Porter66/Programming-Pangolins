@@ -6,14 +6,13 @@ namespace PayrollManagement.Forms
     public partial class AdminPanel : Form
     {
         #region Initializers
-        public AdminPanel()
+        private string Username { get; set; }
+        private string Password { get; set; }
+        public AdminPanel(string username, string password)
         {
             InitializeComponent();
-        }
-
-        private void AdminPanel_Load(object sender, EventArgs e)
-        {
-
+            this.Username = username;
+            this.Password = password;
         }
         #endregion
 
@@ -45,7 +44,13 @@ namespace PayrollManagement.Forms
         //call compile form
         private void CompileGeneratePayButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            using (PayrollForm addEmployeeForm = new PayrollForm(Username, Password))
+            {
+                addEmployeeForm.ShowDialog();
+                addEmployeeForm.Dispose();
+            }
+            this.Show();
         }
         #endregion
     }

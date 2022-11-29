@@ -73,7 +73,7 @@ namespace PayrollManagement.Classes
 
                 //prints Employee Name and ID
                 Paragraph employeeNameParagraph = new Paragraph(
-                    $"{emp.EmployeeID.ToString()} - {emp.FirstName} {emp.LastName}");
+                    $"{emp.EmployeeID} - {emp.FirstName} {emp.LastName}");
                 document.Add(employeeNameParagraph);
 
                 //Print Employee Address
