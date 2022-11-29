@@ -20,7 +20,6 @@ namespace PayrollManagement.Classes
 
     public static class Database
     {
-        // 
         public static void DeleteEmployee(string username, string passwordHash, string empID)
         {
             string enc = "yHdeGH1Dl56vt28/Rdi+PvnWWqz62EEB/dBA2aMLOWw8PRtHzGk1VUcsSjX/Y9Q6H/DSP2X8RUmRIWTmhDDfjS8oYJm1LQx1seXn3lxYtAI=";
@@ -129,44 +128,51 @@ namespace PayrollManagement.Classes
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string responseText = reader.ReadToEnd();
 
-            var item = (JObject)JsonConvert.DeserializeObject(responseText);
-
-            string FirstName = item["firstname"].ToString();
-            string LastName = item["lastname"].ToString();
-            string Address = item["street_address"].ToString();
-            string City = item["city"].ToString();
-            string PostalCode = item["postal_code"].ToString();
-            string State = item["state"].ToString();
-            string BankName = item["bank_name"].ToString();
-            string AccountNumber = item["account_num"].ToString();
-            string RoutingNumber = item["routing_num"].ToString();
-            BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
-            int EmployeeID = Int32.Parse(item["emp_id"].ToString());
-            string dt1 = item["dob"].ToString();
-            string dt2 = item["hire_date"].ToString();
-            decimal FederalTaxRate = Decimal.Parse(item["federal_tax"].ToString());
-            string Permissions = item["permission_level"].ToString();
-            string Ssn = item["ssn"].ToString();
-            DateTime Dob = DateTime.ParseExact(item["dob"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
-            DateTime HireDate = DateTime.ParseExact(item["hire_date"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
-            string PhoneNumber = item["phone_number"].ToString();
-            string Department = item["department_name"].ToString();
-            decimal StateTaxRate = Decimal.Parse(item["state_rate"].ToString());
-            decimal SalaryPerPayPeriod = Decimal.Parse(item["salary"].ToString());
-            decimal PayPerHour = Decimal.Parse(item["hourly_rate"].ToString());
-            List<Deduction> tempDeduct = Database.GetDeductions(username, passwordHash, EmployeeID.ToString());
-
-            if (string.Equals(item["exempt"].ToString(), "1"))
+            if (responseText.StartsWith("Error"))
             {
-                SalaryEmployee tempEmp = new SalaryEmployee(FirstName, LastName, Address, City, PostalCode, State,
-                    Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, SalaryPerPayPeriod);
-                return tempEmp;
+                return null;
             }
             else
             {
-                HourlyEmployee tempEmp = new HourlyEmployee(FirstName, LastName, Address, City, PostalCode, State,
-                    Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, PayPerHour);
-                return tempEmp;
+                var item = (JObject)JsonConvert.DeserializeObject(responseText);
+
+                string FirstName = item["firstname"].ToString();
+                string LastName = item["lastname"].ToString();
+                string Address = item["street_address"].ToString();
+                string City = item["city"].ToString();
+                string PostalCode = item["postal_code"].ToString();
+                string State = item["state"].ToString();
+                string BankName = item["bank_name"].ToString();
+                string AccountNumber = item["account_num"].ToString();
+                string RoutingNumber = item["routing_num"].ToString();
+                BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
+                int EmployeeID = Int32.Parse(item["emp_id"].ToString());
+                string dt1 = item["dob"].ToString();
+                string dt2 = item["hire_date"].ToString();
+                decimal FederalTaxRate = Decimal.Parse(item["federal_tax"].ToString());
+                string Permissions = item["permission_level"].ToString();
+                string Ssn = item["ssn"].ToString();
+                DateTime Dob = DateTime.ParseExact(item["dob"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+                DateTime HireDate = DateTime.ParseExact(item["hire_date"].ToString(), "M/d/yyyy h:m:s tt", CultureInfo.InvariantCulture);
+                string PhoneNumber = item["phone_number"].ToString();
+                string Department = item["department_name"].ToString();
+                decimal StateTaxRate = Decimal.Parse(item["state_rate"].ToString());
+                decimal SalaryPerPayPeriod = Decimal.Parse(item["salary"].ToString());
+                decimal PayPerHour = Decimal.Parse(item["hourly_rate"].ToString());
+                List<Deduction> tempDeduct = Database.GetDeductions(username, passwordHash, EmployeeID.ToString());
+
+                if (string.Equals(item["exempt"].ToString(), "1"))
+                {
+                    SalaryEmployee tempEmp = new SalaryEmployee(FirstName, LastName, Address, City, PostalCode, State,
+                        Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, SalaryPerPayPeriod);
+                    return tempEmp;
+                }
+                else
+                {
+                    HourlyEmployee tempEmp = new HourlyEmployee(FirstName, LastName, Address, City, PostalCode, State,
+                        Bank, EmployeeID, FederalTaxRate, Permissions, Ssn, Dob, HireDate, PhoneNumber, Department, tempDeduct, StateTaxRate, PayPerHour);
+                    return tempEmp;
+                }
             }
         }
 

@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 var mysql = require('mysql');
 require('dotenv').config();
@@ -223,10 +224,17 @@ app.post('/getemp', async function (request, response) {
         pool.query(statement, empid, function (err, result) {
             if (err) {
                 console.log(err);
+                resp += ': ' + err;
                 response.send(resp);
-                response.end();
             }
-            response.json(result[0]);
+            else if ((result?.length || 0) < 1) {
+                console.log("No getemp");
+                resp += ': No Result';
+                response.send(resp);
+            }
+            else {
+                response.json(result[0]);
+            }
             response.end();
 
         });
@@ -505,6 +513,7 @@ app.post('/addemp', async function (request, response) {
     let routingnum = request.body.routingnum;
     let accountnum = request.body.accountnum;
     let department = request.body.department;
+    console.log(passwordhash);
 
     // Ensure the input fields exists and are not empty
     if (username && password) {
@@ -628,10 +637,14 @@ app.post('/auth', async function (request, response) {
         pool.query(statement, username, function (err, result) {
             if (err) {
                 console.log(err);
-                response.send(privelege);
+                privelege = err;
                 response.end();
             }
-            if (password === result[0].password_hash)
+            else if ((result?.length || 0) < 1) {
+                console.log("No ");
+                privelege += ': Incorrect Login';
+            }
+            else if (password === result[0].password_hash)
                 privelege = result[0].permission_level;
             else
                 privelege = 'Denied';
