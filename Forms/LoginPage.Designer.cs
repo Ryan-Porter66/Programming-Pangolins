@@ -46,7 +46,7 @@
             // 
             this.LoginButton.BackColor = System.Drawing.Color.Silver;
             this.LoginButton.Location = new System.Drawing.Point(412, 430);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(128, 48);
             this.LoginButton.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             this.LabelInputBackground.BackColor = System.Drawing.Color.Silver;
             this.LabelInputBackground.Location = new System.Drawing.Point(226, 180);
-            this.LabelInputBackground.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LabelInputBackground.Margin = new System.Windows.Forms.Padding(2);
             this.LabelInputBackground.Name = "LabelInputBackground";
             this.LabelInputBackground.Size = new System.Drawing.Size(506, 228);
             this.LabelInputBackground.TabIndex = 4;
@@ -67,7 +67,7 @@
             // TextBoxUsername
             // 
             this.TextBoxUsername.Location = new System.Drawing.Point(239, 232);
-            this.TextBoxUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextBoxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxUsername.MaxLength = 20;
             this.TextBoxUsername.Name = "TextBoxUsername";
             this.TextBoxUsername.Size = new System.Drawing.Size(208, 20);
@@ -76,7 +76,7 @@
             // TextBoxPassword
             // 
             this.TextBoxPassword.Location = new System.Drawing.Point(239, 304);
-            this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxPassword.MaxLength = 20;
             this.TextBoxPassword.Name = "TextBoxPassword";
             this.TextBoxPassword.PasswordChar = '*';
@@ -147,9 +147,8 @@
             this.Controls.Add(this.TextBoxUsername);
             this.Controls.Add(this.LabelInputBackground);
             this.Controls.Add(this.LoginButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginPage";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginPage_Load);

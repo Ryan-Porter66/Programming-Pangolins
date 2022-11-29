@@ -16,10 +16,5 @@ namespace PayrollManagement.Forms
 
         }
         #endregion
-
-        private void LNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -52,8 +52,8 @@ namespace UnitTestsForPayrollManagement
         {
             try
             {
-                string username = "2";
-                string password = "thisaintit";
+                string username = "1";
+                string password = Encryption.SHA256Encryption("1234");
 
                 EmployeeList tempEmpList = new EmployeeList();
                 tempEmpList.GenerateEmployeeList(username, password);

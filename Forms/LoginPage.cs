@@ -18,7 +18,7 @@ namespace PayrollManagement.Forms
         }
         #endregion
         #region Buttons
-        private void LoginButton1(object sender, System.EventArgs e)
+        private void LoginButton1(object sender, EventArgs e)
         {
             try
             {
@@ -28,7 +28,6 @@ namespace PayrollManagement.Forms
                     this.ErrorInvalidLogin.SetError(TextBoxPassword, "Please enter username and password!");
                     return;
                 }
-                this.ErrorInvalidLogin.SetError(TextBoxPassword, "");
                 string username = TextBoxUsername.Text;
                 string password = Encryption.SHA256Encryption(TextBoxPassword.Text);
 
@@ -36,27 +35,27 @@ namespace PayrollManagement.Forms
 
                 if(response == "Admin")
                 {
-                    TextBoxUsername.Text = "";
-                    TextBoxPassword.Text = "";
+                    FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
 
                     //call next form
                     this.Hide();
                     AdminPanel adminForm = new AdminPanel();
                     adminForm.ShowDialog();
+                    adminForm.Dispose();
                     this.Show();
                 }
                 else if(response == "Employee")
                 {
-                    TextBoxUsername.Text = "";
-                    TextBoxPassword.Text = "";
+                    FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
 
                     //call next form
                     this.Hide();
                     EmployeePanel employeeForm = new EmployeePanel();
                     employeeForm.ShowDialog();
+                    employeeForm.Dispose();
                     this.Show();
                 }
-                else if(response == "Denied")
+                else if(response == "Denied" || response == "Error: Incorrect Login")
                 {
                     this.ErrorInvalidLogin.SetError(TextBoxPassword, "Username or password is incorrect!");
                     return;
