@@ -212,6 +212,12 @@
     <Compile Include="Forms\EmployeeListBoxForm.Designer.cs">
       <DependentUpon>EmployeeListBoxForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DeleteEmpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteEmpForm.Designer.cs">
+      <DependentUpon>DeleteEmpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PayrollForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteEmpForm.resx">
+      <DependentUpon>DeleteEmpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PayrollForm.resx">
       <DependentUpon>PayrollForm.cs</DependentUpon>

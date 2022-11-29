@@ -31,7 +31,13 @@ namespace PayrollManagement.Forms
         //call delete employee form
         private void DeleteEmployeeButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            using (DeleteEmpForm deleteEmployeeForm = new DeleteEmpForm(Username, Password))
+            {
+                deleteEmployeeForm.ShowDialog();
+                deleteEmployeeForm.Dispose();
+            }
+            this.Show();
         }
         //call edit employee form
         private void EditEmployPayInfoButton_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace PayrollManagement.Forms
                 //check to see if all data is valid
                 if(this.ValidateChildren())
                 {
-                    MessageBox.Show("Hello");
+                    this.ClearForm();
                 } 
                 else
                 {
@@ -41,6 +41,15 @@ namespace PayrollManagement.Forms
                 MessageBox.Show(ex.Message);
             }
             
+        }
+        #endregion
+        #region Clear Form
+        private void ClearForm()
+        {
+            FormMethods.ClearAllTextBoxes(this, AddErrorProvider);
+            SalariedHourlyComboBox.SelectedIndex = 0;
+            StateComboBox.SelectedIndex = -1;
+            AdminUserCheckBox.Checked = false;
         }
         #endregion
         #region Validate Events
