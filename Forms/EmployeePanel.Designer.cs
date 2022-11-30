@@ -621,7 +621,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Employee";
+            this.Text = "Employee Information";
             this.Load += new System.EventHandler(this.AddEmployeePanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AddErrorProvider)).EndInit();
             this.ResumeLayout(false);

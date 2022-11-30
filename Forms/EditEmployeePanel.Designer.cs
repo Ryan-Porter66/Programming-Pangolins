@@ -603,6 +603,7 @@
             // 
             // CancelEditButton
             // 
+            this.CancelEditButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelEditButton.Location = new System.Drawing.Point(677, 433);
             this.CancelEditButton.Margin = new System.Windows.Forms.Padding(2);
@@ -643,6 +644,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CancelButton = this.CancelEditButton;
             this.ClientSize = new System.Drawing.Size(947, 525);
             this.Controls.Add(this.DeductionsButton);
             this.Controls.Add(this.EmployeeListButton);
@@ -693,7 +695,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditEmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Employee";
+            this.Text = "Edit Employee";
             this.Load += new System.EventHandler(this.AddEmployeePanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EditErrorProvider)).EndInit();
             this.ResumeLayout(false);
