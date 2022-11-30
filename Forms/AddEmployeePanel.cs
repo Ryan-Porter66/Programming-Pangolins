@@ -309,7 +309,33 @@ namespace PayrollManagement.Forms
             }
         }
 
+        private void SalariedPayPerDayTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (InputValidation.IsPayStringValid(SalariedPayPerDayTextBox.Text) || SalariedHourlyComboBox.Text == "Hourly")
+            {
+                e.Cancel = false;
+                AddErrorProvider.SetError(SalariedPayPerDayTextBox, "");
+            }
+            else
+            {
+                e.Cancel = true;
+                AddErrorProvider.SetError(SalariedPayPerDayTextBox, FormMethods.ReturnPayStringFormat());
+            }
+        }
 
+        private void HourlyPayTextbox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (InputValidation.IsPayStringValid(HourlyPayTextbox.Text) || SalariedHourlyComboBox.Text == "Salary")
+            {
+                e.Cancel = false;
+                AddErrorProvider.SetError(HourlyPayTextbox, "");
+            }
+            else
+            {
+                e.Cancel = true;
+                AddErrorProvider.SetError(HourlyPayTextbox, FormMethods.ReturnPayStringFormat());
+            }
+        }
         #endregion
         #region Blur Functionality
         private void SalariedHourlyComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,11 +348,15 @@ namespace PayrollManagement.Forms
             {
                 SalariedPayPerDayTextBox.Enabled = true;
                 HourlyPayTextbox.Enabled = false;
+                HourlyPayTextbox.Text = "";
+                AddErrorProvider.SetError(HourlyPayTextbox, "");
             }
             else if (SalariedHourlyComboBox.Text == "Hourly")
             {
                 HourlyPayTextbox.Enabled = true;
                 SalariedPayPerDayTextBox.Enabled = false;
+                SalariedPayPerDayTextBox.Text = "";
+                AddErrorProvider.SetError(SalariedPayPerDayTextBox, "");
             }
         }
         #endregion
