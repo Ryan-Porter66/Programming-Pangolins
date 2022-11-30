@@ -73,6 +73,7 @@
             this.SalariedPayPerDayTextBox = new System.Windows.Forms.TextBox();
             this.SalariedPayPerDayLabel = new System.Windows.Forms.Label();
             this.HourlyPayLabel = new System.Windows.Forms.Label();
+            this.CancelAddButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AddErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -463,7 +464,7 @@
             // SubmitButton
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitButton.Location = new System.Drawing.Point(594, 357);
+            this.SubmitButton.Location = new System.Drawing.Point(676, 300);
             this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(220, 93);
@@ -598,13 +599,28 @@
             this.HourlyPayLabel.TabIndex = 44;
             this.HourlyPayLabel.Text = "Hourly Pay";
             // 
+            // CancelAddButton
+            // 
+            this.CancelAddButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelAddButton.Location = new System.Drawing.Point(676, 405);
+            this.CancelAddButton.Margin = new System.Windows.Forms.Padding(2);
+            this.CancelAddButton.Name = "CancelAddButton";
+            this.CancelAddButton.Size = new System.Drawing.Size(220, 93);
+            this.CancelAddButton.TabIndex = 45;
+            this.CancelAddButton.Text = "Cancel";
+            this.CancelAddButton.UseVisualStyleBackColor = true;
+            this.CancelAddButton.Click += new System.EventHandler(this.CancelAddButton_Click);
+            // 
             // AddEmployeePanel
             // 
             this.AcceptButton = this.SubmitButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CancelButton = this.CancelAddButton;
             this.ClientSize = new System.Drawing.Size(947, 525);
+            this.Controls.Add(this.CancelAddButton);
             this.Controls.Add(this.HourlyPayLabel);
             this.Controls.Add(this.SalariedPayPerDayLabel);
             this.Controls.Add(this.SalariedPayPerDayTextBox);
@@ -705,5 +721,6 @@
         private System.Windows.Forms.Label SalariedPayPerDayLabel;
         private System.Windows.Forms.TextBox SalariedPayPerDayTextBox;
         private System.Windows.Forms.TextBox HourlyPayTextbox;
+        private System.Windows.Forms.Button CancelAddButton;
     }
 }
