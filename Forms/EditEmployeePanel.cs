@@ -375,6 +375,7 @@ namespace PayrollManagement.Forms
             BankNameTextBox.Text = emp.Bank.BankName;
             BankRNTextBox.Text = emp.Bank.BankRoutingNumber;
             BankANTextBox.Text = emp.Bank.BankAccountNumber;
+            DepartmentTextBox.Text = emp.Department;
             HireDateTextBox.Text = emp.HireDate.ToString(InputValidation.dateStringPatterns);
             if(emp is SalaryEmployee se)
             {
@@ -384,7 +385,7 @@ namespace PayrollManagement.Forms
             else if(emp is HourlyEmployee he)
             {
                 SalariedHourlyComboBox.Text = "Hourly";
-                SalariedPayPerDayTextBox.Text = he.PayPerHour.ToString("0.00");
+                HourlyPayTextbox.Text = he.PayPerHour.ToString("0.00");
             }
             FedRateTextBox.Text = emp.FederalTaxRate.ToString("0.00");
             if(emp.Permissions == "Admin")

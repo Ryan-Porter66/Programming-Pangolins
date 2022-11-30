@@ -52,6 +52,7 @@
             this.DeductionsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.DeductionsListBox.Size = new System.Drawing.Size(343, 186);
             this.DeductionsListBox.TabIndex = 0;
+            this.DeductionsListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.DeductionsListBox_Format);
             // 
             // DeleteButton
             // 

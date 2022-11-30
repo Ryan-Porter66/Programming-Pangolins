@@ -45,7 +45,7 @@ namespace PayrollManagement.Forms
 
                     //call next form
                     this.Hide();
-                    EmployeePanel employeeForm = new EmployeePanel();
+                    EmployeePanel employeeForm = new EmployeePanel(username, password, username);
                     employeeForm.ShowDialog();
                     employeeForm.Dispose();
                     this.Show();

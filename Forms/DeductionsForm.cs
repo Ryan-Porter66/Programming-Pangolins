@@ -36,8 +36,7 @@ namespace PayrollManagement.Forms
         }
         #endregion
         #region ListBox Methods
-        private void DeductionsListBox_
-            (object sender, ListControlConvertEventArgs e)
+        private void DeductionsListBox_Format(object sender, ListControlConvertEventArgs e)
         {
             string name = ((Deduction)e.ListItem).Name.ToString();
             string amount = "bad data";
