@@ -69,6 +69,10 @@
             this.SalariedHourlyComboBox = new System.Windows.Forms.ComboBox();
             this.AddErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.StateComboBox = new System.Windows.Forms.ComboBox();
+            this.HourlyPayTextbox = new System.Windows.Forms.TextBox();
+            this.SalariedPayPerDayTextBox = new System.Windows.Forms.TextBox();
+            this.SalariedPayPerDayLabel = new System.Windows.Forms.Label();
+            this.HourlyPayLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AddErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,10 +81,10 @@
             this.EnterEmployeeInfoLabel.AutoSize = true;
             this.EnterEmployeeInfoLabel.BackColor = System.Drawing.Color.LightGray;
             this.EnterEmployeeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnterEmployeeInfoLabel.Location = new System.Drawing.Point(134, 15);
-            this.EnterEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EnterEmployeeInfoLabel.Location = new System.Drawing.Point(268, 29);
+            this.EnterEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnterEmployeeInfoLabel.Name = "EnterEmployeeInfoLabel";
-            this.EnterEmployeeInfoLabel.Size = new System.Drawing.Size(619, 55);
+            this.EnterEmployeeInfoLabel.Size = new System.Drawing.Size(1230, 108);
             this.EnterEmployeeInfoLabel.TabIndex = 0;
             this.EnterEmployeeInfoLabel.Text = "Enter Employee Information";
             // 
@@ -88,10 +92,10 @@
             // 
             this.PersonalInfoLabel.AutoSize = true;
             this.PersonalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PersonalInfoLabel.Location = new System.Drawing.Point(23, 95);
-            this.PersonalInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PersonalInfoLabel.Location = new System.Drawing.Point(46, 183);
+            this.PersonalInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PersonalInfoLabel.Name = "PersonalInfoLabel";
-            this.PersonalInfoLabel.Size = new System.Drawing.Size(174, 29);
+            this.PersonalInfoLabel.Size = new System.Drawing.Size(334, 55);
             this.PersonalInfoLabel.TabIndex = 1;
             this.PersonalInfoLabel.Text = "Personal Info:";
             // 
@@ -99,10 +103,10 @@
             // 
             this.FNameLabel.AutoSize = true;
             this.FNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FNameLabel.Location = new System.Drawing.Point(42, 124);
-            this.FNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FNameLabel.Location = new System.Drawing.Point(84, 238);
+            this.FNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FNameLabel.Name = "FNameLabel";
-            this.FNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.FNameLabel.Size = new System.Drawing.Size(184, 37);
             this.FNameLabel.TabIndex = 2;
             this.FNameLabel.Text = "First Name:";
             // 
@@ -110,10 +114,10 @@
             // 
             this.LNameLabel.AutoSize = true;
             this.LNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNameLabel.Location = new System.Drawing.Point(42, 149);
-            this.LNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LNameLabel.Location = new System.Drawing.Point(84, 287);
+            this.LNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LNameLabel.Name = "LNameLabel";
-            this.LNameLabel.Size = new System.Drawing.Size(90, 20);
+            this.LNameLabel.Size = new System.Drawing.Size(182, 37);
             this.LNameLabel.TabIndex = 3;
             this.LNameLabel.Text = "Last Name:";
             // 
@@ -121,10 +125,10 @@
             // 
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressLabel.Location = new System.Drawing.Point(42, 173);
-            this.AddressLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AddressLabel.Location = new System.Drawing.Point(84, 333);
+            this.AddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(72, 20);
+            this.AddressLabel.Size = new System.Drawing.Size(144, 37);
             this.AddressLabel.TabIndex = 4;
             this.AddressLabel.Text = "Address:";
             // 
@@ -132,10 +136,10 @@
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CityLabel.Location = new System.Drawing.Point(42, 201);
-            this.CityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CityLabel.Location = new System.Drawing.Point(84, 387);
+            this.CityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(39, 20);
+            this.CityLabel.Size = new System.Drawing.Size(80, 37);
             this.CityLabel.TabIndex = 5;
             this.CityLabel.Text = "City:";
             // 
@@ -143,10 +147,10 @@
             // 
             this.ZipCodeLabel.AutoSize = true;
             this.ZipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZipCodeLabel.Location = new System.Drawing.Point(42, 261);
-            this.ZipCodeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ZipCodeLabel.Location = new System.Drawing.Point(84, 502);
+            this.ZipCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ZipCodeLabel.Name = "ZipCodeLabel";
-            this.ZipCodeLabel.Size = new System.Drawing.Size(77, 20);
+            this.ZipCodeLabel.Size = new System.Drawing.Size(156, 37);
             this.ZipCodeLabel.TabIndex = 6;
             this.ZipCodeLabel.Text = "Zip Code:";
             // 
@@ -154,10 +158,10 @@
             // 
             this.StateLabel.AutoSize = true;
             this.StateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StateLabel.Location = new System.Drawing.Point(42, 232);
-            this.StateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.StateLabel.Location = new System.Drawing.Point(84, 446);
+            this.StateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StateLabel.Name = "StateLabel";
-            this.StateLabel.Size = new System.Drawing.Size(52, 20);
+            this.StateLabel.Size = new System.Drawing.Size(100, 37);
             this.StateLabel.TabIndex = 7;
             this.StateLabel.Text = "State:";
             // 
@@ -165,10 +169,10 @@
             // 
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(42, 288);
-            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(84, 554);
+            this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(72, 20);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(145, 37);
             this.PhoneNumberLabel.TabIndex = 8;
             this.PhoneNumberLabel.Text = "Phone #:";
             // 
@@ -176,10 +180,10 @@
             // 
             this.DateOfBirthLabel.AutoSize = true;
             this.DateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateOfBirthLabel.Location = new System.Drawing.Point(42, 314);
-            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DateOfBirthLabel.Location = new System.Drawing.Point(84, 604);
+            this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(85, 20);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(168, 37);
             this.DateOfBirthLabel.TabIndex = 9;
             this.DateOfBirthLabel.Text = "Birth Date:";
             // 
@@ -187,10 +191,10 @@
             // 
             this.BankNameLabel.AutoSize = true;
             this.BankNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankNameLabel.Location = new System.Drawing.Point(42, 403);
-            this.BankNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankNameLabel.Location = new System.Drawing.Point(84, 775);
+            this.BankNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankNameLabel.Name = "BankNameLabel";
-            this.BankNameLabel.Size = new System.Drawing.Size(96, 20);
+            this.BankNameLabel.Size = new System.Drawing.Size(194, 37);
             this.BankNameLabel.TabIndex = 10;
             this.BankNameLabel.Text = "Bank Name:";
             // 
@@ -198,10 +202,10 @@
             // 
             this.BankAccountNumberLabel.AutoSize = true;
             this.BankAccountNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankAccountNumberLabel.Location = new System.Drawing.Point(42, 458);
-            this.BankAccountNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankAccountNumberLabel.Location = new System.Drawing.Point(84, 881);
+            this.BankAccountNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankAccountNumberLabel.Name = "BankAccountNumberLabel";
-            this.BankAccountNumberLabel.Size = new System.Drawing.Size(85, 20);
+            this.BankAccountNumberLabel.Size = new System.Drawing.Size(170, 37);
             this.BankAccountNumberLabel.TabIndex = 11;
             this.BankAccountNumberLabel.Text = "Account #:";
             // 
@@ -209,10 +213,10 @@
             // 
             this.BankRoutingNumberLabel.AutoSize = true;
             this.BankRoutingNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankRoutingNumberLabel.Location = new System.Drawing.Point(42, 433);
-            this.BankRoutingNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankRoutingNumberLabel.Location = new System.Drawing.Point(84, 833);
+            this.BankRoutingNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankRoutingNumberLabel.Name = "BankRoutingNumberLabel";
-            this.BankRoutingNumberLabel.Size = new System.Drawing.Size(82, 20);
+            this.BankRoutingNumberLabel.Size = new System.Drawing.Size(163, 37);
             this.BankRoutingNumberLabel.TabIndex = 12;
             this.BankRoutingNumberLabel.Text = "Routing #:";
             // 
@@ -220,10 +224,10 @@
             // 
             this.DepartmentLabel.AutoSize = true;
             this.DepartmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartmentLabel.Location = new System.Drawing.Point(520, 127);
-            this.DepartmentLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DepartmentLabel.Location = new System.Drawing.Point(1040, 244);
+            this.DepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartmentLabel.Name = "DepartmentLabel";
-            this.DepartmentLabel.Size = new System.Drawing.Size(98, 20);
+            this.DepartmentLabel.Size = new System.Drawing.Size(193, 37);
             this.DepartmentLabel.TabIndex = 14;
             this.DepartmentLabel.Text = "Department:";
             // 
@@ -231,10 +235,10 @@
             // 
             this.HireDateLabel.AutoSize = true;
             this.HireDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HireDateLabel.Location = new System.Drawing.Point(520, 152);
-            this.HireDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HireDateLabel.Location = new System.Drawing.Point(1040, 292);
+            this.HireDateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HireDateLabel.Name = "HireDateLabel";
-            this.HireDateLabel.Size = new System.Drawing.Size(81, 20);
+            this.HireDateLabel.Size = new System.Drawing.Size(160, 37);
             this.HireDateLabel.TabIndex = 15;
             this.HireDateLabel.Text = "Hire Date:";
             // 
@@ -242,10 +246,10 @@
             // 
             this.SalariedOrHourlyLabel.AutoSize = true;
             this.SalariedOrHourlyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(520, 176);
-            this.SalariedOrHourlyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SalariedOrHourlyLabel.Location = new System.Drawing.Point(1040, 338);
+            this.SalariedOrHourlyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SalariedOrHourlyLabel.Name = "SalariedOrHourlyLabel";
-            this.SalariedOrHourlyLabel.Size = new System.Drawing.Size(77, 20);
+            this.SalariedOrHourlyLabel.Size = new System.Drawing.Size(159, 37);
             this.SalariedOrHourlyLabel.TabIndex = 16;
             this.SalariedOrHourlyLabel.Text = "Pay Type:";
             // 
@@ -253,10 +257,10 @@
             // 
             this.SSNLabel.AutoSize = true;
             this.SSNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SSNLabel.Location = new System.Drawing.Point(42, 341);
-            this.SSNLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SSNLabel.Location = new System.Drawing.Point(84, 656);
+            this.SSNLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SSNLabel.Name = "SSNLabel";
-            this.SSNLabel.Size = new System.Drawing.Size(46, 20);
+            this.SSNLabel.Size = new System.Drawing.Size(92, 37);
             this.SSNLabel.TabIndex = 17;
             this.SSNLabel.Text = "SSN:";
             // 
@@ -264,10 +268,10 @@
             // 
             this.FederalTaxRateLabel.AutoSize = true;
             this.FederalTaxRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FederalTaxRateLabel.Location = new System.Drawing.Point(520, 229);
-            this.FederalTaxRateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FederalTaxRateLabel.Location = new System.Drawing.Point(1040, 490);
+            this.FederalTaxRateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FederalTaxRateLabel.Name = "FederalTaxRateLabel";
-            this.FederalTaxRateLabel.Size = new System.Drawing.Size(113, 20);
+            this.FederalTaxRateLabel.Size = new System.Drawing.Size(227, 37);
             this.FederalTaxRateLabel.TabIndex = 18;
             this.FederalTaxRateLabel.Text = "Fed. Tax Rate:";
             // 
@@ -275,10 +279,10 @@
             // 
             this.BankInfoLabel.AutoSize = true;
             this.BankInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BankInfoLabel.Location = new System.Drawing.Point(23, 370);
-            this.BankInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BankInfoLabel.Location = new System.Drawing.Point(46, 712);
+            this.BankInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BankInfoLabel.Name = "BankInfoLabel";
-            this.BankInfoLabel.Size = new System.Drawing.Size(215, 29);
+            this.BankInfoLabel.Size = new System.Drawing.Size(417, 55);
             this.BankInfoLabel.TabIndex = 19;
             this.BankInfoLabel.Text = "Bank Information:";
             // 
@@ -286,10 +290,10 @@
             // 
             this.PayrollInfoLabel.AutoSize = true;
             this.PayrollInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayrollInfoLabel.Location = new System.Drawing.Point(500, 95);
-            this.PayrollInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PayrollInfoLabel.Location = new System.Drawing.Point(1000, 183);
+            this.PayrollInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PayrollInfoLabel.Name = "PayrollInfoLabel";
-            this.PayrollInfoLabel.Size = new System.Drawing.Size(238, 29);
+            this.PayrollInfoLabel.Size = new System.Drawing.Size(456, 55);
             this.PayrollInfoLabel.TabIndex = 20;
             this.PayrollInfoLabel.Text = "Payroll Information:";
             // 
@@ -297,10 +301,10 @@
             // 
             this.OtherLabel.AutoSize = true;
             this.OtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OtherLabel.Location = new System.Drawing.Point(500, 262);
-            this.OtherLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.OtherLabel.Location = new System.Drawing.Point(1000, 551);
+            this.OtherLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OtherLabel.Name = "OtherLabel";
-            this.OtherLabel.Size = new System.Drawing.Size(85, 29);
+            this.OtherLabel.Size = new System.Drawing.Size(163, 55);
             this.OtherLabel.TabIndex = 21;
             this.OtherLabel.Text = "Other:";
             // 
@@ -308,161 +312,161 @@
             // 
             this.AdminUserCheckBox.AutoSize = true;
             this.AdminUserCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminUserCheckBox.Location = new System.Drawing.Point(524, 293);
-            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AdminUserCheckBox.Location = new System.Drawing.Point(1047, 610);
+            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.AdminUserCheckBox.Name = "AdminUserCheckBox";
-            this.AdminUserCheckBox.Size = new System.Drawing.Size(111, 24);
+            this.AdminUserCheckBox.Size = new System.Drawing.Size(217, 41);
             this.AdminUserCheckBox.TabIndex = 22;
             this.AdminUserCheckBox.Text = "Admin User";
             this.AdminUserCheckBox.UseVisualStyleBackColor = true;
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(133, 127);
-            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(266, 244);
+            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FirstNameTextBox.MaxLength = 49;
             this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(349, 20);
+            this.FirstNameTextBox.Size = new System.Drawing.Size(694, 31);
             this.FirstNameTextBox.TabIndex = 1;
             this.FirstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.FirstNameTextBox_Validating);
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(133, 152);
-            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastNameTextBox.Location = new System.Drawing.Point(266, 292);
+            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.LastNameTextBox.MaxLength = 49;
             this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(349, 20);
+            this.LastNameTextBox.Size = new System.Drawing.Size(694, 31);
             this.LastNameTextBox.TabIndex = 2;
             this.LastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.LastNameTextBox_Validating);
             // 
             // AddressTextBox
             // 
-            this.AddressTextBox.Location = new System.Drawing.Point(133, 176);
-            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddressTextBox.Location = new System.Drawing.Point(266, 338);
+            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.AddressTextBox.MaxLength = 49;
             this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(349, 20);
+            this.AddressTextBox.Size = new System.Drawing.Size(694, 31);
             this.AddressTextBox.TabIndex = 3;
             this.AddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AddressTextBox_Validating);
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(133, 204);
-            this.CityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CityTextBox.Location = new System.Drawing.Point(266, 392);
+            this.CityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CityTextBox.MaxLength = 49;
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(349, 20);
+            this.CityTextBox.Size = new System.Drawing.Size(694, 31);
             this.CityTextBox.TabIndex = 4;
             this.CityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CityTextBox_Validating);
             // 
             // ZipCodeTextBox
             // 
-            this.ZipCodeTextBox.Location = new System.Drawing.Point(133, 261);
-            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ZipCodeTextBox.Location = new System.Drawing.Point(266, 502);
+            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ZipCodeTextBox.MaxLength = 5;
             this.ZipCodeTextBox.Name = "ZipCodeTextBox";
-            this.ZipCodeTextBox.Size = new System.Drawing.Size(349, 20);
+            this.ZipCodeTextBox.Size = new System.Drawing.Size(694, 31);
             this.ZipCodeTextBox.TabIndex = 6;
             this.ZipCodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ZipCodeTextBox_Validating);
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(133, 290);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PhoneTextBox.Location = new System.Drawing.Point(266, 558);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneTextBox.MaxLength = 10;
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(349, 20);
+            this.PhoneTextBox.Size = new System.Drawing.Size(694, 31);
             this.PhoneTextBox.TabIndex = 7;
             this.PhoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneTextBox_Validating);
             // 
             // DoBTextBox
             // 
-            this.DoBTextBox.Location = new System.Drawing.Point(133, 317);
-            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoBTextBox.Location = new System.Drawing.Point(266, 610);
+            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DoBTextBox.MaxLength = 8;
             this.DoBTextBox.Name = "DoBTextBox";
-            this.DoBTextBox.Size = new System.Drawing.Size(349, 20);
+            this.DoBTextBox.Size = new System.Drawing.Size(694, 31);
             this.DoBTextBox.TabIndex = 8;
             this.DoBTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DoBTextBox_Validating);
             // 
             // BankNameTextBox
             // 
-            this.BankNameTextBox.Location = new System.Drawing.Point(133, 405);
-            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankNameTextBox.Location = new System.Drawing.Point(266, 779);
+            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.BankNameTextBox.MaxLength = 49;
             this.BankNameTextBox.Name = "BankNameTextBox";
-            this.BankNameTextBox.Size = new System.Drawing.Size(349, 20);
+            this.BankNameTextBox.Size = new System.Drawing.Size(694, 31);
             this.BankNameTextBox.TabIndex = 10;
             this.BankNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.BankNameTextBox_Validating);
             // 
             // BankANTextBox
             // 
-            this.BankANTextBox.Location = new System.Drawing.Point(133, 458);
-            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankANTextBox.Location = new System.Drawing.Point(266, 881);
+            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.BankANTextBox.MaxLength = 20;
             this.BankANTextBox.Name = "BankANTextBox";
-            this.BankANTextBox.Size = new System.Drawing.Size(349, 20);
+            this.BankANTextBox.Size = new System.Drawing.Size(694, 31);
             this.BankANTextBox.TabIndex = 12;
             this.BankANTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.BankANTextBox_Validating);
             // 
             // BankRNTextBox
             // 
-            this.BankRNTextBox.Location = new System.Drawing.Point(133, 433);
-            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankRNTextBox.Location = new System.Drawing.Point(266, 833);
+            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.BankRNTextBox.MaxLength = 9;
             this.BankRNTextBox.Name = "BankRNTextBox";
-            this.BankRNTextBox.Size = new System.Drawing.Size(349, 20);
+            this.BankRNTextBox.Size = new System.Drawing.Size(694, 31);
             this.BankRNTextBox.TabIndex = 11;
             this.BankRNTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.BankRNTextBox_Validating);
             // 
             // DepartmentTextBox
             // 
-            this.DepartmentTextBox.Location = new System.Drawing.Point(637, 129);
-            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DepartmentTextBox.Location = new System.Drawing.Point(1274, 248);
+            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DepartmentTextBox.MaxLength = 49;
             this.DepartmentTextBox.Name = "DepartmentTextBox";
-            this.DepartmentTextBox.Size = new System.Drawing.Size(259, 20);
+            this.DepartmentTextBox.Size = new System.Drawing.Size(514, 31);
             this.DepartmentTextBox.TabIndex = 13;
             this.DepartmentTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DepartmentTextBox_Validating);
             // 
             // HireDateTextBox
             // 
-            this.HireDateTextBox.Location = new System.Drawing.Point(637, 154);
-            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HireDateTextBox.Location = new System.Drawing.Point(1274, 296);
+            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.HireDateTextBox.MaxLength = 8;
             this.HireDateTextBox.Name = "HireDateTextBox";
-            this.HireDateTextBox.Size = new System.Drawing.Size(259, 20);
+            this.HireDateTextBox.Size = new System.Drawing.Size(514, 31);
             this.HireDateTextBox.TabIndex = 14;
             this.HireDateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HireDateTextBox_Validating);
             // 
             // SSNTextBox
             // 
-            this.SSNTextBox.Location = new System.Drawing.Point(133, 341);
-            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SSNTextBox.Location = new System.Drawing.Point(266, 656);
+            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SSNTextBox.MaxLength = 9;
             this.SSNTextBox.Name = "SSNTextBox";
-            this.SSNTextBox.Size = new System.Drawing.Size(349, 20);
+            this.SSNTextBox.Size = new System.Drawing.Size(694, 31);
             this.SSNTextBox.TabIndex = 9;
             this.SSNTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.SSNTextBox_Validating);
             // 
             // FedRateTextBox
             // 
-            this.FedRateTextBox.Location = new System.Drawing.Point(637, 229);
-            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FedRateTextBox.Location = new System.Drawing.Point(1275, 496);
+            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FedRateTextBox.MaxLength = 10;
             this.FedRateTextBox.Name = "FedRateTextBox";
-            this.FedRateTextBox.Size = new System.Drawing.Size(259, 20);
+            this.FedRateTextBox.Size = new System.Drawing.Size(514, 31);
             this.FedRateTextBox.TabIndex = 39;
             this.FedRateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.FedRateTextBox_Validating);
             // 
             // SubmitButton
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitButton.Location = new System.Drawing.Point(594, 357);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitButton.Location = new System.Drawing.Point(1188, 687);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(220, 93);
+            this.SubmitButton.Size = new System.Drawing.Size(440, 179);
             this.SubmitButton.TabIndex = 40;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
@@ -475,11 +479,12 @@
             this.SalariedHourlyComboBox.Items.AddRange(new object[] {
             "Hourly",
             "Salary"});
-            this.SalariedHourlyComboBox.Location = new System.Drawing.Point(637, 178);
-            this.SalariedHourlyComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalariedHourlyComboBox.Location = new System.Drawing.Point(1274, 342);
+            this.SalariedHourlyComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.SalariedHourlyComboBox.Name = "SalariedHourlyComboBox";
-            this.SalariedHourlyComboBox.Size = new System.Drawing.Size(259, 21);
+            this.SalariedHourlyComboBox.Size = new System.Drawing.Size(514, 33);
             this.SalariedHourlyComboBox.TabIndex = 15;
+            this.SalariedHourlyComboBox.SelectedIndexChanged += new System.EventHandler(this.SalariedHourlyComboBox_SelectedIndexChanged);
             this.SalariedHourlyComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.SalariedHourlyComboBox_Validating);
             // 
             // AddErrorProvider
@@ -543,19 +548,66 @@
             "WV",
             "WI",
             "WY"});
-            this.StateComboBox.Location = new System.Drawing.Point(133, 231);
+            this.StateComboBox.Location = new System.Drawing.Point(266, 444);
+            this.StateComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.StateComboBox.Name = "StateComboBox";
-            this.StateComboBox.Size = new System.Drawing.Size(349, 21);
+            this.StateComboBox.Size = new System.Drawing.Size(694, 33);
             this.StateComboBox.TabIndex = 5;
             this.StateComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.StateComboBox_Validating);
+            // 
+            // HourlyPayTextbox
+            // 
+            this.HourlyPayTextbox.Enabled = false;
+            this.HourlyPayTextbox.Location = new System.Drawing.Point(1274, 446);
+            this.HourlyPayTextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.HourlyPayTextbox.MaxLength = 10;
+            this.HourlyPayTextbox.Name = "HourlyPayTextbox";
+            this.HourlyPayTextbox.Size = new System.Drawing.Size(514, 31);
+            this.HourlyPayTextbox.TabIndex = 41;
+            // 
+            // SalariedPayPerDayTextBox
+            // 
+            this.SalariedPayPerDayTextBox.Enabled = false;
+            this.SalariedPayPerDayTextBox.Location = new System.Drawing.Point(1274, 393);
+            this.SalariedPayPerDayTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SalariedPayPerDayTextBox.MaxLength = 10;
+            this.SalariedPayPerDayTextBox.Name = "SalariedPayPerDayTextBox";
+            this.SalariedPayPerDayTextBox.Size = new System.Drawing.Size(514, 31);
+            this.SalariedPayPerDayTextBox.TabIndex = 42;
+            // 
+            // SalariedPayPerDayLabel
+            // 
+            this.SalariedPayPerDayLabel.AutoSize = true;
+            this.SalariedPayPerDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalariedPayPerDayLabel.Location = new System.Drawing.Point(1037, 387);
+            this.SalariedPayPerDayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SalariedPayPerDayLabel.Name = "SalariedPayPerDayLabel";
+            this.SalariedPayPerDayLabel.Size = new System.Drawing.Size(206, 37);
+            this.SalariedPayPerDayLabel.TabIndex = 43;
+            this.SalariedPayPerDayLabel.Text = "Salaried Pay:";
+            // 
+            // HourlyPayLabel
+            // 
+            this.HourlyPayLabel.AutoSize = true;
+            this.HourlyPayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HourlyPayLabel.Location = new System.Drawing.Point(1040, 438);
+            this.HourlyPayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.HourlyPayLabel.Name = "HourlyPayLabel";
+            this.HourlyPayLabel.Size = new System.Drawing.Size(172, 37);
+            this.HourlyPayLabel.TabIndex = 44;
+            this.HourlyPayLabel.Text = "Hourly Pay";
             // 
             // AddEmployeePanel
             // 
             this.AcceptButton = this.SubmitButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(947, 525);
+            this.ClientSize = new System.Drawing.Size(1894, 1010);
+            this.Controls.Add(this.HourlyPayLabel);
+            this.Controls.Add(this.SalariedPayPerDayLabel);
+            this.Controls.Add(this.SalariedPayPerDayTextBox);
+            this.Controls.Add(this.HourlyPayTextbox);
             this.Controls.Add(this.StateComboBox);
             this.Controls.Add(this.SalariedHourlyComboBox);
             this.Controls.Add(this.SubmitButton);
@@ -595,7 +647,7 @@
             this.Controls.Add(this.FNameLabel);
             this.Controls.Add(this.PersonalInfoLabel);
             this.Controls.Add(this.EnterEmployeeInfoLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddEmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Employee";
@@ -648,5 +700,9 @@
         private System.Windows.Forms.ComboBox SalariedHourlyComboBox;
         private System.Windows.Forms.ErrorProvider AddErrorProvider;
         private System.Windows.Forms.ComboBox StateComboBox;
+        private System.Windows.Forms.Label HourlyPayLabel;
+        private System.Windows.Forms.Label SalariedPayPerDayLabel;
+        private System.Windows.Forms.TextBox SalariedPayPerDayTextBox;
+        private System.Windows.Forms.TextBox HourlyPayTextbox;
     }
 }
