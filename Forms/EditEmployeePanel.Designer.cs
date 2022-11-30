@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.EnterEmployeeInfoLabel = new System.Windows.Forms.Label();
+            this.EditEmployeeInfoLabel = new System.Windows.Forms.Label();
             this.PersonalInfoLabel = new System.Windows.Forms.Label();
             this.FNameLabel = new System.Windows.Forms.Label();
             this.LNameLabel = new System.Windows.Forms.Label();
@@ -79,17 +79,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.EditErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // EnterEmployeeInfoLabel
+            // EditEmployeeInfoLabel
             // 
-            this.EnterEmployeeInfoLabel.AutoSize = true;
-            this.EnterEmployeeInfoLabel.BackColor = System.Drawing.Color.LightGray;
-            this.EnterEmployeeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnterEmployeeInfoLabel.Location = new System.Drawing.Point(134, 15);
-            this.EnterEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.EnterEmployeeInfoLabel.Name = "EnterEmployeeInfoLabel";
-            this.EnterEmployeeInfoLabel.Size = new System.Drawing.Size(619, 55);
-            this.EnterEmployeeInfoLabel.TabIndex = 0;
-            this.EnterEmployeeInfoLabel.Text = "Enter Employee Information";
+            this.EditEmployeeInfoLabel.AutoSize = true;
+            this.EditEmployeeInfoLabel.BackColor = System.Drawing.Color.LightGray;
+            this.EditEmployeeInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditEmployeeInfoLabel.Location = new System.Drawing.Point(180, 15);
+            this.EditEmployeeInfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.EditEmployeeInfoLabel.Name = "EditEmployeeInfoLabel";
+            this.EditEmployeeInfoLabel.Size = new System.Drawing.Size(586, 55);
+            this.EditEmployeeInfoLabel.TabIndex = 0;
+            this.EditEmployeeInfoLabel.Text = "Edit Employee Information";
             // 
             // PersonalInfoLabel
             // 
@@ -691,7 +691,7 @@
             this.Controls.Add(this.LNameLabel);
             this.Controls.Add(this.FNameLabel);
             this.Controls.Add(this.PersonalInfoLabel);
-            this.Controls.Add(this.EnterEmployeeInfoLabel);
+            this.Controls.Add(this.EditEmployeeInfoLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditEmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -705,7 +705,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label EnterEmployeeInfoLabel;
+        private System.Windows.Forms.Label EditEmployeeInfoLabel;
         private System.Windows.Forms.Label PersonalInfoLabel;
         private System.Windows.Forms.Label FNameLabel;
         private System.Windows.Forms.Label LNameLabel;

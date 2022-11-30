@@ -110,6 +110,10 @@ namespace PayrollManagement.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+        private void CancelEditButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         #endregion
         #region Validating
         private void DedNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
