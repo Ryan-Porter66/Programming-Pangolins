@@ -30,9 +30,7 @@ namespace PayrollManagement.Forms
                 if(this.ValidateChildren())
                 {
                     //Convert FedTaxRateStr to decminal
-                    decimal FedTaxRate = Decimal.Parse(FedRateTextBox.Text);
-                    decimal Salary = Decimal.Parse(SalariedPayPerDayTextBox.Text);
-                    decimal PayPerHour = Decimal.Parse(HourlyPayTextbox.Text);
+                    decimal FedTaxRate = Decimal.Parse(FedRateTextBox.Text);                    
 
                     //convert Check Box info into "Admin" or "Employee"
                     string Permissions = "";
@@ -54,17 +52,20 @@ namespace PayrollManagement.Forms
                     List<Deduction> dummyDeductionList = new List<Deduction>();
                     
                     //create an employee object based on if they are hourly or salaried & send it to database
-                    if (SalariedHourlyComboBox.Text == "Salaried")
+                    if (SalariedHourlyComboBox.Text == "Salary")
                     {
+                        decimal Salary = Decimal.Parse(SalariedPayPerDayTextBox.Text);
                         SalaryEmployee newSalaryEmployee = new SalaryEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, EMPLOYEEID, FedTaxRate, Permissions, SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, STATETAXRATE, Salary);
-                        //Database.AddEmployee(Username, Password, newSalaryEmployee);
+                        Database.AddEmployee(Username, Password, newSalaryEmployee);
                     }
                     else
                     {
+                        decimal PayPerHour = Decimal.Parse(HourlyPayTextbox.Text);
                         HourlyEmployee newHourlyEmployee = new HourlyEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, EMPLOYEEID, FedTaxRate, Permissions, SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, STATETAXRATE, PayPerHour);
-                        //Database.AddEmployee(Username, Password, newHourlyEmployee);
+                        Database.AddEmployee(Username, Password, newHourlyEmployee);
                     }
                     this.ClearForm();
+                    this.Close();
                 } 
             }
             catch (Exception ex)
@@ -319,11 +320,13 @@ namespace PayrollManagement.Forms
             {
                 SalariedPayPerDayTextBox.Enabled = true;
                 HourlyPayTextbox.Enabled = false;
+                HourlyPayTextbox.Text = "";
             }
             else if (SalariedHourlyComboBox.Text == "Hourly")
             {
                 HourlyPayTextbox.Enabled = true;
                 SalariedPayPerDayTextBox.Enabled = false;
+                SalariedPayPerDayTextBox.Text = "";
             }
         }
         #endregion
