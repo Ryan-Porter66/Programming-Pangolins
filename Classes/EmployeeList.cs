@@ -26,12 +26,16 @@ namespace PayrollManagement.Classes
             this.Company = Database.GetCompany(username, password);
         }
         //allow user to select employees for the list
-        public void DisplaySelectableEmployeeList()
+        public void DisplaySelectableEmployeeList(bool singleSelect)
         {
             EmployeeListBoxForm employeeListForm = new EmployeeListBoxForm();
 
             employeeListForm.employeeListBox.DisplayMember = "EmployeeID";
             employeeListForm.employeeListBox.DataSource = this.Employees;
+            if(singleSelect)
+            {
+                employeeListForm.employeeListBox.SelectionMode = System.Windows.Forms.SelectionMode.One;
+            }
             employeeListForm.employeeListBox.ClearSelected();
             employeeListForm.ShowDialog();
 

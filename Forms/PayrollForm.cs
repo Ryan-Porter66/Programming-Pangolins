@@ -23,7 +23,7 @@ namespace PayrollManagement.Forms
             {
                 EmployeeList employees = new EmployeeList();
                 employees.GenerateEmployeeList(Username, Password);
-                employees.DisplaySelectableEmployeeList();
+                employees.DisplaySelectableEmployeeList(false);
                 Reports.CompilePayrollData(employees);
             }
             catch (Exception ex)

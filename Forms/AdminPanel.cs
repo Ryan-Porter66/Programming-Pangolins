@@ -43,7 +43,7 @@ namespace PayrollManagement.Forms
         private void EditEmployPayInfoButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (editEmployeePanel editEmployeeForm = new editEmployeePanel(Username, Password))
+            using (EditEmployeePanel editEmployeeForm = new EditEmployeePanel(Username, Password))
             {
                 editEmployeeForm.ShowDialog();
                 editEmployeeForm.Dispose();
