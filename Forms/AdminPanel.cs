@@ -54,7 +54,7 @@ namespace PayrollManagement.Forms
         private void EditBusButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (editBusinessInfoPanel editBusinessInfoForm = new editBusinessInfoPanel(Username, Password))
+            using (EditBusinessInfoPanel editBusinessInfoForm = new EditBusinessInfoPanel(Username, Password))
             {
                 editBusinessInfoForm.ShowDialog();
                 editBusinessInfoForm.Dispose();
