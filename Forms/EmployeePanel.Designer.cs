@@ -36,18 +36,20 @@
             this.EmployeePayrollLabel.AutoSize = true;
             this.EmployeePayrollLabel.BackColor = System.Drawing.Color.LightGray;
             this.EmployeePayrollLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeePayrollLabel.Location = new System.Drawing.Point(297, 58);
+            this.EmployeePayrollLabel.Location = new System.Drawing.Point(148, 30);
+            this.EmployeePayrollLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EmployeePayrollLabel.Name = "EmployeePayrollLabel";
-            this.EmployeePayrollLabel.Size = new System.Drawing.Size(1293, 108);
+            this.EmployeePayrollLabel.Size = new System.Drawing.Size(650, 55);
             this.EmployeePayrollLabel.TabIndex = 0;
             this.EmployeePayrollLabel.Text = "Employee Payroll Information";
             // 
             // EmployeePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1894, 1009);
+            this.ClientSize = new System.Drawing.Size(947, 525);
             this.Controls.Add(this.EmployeePayrollLabel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeePanel";

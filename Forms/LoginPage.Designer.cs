@@ -45,7 +45,7 @@
             // LoginButton
             // 
             this.LoginButton.BackColor = System.Drawing.Color.Silver;
-            this.LoginButton.Location = new System.Drawing.Point(412, 430);
+            this.LoginButton.Location = new System.Drawing.Point(409, 430);
             this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(128, 48);
@@ -57,7 +57,7 @@
             // LabelInputBackground
             // 
             this.LabelInputBackground.BackColor = System.Drawing.Color.Silver;
-            this.LabelInputBackground.Location = new System.Drawing.Point(226, 180);
+            this.LabelInputBackground.Location = new System.Drawing.Point(223, 180);
             this.LabelInputBackground.Margin = new System.Windows.Forms.Padding(2);
             this.LabelInputBackground.Name = "LabelInputBackground";
             this.LabelInputBackground.Size = new System.Drawing.Size(506, 228);
@@ -66,7 +66,7 @@
             // 
             // TextBoxUsername
             // 
-            this.TextBoxUsername.Location = new System.Drawing.Point(239, 232);
+            this.TextBoxUsername.Location = new System.Drawing.Point(236, 232);
             this.TextBoxUsername.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxUsername.MaxLength = 20;
             this.TextBoxUsername.Name = "TextBoxUsername";
@@ -75,7 +75,7 @@
             // 
             // TextBoxPassword
             // 
-            this.TextBoxPassword.Location = new System.Drawing.Point(239, 304);
+            this.TextBoxPassword.Location = new System.Drawing.Point(236, 304);
             this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxPassword.MaxLength = 20;
             this.TextBoxPassword.Name = "TextBoxPassword";
@@ -87,7 +87,7 @@
             // 
             this.LabelCommand.AutoSize = true;
             this.LabelCommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.725F);
-            this.LabelCommand.Location = new System.Drawing.Point(221, 149);
+            this.LabelCommand.Location = new System.Drawing.Point(218, 149);
             this.LabelCommand.Name = "LabelCommand";
             this.LabelCommand.Size = new System.Drawing.Size(243, 29);
             this.LabelCommand.TabIndex = 9;
@@ -98,7 +98,7 @@
             this.LabelUsername.AutoSize = true;
             this.LabelUsername.BackColor = System.Drawing.SystemColors.Window;
             this.LabelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelUsername.Location = new System.Drawing.Point(239, 210);
+            this.LabelUsername.Location = new System.Drawing.Point(236, 210);
             this.LabelUsername.Name = "LabelUsername";
             this.LabelUsername.Size = new System.Drawing.Size(87, 20);
             this.LabelUsername.TabIndex = 10;
@@ -109,7 +109,7 @@
             this.LabelPassword.AutoSize = true;
             this.LabelPassword.BackColor = System.Drawing.SystemColors.Window;
             this.LabelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LabelPassword.Location = new System.Drawing.Point(239, 282);
+            this.LabelPassword.Location = new System.Drawing.Point(236, 282);
             this.LabelPassword.Name = "LabelPassword";
             this.LabelPassword.Size = new System.Drawing.Size(82, 20);
             this.LabelPassword.TabIndex = 11;
@@ -123,7 +123,7 @@
             this.LabelMainTitle.AutoSize = true;
             this.LabelMainTitle.BackColor = System.Drawing.Color.Silver;
             this.LabelMainTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold);
-            this.LabelMainTitle.Location = new System.Drawing.Point(223, 39);
+            this.LabelMainTitle.Location = new System.Drawing.Point(220, 39);
             this.LabelMainTitle.Name = "LabelMainTitle";
             this.LabelMainTitle.Size = new System.Drawing.Size(506, 73);
             this.LabelMainTitle.TabIndex = 12;
@@ -138,7 +138,7 @@
             this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 545);
+            this.ClientSize = new System.Drawing.Size(947, 525);
             this.Controls.Add(this.LabelMainTitle);
             this.Controls.Add(this.LabelPassword);
             this.Controls.Add(this.LabelUsername);
