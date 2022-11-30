@@ -13,7 +13,7 @@ namespace PayrollManagement.Classes
         const string numberStringPattern = @"^\d+$";
         const string hourStringPattern = @"^\d{0,2}(\.\d{0,2})?$";
         const string payStringPattern = @"^\d{1,6}(\.\d{0,2})?$";
-        const string dateStringPatterns = "MMddyyyy";
+        public const string dateStringPatterns = "MMddyyyy";
         #endregion
         #region Methods
         //this method will see if the string contains only alphanumeric and spaces with at least 1 character

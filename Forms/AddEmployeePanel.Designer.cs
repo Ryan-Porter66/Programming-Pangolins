@@ -313,7 +313,7 @@
             this.AdminUserCheckBox.AutoSize = true;
             this.AdminUserCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminUserCheckBox.Location = new System.Drawing.Point(524, 317);
-            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AdminUserCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.AdminUserCheckBox.Name = "AdminUserCheckBox";
             this.AdminUserCheckBox.Size = new System.Drawing.Size(111, 24);
             this.AdminUserCheckBox.TabIndex = 19;
@@ -323,7 +323,7 @@
             // FirstNameTextBox
             // 
             this.FirstNameTextBox.Location = new System.Drawing.Point(133, 127);
-            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.FirstNameTextBox.MaxLength = 49;
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(349, 20);
@@ -333,7 +333,7 @@
             // LastNameTextBox
             // 
             this.LastNameTextBox.Location = new System.Drawing.Point(133, 152);
-            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LastNameTextBox.MaxLength = 49;
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(349, 20);
@@ -343,7 +343,7 @@
             // AddressTextBox
             // 
             this.AddressTextBox.Location = new System.Drawing.Point(133, 176);
-            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddressTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.AddressTextBox.MaxLength = 49;
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(349, 20);
@@ -353,7 +353,7 @@
             // CityTextBox
             // 
             this.CityTextBox.Location = new System.Drawing.Point(133, 204);
-            this.CityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CityTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.CityTextBox.MaxLength = 49;
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(349, 20);
@@ -363,7 +363,7 @@
             // ZipCodeTextBox
             // 
             this.ZipCodeTextBox.Location = new System.Drawing.Point(133, 261);
-            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ZipCodeTextBox.MaxLength = 5;
             this.ZipCodeTextBox.Name = "ZipCodeTextBox";
             this.ZipCodeTextBox.Size = new System.Drawing.Size(349, 20);
@@ -373,7 +373,7 @@
             // PhoneTextBox
             // 
             this.PhoneTextBox.Location = new System.Drawing.Point(133, 290);
-            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PhoneTextBox.MaxLength = 10;
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(349, 20);
@@ -383,7 +383,7 @@
             // DoBTextBox
             // 
             this.DoBTextBox.Location = new System.Drawing.Point(133, 317);
-            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoBTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DoBTextBox.MaxLength = 8;
             this.DoBTextBox.Name = "DoBTextBox";
             this.DoBTextBox.Size = new System.Drawing.Size(349, 20);
@@ -393,7 +393,7 @@
             // BankNameTextBox
             // 
             this.BankNameTextBox.Location = new System.Drawing.Point(133, 405);
-            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.BankNameTextBox.MaxLength = 49;
             this.BankNameTextBox.Name = "BankNameTextBox";
             this.BankNameTextBox.Size = new System.Drawing.Size(349, 20);
@@ -403,7 +403,7 @@
             // BankANTextBox
             // 
             this.BankANTextBox.Location = new System.Drawing.Point(133, 458);
-            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankANTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.BankANTextBox.MaxLength = 20;
             this.BankANTextBox.Name = "BankANTextBox";
             this.BankANTextBox.Size = new System.Drawing.Size(349, 20);
@@ -413,7 +413,7 @@
             // BankRNTextBox
             // 
             this.BankRNTextBox.Location = new System.Drawing.Point(133, 433);
-            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BankRNTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.BankRNTextBox.MaxLength = 9;
             this.BankRNTextBox.Name = "BankRNTextBox";
             this.BankRNTextBox.Size = new System.Drawing.Size(349, 20);
@@ -423,7 +423,7 @@
             // DepartmentTextBox
             // 
             this.DepartmentTextBox.Location = new System.Drawing.Point(637, 129);
-            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.DepartmentTextBox.MaxLength = 49;
             this.DepartmentTextBox.Name = "DepartmentTextBox";
             this.DepartmentTextBox.Size = new System.Drawing.Size(259, 20);
@@ -433,7 +433,7 @@
             // HireDateTextBox
             // 
             this.HireDateTextBox.Location = new System.Drawing.Point(637, 154);
-            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HireDateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.HireDateTextBox.MaxLength = 8;
             this.HireDateTextBox.Name = "HireDateTextBox";
             this.HireDateTextBox.Size = new System.Drawing.Size(259, 20);
@@ -443,7 +443,7 @@
             // SSNTextBox
             // 
             this.SSNTextBox.Location = new System.Drawing.Point(133, 341);
-            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SSNTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SSNTextBox.MaxLength = 9;
             this.SSNTextBox.Name = "SSNTextBox";
             this.SSNTextBox.Size = new System.Drawing.Size(349, 20);
@@ -453,7 +453,7 @@
             // FedRateTextBox
             // 
             this.FedRateTextBox.Location = new System.Drawing.Point(638, 258);
-            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FedRateTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.FedRateTextBox.MaxLength = 10;
             this.FedRateTextBox.Name = "FedRateTextBox";
             this.FedRateTextBox.Size = new System.Drawing.Size(259, 20);
@@ -464,7 +464,7 @@
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubmitButton.Location = new System.Drawing.Point(594, 357);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(220, 93);
             this.SubmitButton.TabIndex = 20;
@@ -480,7 +480,7 @@
             "Hourly",
             "Salary"});
             this.SalariedHourlyComboBox.Location = new System.Drawing.Point(637, 178);
-            this.SalariedHourlyComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalariedHourlyComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.SalariedHourlyComboBox.Name = "SalariedHourlyComboBox";
             this.SalariedHourlyComboBox.Size = new System.Drawing.Size(259, 21);
             this.SalariedHourlyComboBox.TabIndex = 15;
@@ -558,7 +558,7 @@
             // 
             this.HourlyPayTextbox.Enabled = false;
             this.HourlyPayTextbox.Location = new System.Drawing.Point(637, 232);
-            this.HourlyPayTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HourlyPayTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.HourlyPayTextbox.MaxLength = 10;
             this.HourlyPayTextbox.Name = "HourlyPayTextbox";
             this.HourlyPayTextbox.Size = new System.Drawing.Size(259, 20);
@@ -569,7 +569,7 @@
             // 
             this.SalariedPayPerDayTextBox.Enabled = false;
             this.SalariedPayPerDayTextBox.Location = new System.Drawing.Point(637, 204);
-            this.SalariedPayPerDayTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalariedPayPerDayTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SalariedPayPerDayTextBox.MaxLength = 10;
             this.SalariedPayPerDayTextBox.Name = "SalariedPayPerDayTextBox";
             this.SalariedPayPerDayTextBox.Size = new System.Drawing.Size(259, 20);
@@ -648,7 +648,7 @@
             this.Controls.Add(this.FNameLabel);
             this.Controls.Add(this.PersonalInfoLabel);
             this.Controls.Add(this.EnterEmployeeInfoLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddEmployeePanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Employee";

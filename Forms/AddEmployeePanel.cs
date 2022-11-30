@@ -42,12 +42,16 @@ namespace PayrollManagement.Forms
                     {
                         Permissions = "Employee";
                     }
+
                     //Create new objects
                     BankAccount newEmployeeBankInfo = new BankAccount(BankRNTextBox.Text, BankANTextBox.Text, BankNameTextBox.Text);
-                    DateTime DoB = new DateTime(long.Parse(DoBTextBox.Text));
-                    DateTime HireDate = new DateTime(long.Parse(HireDateTextBox.Text));
-                    int EMPLOYEEID = 0; //database makes this
-                    decimal STATETAXRATE = 0; //database looks this up
+                    DateTime.TryParseExact(DoBTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
+                        System.Globalization.DateTimeStyles.None, out DateTime DoB);
+                    DateTime.TryParseExact(HireDateTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
+                        System.Globalization.DateTimeStyles.None, out DateTime HireDate);
+                    int empID = 0; //database makes this
+                    decimal stateTaxRate = 0; //database looks this up
+                    string trueEmpID = "";
 
                     List<Deduction> dummyDeductionList = new List<Deduction>();
                     
@@ -55,17 +59,21 @@ namespace PayrollManagement.Forms
                     if (SalariedHourlyComboBox.Text == "Salary")
                     {
                         decimal Salary = Decimal.Parse(SalariedPayPerDayTextBox.Text);
-                        SalaryEmployee newSalaryEmployee = new SalaryEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, EMPLOYEEID, FedTaxRate, Permissions, SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, STATETAXRATE, Salary);
-                        Database.AddEmployee(Username, Password, newSalaryEmployee);
+                        SalaryEmployee newSalaryEmployee = new SalaryEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
+                            CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
+                            SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, Salary);
+                        trueEmpID = Database.AddEmployee(Username, Password, newSalaryEmployee);
                     }
                     else
                     {
                         decimal PayPerHour = Decimal.Parse(HourlyPayTextbox.Text);
-                        HourlyEmployee newHourlyEmployee = new HourlyEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, EMPLOYEEID, FedTaxRate, Permissions, SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, STATETAXRATE, PayPerHour);
-                        Database.AddEmployee(Username, Password, newHourlyEmployee);
+                        HourlyEmployee newHourlyEmployee = new HourlyEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
+                            CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
+                            SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, PayPerHour);
+                        trueEmpID = Database.AddEmployee(Username, Password, newHourlyEmployee);
                     }
+                    MessageBox.Show($"New employee ID {trueEmpID} was added to the database.");
                     this.ClearForm();
-                    this.Close();
                 } 
             }
             catch (Exception ex)
@@ -338,9 +346,9 @@ namespace PayrollManagement.Forms
         #region Blur Functionality
         private void SalariedHourlyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updateSalaryHourlyTextBoxes();
+            UpdateSalaryHourlyTextBoxes();
         }
-        private void updateSalaryHourlyTextBoxes()
+        private void UpdateSalaryHourlyTextBoxes()
         {
             if (SalariedHourlyComboBox.Text == "Salary")
             {
