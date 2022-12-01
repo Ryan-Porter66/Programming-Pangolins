@@ -1,23 +1,14 @@
-﻿using System.Net.Http;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 using System.IO;
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using iText.Layout.Element;
 using System.Collections.Generic;
-using Org.BouncyCastle.Utilities.Net;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Globalization;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Org.BouncyCastle.Ocsp;
-using static System.Windows.Forms.AxHost;
 
 namespace PayrollManagement.Classes
 {
-
     public static class Database
     {
         public static void DeleteEmployee(string username, string passwordHash, string empID)
@@ -147,8 +138,6 @@ namespace PayrollManagement.Classes
                 string RoutingNumber = item["routing_num"].ToString();
                 BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
                 int EmployeeID = Int32.Parse(item["emp_id"].ToString());
-                string dt1 = item["dob"].ToString();
-                string dt2 = item["hire_date"].ToString();
                 decimal FederalTaxRate = Decimal.Parse(item["federal_tax"].ToString());
                 string Permissions = item["permission_level"].ToString();
                 string Ssn = item["ssn"].ToString();

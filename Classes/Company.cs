@@ -4,26 +4,15 @@ namespace PayrollManagement.Classes
 {
     public class Company
     {
-        #region Variables
-
-        #endregion
         #region Getters/Setters
         public BankAccount Bank { get; set; }
-
         public string FederalID { get; set; }
-
         public string Address { get; set; }
-
         public string City { get; set; }
-
         public string State { get; set; }
-
         public string PostalCode { get; set; }
-
         public string PhoneNumber { get; set; }
-
         public string Name { get; set; }
-
         #endregion
         #region Constructors
         public Company(string name, BankAccount bank, string federalID, string address, string city, string state, string postalCode, string phoneNumber)
@@ -37,8 +26,6 @@ namespace PayrollManagement.Classes
             PhoneNumber = phoneNumber;
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
-        #endregion
-        #region Methods
         #endregion
     }
 }

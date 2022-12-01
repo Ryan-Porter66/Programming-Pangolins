@@ -1,5 +1,4 @@
 ﻿using PayrollManagement.Forms;
-using PayrollManagement.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +7,9 @@ namespace PayrollManagement.Classes
 {
     public class EmployeeList
     {
-        #region Variables
-
-        #endregion
         #region Getter/Setter
         public List<Employee> Employees { get; set; }
-
         public Company Company { get; set; }
-
-        #endregion
-        #region Constructor
         #endregion
         #region Methods
         public void GenerateEmployeeList(string username, string password)
@@ -44,22 +36,18 @@ namespace PayrollManagement.Classes
 
             employeeListForm.Dispose(); //need to dispose manually since ShowDialog was used
         }
-
         public decimal GetNetPayAllEmployeesInList()
         {
             if (this.Company == null || this.GetSizeOfList() < 1)
             {
                 throw new ArgumentNullException($"Employee List is Empty");
             }
-
             return Employees.Sum(emp => emp.CalculateNetPay(emp.CalculateGrossPay()));
         }
-
         public int GetSizeOfList()
         {
             return this.Employees.Count();
         }
-
         public string GetSumOfFirst8DigitsRoute()
         {
             if(this.Company == null || this.GetSizeOfList() < 1)

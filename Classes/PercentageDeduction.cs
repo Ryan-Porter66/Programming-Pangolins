@@ -4,12 +4,8 @@ namespace PayrollManagement.Classes
 {
     public class PercentageDeduction : Deduction
     {
-        #region Variables
-
-        #endregion
         #region Getters/Setters
         public decimal Percentage { get; set; }
-
         #endregion
         #region Constructor
         public PercentageDeduction(string name, decimal percentage) : base(name)

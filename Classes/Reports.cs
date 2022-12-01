@@ -36,7 +36,6 @@ namespace PayrollManagement.Classes
             {
                 MessageBox.Show(ex.Message + @" Cancelling Payroll");
             }
-
         }
         
         //https://www.codeguru.com/dotnet/generating-a-pdf-document-using-c-net-and-itext-7/
@@ -221,9 +220,7 @@ namespace PayrollManagement.Classes
                         $"{GetSubString(empBank.BankAccountNumber, 17),-17}{emp.CalculateNetPay(emp.CalculateGrossPay()).ToString(CultureInfo.InvariantCulture).Replace(".", string.Empty).PadLeft(10, '0')}" +
                         $"{"",-15}{GetSubString($"{emp.FirstName} {emp.LastName}", 22),-22}{"",-2}" +
                         $"0{GetSubString(empBank.BankRoutingNumber, 8)}{detailSequenceNumber.ToString().PadLeft(7, '0')}");
-                        
                 }
-
 
                 //batch footer
                 streamWriter.WriteLine(

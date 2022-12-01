@@ -4,14 +4,14 @@ namespace PayrollManagement.Classes
 {
     public static class FormMethods
     {
-        #region Strings Format Methods
+        #region String Format Methods
         public static string ReturnGeneralStringFormat(int min, int max)
         {
             return "Must be between " + min.ToString() + " and " + max.ToString() + " characters.";
         }
         public static string ReturnDateStringFormat()
         {
-            return "Must be in MMddyyyy format.";
+            return "Must be in MMddyyyy format and a valid date (not too far in the past nor future).";
         }
         public static string ReturnRateStringFormat()
         {
@@ -42,19 +42,6 @@ namespace PayrollManagement.Classes
                     epToClear.SetError(tb, "");
                 }
             }
-        }
-        //https://stackoverflow.com/questions/12323044/c-sharp-errorprovider-want-to-know-if-any-are-active
-        //this checks to see if any errors are still set
-        public static bool IsFormValid(Form formToCheck, ErrorProvider epToCheck)
-        {
-            foreach (Control control in formToCheck.Controls)
-            {
-                if(!string.IsNullOrEmpty(epToCheck.GetError(control)))
-                {
-                    return false;
-                }
-            }
-            return true;
         }
         #endregion
     }

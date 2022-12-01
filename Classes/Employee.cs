@@ -3,50 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace PayrollManagement.Classes
-{
-    
+{ 
     public abstract class Employee
     {
         #region Variables
-
         private const decimal FICA_TAX = 0.062m;
         private const decimal MED_TAX = 0.0145m;
         #endregion
         #region Get/Set
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
-
         public string Address { get; set; }
-
         public string City { get; set; }
-
         public string PostalCode { get; set; }
-
         public string State { get; set; }
-
         public BankAccount Bank { get; set; }
-
         public int EmployeeID { get; set; }
-
         public decimal FederalTaxRate { get; set; }
-
         public string Permissions { get; set; }
-
         public string Ssn { get; set; }
-
         public DateTime Dob { get; set; }
-
         public DateTime HireDate { get; set; }
-
         public string PhoneNumber { get; set; }
-
         public string Department { get; set; }
-
         public List<Deduction> DeductionList { get; set; }
-
         public decimal StateTaxRate { get; set; }
-
         #endregion
         #region Constructor
         public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate)
@@ -72,37 +53,31 @@ namespace PayrollManagement.Classes
         #endregion
         #region Methods
         public abstract decimal CalculateGrossPay();
-  
         public decimal CalculateFederalTax()
         {
             decimal fedTax = FederalTaxRate * CalculateGrossPay();
             return fedTax;
         }
-
         public decimal CalculateStateTax()
         {
             decimal stateTax = StateTaxRate * CalculateGrossPay();
             return stateTax;
         }
-
         public decimal CalculateFICATax()
         {
             decimal ficaTax = FICA_TAX * CalculateGrossPay();
             return ficaTax;
         }
-
         public decimal CalculateMedTax()
         {
             decimal medTax = MED_TAX * CalculateGrossPay();
             return medTax;
         }
-
         public decimal CalculateTotalNonTaxDeductionAmount()
         {
             decimal gross = this.CalculateGrossPay();
             return DeductionList.Sum(ded => ded.CalculateDeductionAmount(gross));
         }
-
         public decimal CalculateNetPay(decimal grossPay)
         {
             decimal netPay = grossPay - CalculateFederalTax() - CalculateFICATax() - CalculateMedTax() - CalculateStateTax() - CalculateTotalNonTaxDeductionAmount();

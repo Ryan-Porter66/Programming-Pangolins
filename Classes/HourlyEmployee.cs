@@ -6,14 +6,9 @@ namespace PayrollManagement.Classes
 {
     public class HourlyEmployee : Employee
     {
-        #region Variables
-
-        #endregion
         #region Get/Set
         public decimal HoursWorked { get; set; }
-
         public decimal PayPerHour { get; set; }
-
         #endregion
         #region Constructor
         public HourlyEmployee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate, decimal payHours) : base(firstName, lastName, address, city, postalCode, state, bank, employeeID, federalTaxRate, permissions, ssn, dob, hireDate, phoneNumber, department, deductionList, stateTaxRate)
@@ -32,7 +27,6 @@ namespace PayrollManagement.Classes
 
             throw new ArgumentException("Invalid Hour or Pay Per Hour data for "+ this.FirstName + " " + this.LastName + "!");
         }
-
         public void GetPayrollHours()
         {
             bool boolTryAgain;
@@ -64,7 +58,6 @@ namespace PayrollManagement.Classes
                             break;
                         case DialogResult.No:
                             //exit/cancel
-                            //MessageBox.Show("Operation Cancelled!");
                             throw new ArgumentException("Hours not provided!");
                     }
                 }
@@ -72,11 +65,8 @@ namespace PayrollManagement.Classes
                 {
                     if (sTextFromUser == "cancel")
                     {
-                        //MessageBox.Show("Operation Cancelled!");
                         throw new ArgumentException("Hours not provided!");
                     }
-
-                    //MessageBox.Show("Here is the text you entered: " + hours);
                     HoursWorked = hours;
                 }
             } while (boolTryAgain);

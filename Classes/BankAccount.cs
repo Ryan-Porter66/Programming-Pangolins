@@ -4,16 +4,10 @@ namespace PayrollManagement.Classes
 {
     public class BankAccount
     {
-        #region Variables
-
-        #endregion
         #region Getters/Setters
         public string BankRoutingNumber { get; set; }
-
         public string BankAccountNumber { get; set; }
-
         public string BankName { get; set; }
-
         #endregion
         #region Constructors
         public BankAccount(string bankRoutingNumber, string bankAccountNumber, string bankName)
