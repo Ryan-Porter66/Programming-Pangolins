@@ -97,6 +97,6 @@
         private System.Windows.Forms.Button ContinueButton;
         public System.Windows.Forms.ListBox employeeListBox;
         new private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Button SelectAllButton;
+        internal System.Windows.Forms.Button SelectAllButton;
     }
 }

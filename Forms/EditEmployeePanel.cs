@@ -82,10 +82,14 @@ namespace PayrollManagement.Forms
                 EmployeeList employees = new EmployeeList();
                 employees.GenerateEmployeeList(Username, Password);
                 employees.DisplaySelectableEmployeeList(true);
-                Employee employeeToEdit = employees.Employees.First();
-                UserID = employeeToEdit.EmployeeID.ToString();
-                EnableAllBoxes(true);
-                FillTextBoxes(employeeToEdit);
+                if(employees.GetSizeOfList() > 0)
+                {
+                    Employee employeeToEdit = employees.Employees.First();
+                    UserID = employeeToEdit.EmployeeID.ToString();
+                    EnableAllBoxes(true);
+                    FillTextBoxes(employeeToEdit);
+                }
+
             }
             catch (Exception ex)
             {
@@ -111,6 +115,8 @@ namespace PayrollManagement.Forms
         private void ClearForm()
         {
             FormMethods.ClearAllTextBoxes(this, EditErrorProvider);
+            StateComboBox.SelectedIndex = -1;
+            SalariedHourlyComboBox.SelectedIndex = -1;
             EnableAllBoxes(false);
         }
         #endregion

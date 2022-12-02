@@ -59,6 +59,7 @@ namespace PayrollManagement.Forms
                 {
                     throw new Exception("Error when connecting. Contact developer.");
                 }
+                TextBoxUsername.Focus();
             }
             catch(Exception ex)
             {

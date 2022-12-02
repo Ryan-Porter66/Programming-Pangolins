@@ -27,6 +27,8 @@ namespace PayrollManagement.Classes
             if(singleSelect)
             {
                 employeeListForm.employeeListBox.SelectionMode = System.Windows.Forms.SelectionMode.One;
+                employeeListForm.SelectAllButton.Visible = false;
+                employeeListForm.SelectAllButton.Enabled = false;
             }
             employeeListForm.employeeListBox.ClearSelected();
             employeeListForm.ShowDialog();

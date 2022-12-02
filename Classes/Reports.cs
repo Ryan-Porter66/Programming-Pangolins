@@ -185,6 +185,7 @@ namespace PayrollManagement.Classes
             document.Close();
             pdf.Close();
             writer.Close();
+            writer.Dispose();
         }
 
         //this method creates the NACHA file
@@ -260,8 +261,11 @@ namespace PayrollManagement.Classes
             {
                 throw new Exception("Need a save location.");
             }
+            string fileName = dialog.FileName;
 
-            return dialog.FileName;
+            dialog.Dispose();
+
+            return fileName;
         }
 
         //this prints a cell to the table
