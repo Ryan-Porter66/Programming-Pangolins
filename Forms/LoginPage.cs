@@ -28,42 +28,44 @@ namespace PayrollManagement.Forms
 
                 string response = Database.Login(username, password);
 
-                if(response == "Admin")
+                switch (response)
                 {
-                    FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
+                    case "Admin":
+                    {
+                        FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
 
-                    //call next form
-                    this.Hide();
-                    AdminPanel adminForm = new AdminPanel(username, password);
-                    adminForm.ShowDialog();
-                    adminForm.Dispose();
-                    this.Show();
-                }
-                else if(response == "Employee")
-                {
-                    FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
+                        //call next form
+                        this.Hide();
+                        AdminPanel adminForm = new AdminPanel(username, password);
+                        adminForm.ShowDialog();
+                        adminForm.Dispose();
+                        this.Show();
+                        break;
+                    }
+                    case "Employee":
+                    {
+                        FormMethods.ClearAllTextBoxes(this, ErrorInvalidLogin);
 
-                    //call next form
-                    this.Hide();
-                    EmployeePanel employeeForm = new EmployeePanel(username, password, username);
-                    employeeForm.ShowDialog();
-                    employeeForm.Dispose();
-                    this.Show();
-                }
-                else if(response == "Denied" || response == "Error: Incorrect Login")
-                {
-                    this.ErrorInvalidLogin.SetError(TextBoxPassword, "Username or password is incorrect!");
-                    return;
-                }
-                else
-                {
-                    throw new Exception("Error when connecting. Contact developer.");
+                        //call next form
+                        this.Hide();
+                        EmployeePanel employeeForm = new EmployeePanel(username, password, username);
+                        employeeForm.ShowDialog();
+                        employeeForm.Dispose();
+                        this.Show();
+                        break;
+                    }
+                    case "Denied":
+                    case "Error: Incorrect Login":
+                        this.ErrorInvalidLogin.SetError(TextBoxPassword, "Username or password is incorrect!");
+                        return;
+                    default:
+                        throw new Exception("Error when connecting. Contact developer.");
                 }
                 TextBoxUsername.Focus();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(@"Error: " + ex.Message);
             }
 
         }

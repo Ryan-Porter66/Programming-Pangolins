@@ -20,10 +20,8 @@ namespace PayrollManagement.Classes
             {
                 return Flat;
             }
-            else
-            {
-                throw new ArgumentException(this.Name + "'s value must be greater than 0!");
-            }
+
+            throw new ArgumentException(this.Name + "'s value must be greater than 0!");
         }
         #endregion
     }

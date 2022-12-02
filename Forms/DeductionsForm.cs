@@ -21,7 +21,7 @@ namespace PayrollManagement.Forms
             EmpID = empID;
             Deductions = Database.GetDeductions(Username, Password, EmpID);
         }
-        private void DeductionsForm_Load(object sender, System.EventArgs e)
+        private void DeductionsForm_Load(object sender, EventArgs e)
         {
             DeductionsListBox.DisplayMember = "Name";
             DeductionsListBox.DataSource = Deductions;
@@ -38,14 +38,16 @@ namespace PayrollManagement.Forms
         #region ListBox Methods
         private void DeductionsListBox_Format(object sender, ListControlConvertEventArgs e)
         {
-            string name = ((Deduction)e.ListItem).Name.ToString();
+            string name = ((Deduction)e.ListItem).Name;
             string amount = "bad data";
-            if ((Deduction)e.ListItem is FlatDeduction fd) {
-                amount = fd.Flat.ToString("0.00");
-            }
-            else if ((Deduction)e.ListItem is PercentageDeduction pd)
+            switch ((Deduction)e.ListItem)
             {
-                amount = pd.Percentage.ToString("0.00");
+                case FlatDeduction fd:
+                    amount = fd.Flat.ToString("0.00");
+                    break;
+                case PercentageDeduction pd:
+                    amount = pd.Percentage.ToString("0.00");
+                    break;
             }
             string stringToDisplay = string.Format("{0} {1}", amount.PadRight(10), name);
             e.Value = stringToDisplay;
@@ -58,7 +60,7 @@ namespace PayrollManagement.Forms
         }
         #endregion
         #region Button Methods
-        private void DeleteButton_Click(object sender, System.EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -77,33 +79,31 @@ namespace PayrollManagement.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private void DedAddButton_Click(object sender, System.EventArgs e)
+        private void DedAddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if(this.ValidateChildren())
-                {
-                    string dedName = DedNameTextBox.Text;
-                    string dedAmount = DedAmountTextBox.Text;
-                    decimal dedAmountDecimal = Convert.ToDecimal(dedAmount);
-                    string dedType = DedTypeComboBox.Text;
+                if (!this.ValidateChildren()) return;
+                string dedName = DedNameTextBox.Text;
+                string dedAmount = DedAmountTextBox.Text;
+                decimal dedAmountDecimal = Convert.ToDecimal(dedAmount);
+                string dedType = DedTypeComboBox.Text;
                 
-                    if(dedType == "Flat")
-                    {
-                        FlatDeduction deductionToAdd = new FlatDeduction(dedName, dedAmountDecimal);
-                        List<Deduction> deductionsToAdd = new List<Deduction> { deductionToAdd };
-                        Database.AddDeductions(Username, Password, EmpID, deductionsToAdd);
-                    }
-                    else
-                    {
-                        PercentageDeduction deductionToAdd = new PercentageDeduction(dedName, dedAmountDecimal);
-                        List<Deduction> deductionsToAdd = new List<Deduction> { deductionToAdd };
-                        Database.AddDeductions(Username, Password, EmpID, deductionsToAdd);
-                    }
-                    MessageBox.Show("Successfully added deduction.");
-                    RefreshDeductionListBox();
-                    ClearForm();
+                if(dedType == "Flat")
+                {
+                    FlatDeduction deductionToAdd = new FlatDeduction(dedName, dedAmountDecimal);
+                    List<Deduction> deductionsToAdd = new List<Deduction> { deductionToAdd };
+                    Database.AddDeductions(Username, Password, EmpID, deductionsToAdd);
                 }
+                else
+                {
+                    PercentageDeduction deductionToAdd = new PercentageDeduction(dedName, dedAmountDecimal);
+                    List<Deduction> deductionsToAdd = new List<Deduction> { deductionToAdd };
+                    Database.AddDeductions(Username, Password, EmpID, deductionsToAdd);
+                }
+                MessageBox.Show(@"Successfully added deduction.");
+                RefreshDeductionListBox();
+                ClearForm();
             }
             catch (Exception ex)
             {

@@ -6,7 +6,7 @@
         public string Name { get; set; }
         #endregion
         #region Constructor
-        public Deduction(string name)
+        protected Deduction(string name)
         {
             this.Name = name;
         }

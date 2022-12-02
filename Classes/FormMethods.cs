@@ -7,7 +7,7 @@ namespace PayrollManagement.Classes
         #region String Format Methods
         public static string ReturnGeneralStringFormat(int min, int max)
         {
-            return "Must be between " + min.ToString() + " and " + max.ToString() + " characters.";
+            return "Must be between " + min + " and " + max + " characters.";
         }
         public static string ReturnDateStringFormat()
         {
@@ -16,10 +16,6 @@ namespace PayrollManagement.Classes
         public static string ReturnRateStringFormat()
         {
             return "Must have no numbers to left of the decimal and at most 4 to the right of the decimal.";
-        }
-        public static string ReturnHourStringFormat()
-        {
-            return "Must have at max 2 numbers to the left of the decimal and/or max 2 numbers to the right of it.";
         }
         public static string ReturnPayStringFormat()
         {
@@ -36,11 +32,9 @@ namespace PayrollManagement.Classes
         {
             foreach (var control in formToEmpty.Controls)
             {
-                if (control is TextBox tb)
-                {
-                    tb.Clear();
-                    epToClear.SetError(tb, "");
-                }
+                if (!(control is TextBox tb)) continue;
+                tb.Clear();
+                epToClear.SetError(tb, "");
             }
         }
         #endregion

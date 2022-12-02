@@ -34,7 +34,7 @@ namespace PayrollManagement.Forms
                 {
                     if(employee.EmployeeID.ToString() == Username)
                     {
-                        MessageBox.Show("Cannot delete yourself!");
+                        MessageBox.Show(@"Cannot delete yourself!");
                     } 
                     else
                     {
@@ -42,7 +42,7 @@ namespace PayrollManagement.Forms
                         count++;
                     }
                 }
-                MessageBox.Show($"Successfully deleted {count} employees.");
+                MessageBox.Show($@"Successfully deleted {count} employees.");
             }
             catch (Exception ex)
             {

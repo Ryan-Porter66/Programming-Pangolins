@@ -19,13 +19,12 @@ namespace PayrollManagement.Classes
         #region Methods
         public override decimal CalculateGrossPay()
         {
-            if (HoursWorked > 0 && HoursWorked < 200 && PayPerHour > 0)
-            {
-                decimal grossPay = PayPerHour * HoursWorked;
-                return grossPay;
-            }
+            if (HoursWorked <= 0 || HoursWorked >= 200 || PayPerHour <= 0)
+                throw new ArgumentException("Invalid Hour or Pay Per Hour data for " + this.FirstName + " " +
+                                            this.LastName + "!");
+            decimal grossPay = PayPerHour * HoursWorked;
+            return grossPay;
 
-            throw new ArgumentException("Invalid Hour or Pay Per Hour data for "+ this.FirstName + " " + this.LastName + "!");
         }
         public void GetPayrollHours()
         {

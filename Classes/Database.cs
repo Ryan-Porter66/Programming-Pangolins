@@ -231,7 +231,7 @@ namespace PayrollManagement.Classes
             string RoutingNumber = Jobj["routing_num"].ToString();
             string AccountNumber = Jobj["account_num"].ToString();
             BankAccount Bank = new BankAccount(RoutingNumber, AccountNumber, BankName);
-            string FederalID = Jobj["federal_id"].ToString(); ;
+            string FederalID = Jobj["federal_id"].ToString();
             string Address = Jobj["street_address"].ToString();
             string City = Jobj["city"].ToString();
             string State = Jobj["state"].ToString();

@@ -27,54 +27,45 @@ namespace PayrollManagement.Forms
             try
             {
                 //check to see if all data is valid
-                if(this.ValidateChildren())
-                {
-                    //Convert FedTaxRateStr to decminal
-                    decimal FedTaxRate = Decimal.Parse(FedRateTextBox.Text);                    
+                if (!this.ValidateChildren()) return;
+                //Convert FedTaxRateStr to decimal
+                decimal FedTaxRate = Decimal.Parse(FedRateTextBox.Text);                    
 
-                    //convert Check Box info into "Admin" or "Employee"
-                    string Permissions = "";
-                    if (AdminUserCheckBox.Checked == true)
-                    {
-                        Permissions = "Admin";
-                    }
-                    else
-                    {
-                        Permissions = "Employee";
-                    }
+                //convert Check Box info into "Admin" or "Employee"
+                string Permissions = "";
+                Permissions = AdminUserCheckBox.Checked ? "Admin" : "Employee";
 
-                    //Create new objects
-                    BankAccount newEmployeeBankInfo = new BankAccount(BankRNTextBox.Text, BankANTextBox.Text, BankNameTextBox.Text);
-                    DateTime.TryParseExact(DoBTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
-                        System.Globalization.DateTimeStyles.None, out DateTime DoB);
-                    DateTime.TryParseExact(HireDateTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
-                        System.Globalization.DateTimeStyles.None, out DateTime HireDate);
-                    int empID = 0; //database makes this
-                    decimal stateTaxRate = 0; //database looks this up
-                    string trueEmpID = "";
+                //Create new objects
+                BankAccount newEmployeeBankInfo = new BankAccount(BankRNTextBox.Text, BankANTextBox.Text, BankNameTextBox.Text);
+                DateTime.TryParseExact(DoBTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None, out DateTime DoB);
+                DateTime.TryParseExact(HireDateTextBox.Text, InputValidation.dateStringPatterns, System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None, out DateTime HireDate);
+                int empID = 0; //database makes this
+                decimal stateTaxRate = 0; //database looks this up
+                string trueEmpID = "";
 
-                    List<Deduction> dummyDeductionList = new List<Deduction>();
+                List<Deduction> dummyDeductionList = new List<Deduction>();
                     
-                    //create an employee object based on if they are hourly or salaried & send it to database
-                    if (SalariedHourlyComboBox.Text == "Salary")
-                    {
-                        decimal Salary = Decimal.Parse(SalariedPayPerDayTextBox.Text);
-                        SalaryEmployee newSalaryEmployee = new SalaryEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
-                            CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
-                            SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, Salary);
-                        trueEmpID = Database.AddEmployee(Username, Password, newSalaryEmployee);
-                    }
-                    else
-                    {
-                        decimal PayPerHour = Decimal.Parse(HourlyPayTextbox.Text);
-                        HourlyEmployee newHourlyEmployee = new HourlyEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
-                            CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
-                            SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, PayPerHour);
-                        trueEmpID = Database.AddEmployee(Username, Password, newHourlyEmployee);
-                    }
-                    MessageBox.Show($"New employee ID {trueEmpID} was added to the database.");
-                    this.ClearForm();
-                } 
+                //create an employee object based on if they are hourly or salaried & send it to database
+                if (SalariedHourlyComboBox.Text == "Salary")
+                {
+                    decimal salary = Decimal.Parse(SalariedPayPerDayTextBox.Text);
+                    SalaryEmployee newSalaryEmployee = new SalaryEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
+                        CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
+                        SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, salary);
+                    trueEmpID = Database.AddEmployee(Username, Password, newSalaryEmployee);
+                }
+                else
+                {
+                    decimal payPerHour = Decimal.Parse(HourlyPayTextbox.Text);
+                    HourlyEmployee newHourlyEmployee = new HourlyEmployee(FirstNameTextBox.Text, LastNameTextBox.Text, AddressTextBox.Text, 
+                        CityTextBox.Text, ZipCodeTextBox.Text, StateComboBox.Text, newEmployeeBankInfo, empID, FedTaxRate, Permissions, 
+                        SSNTextBox.Text, DoB, HireDate, PhoneTextBox.Text, DepartmentTextBox.Text, dummyDeductionList, stateTaxRate, payPerHour);
+                    trueEmpID = Database.AddEmployee(Username, Password, newHourlyEmployee);
+                }
+                MessageBox.Show($"New employee ID {trueEmpID} was added to the database.");
+                this.ClearForm();
             }
             catch (Exception ex)
             {
@@ -354,19 +345,20 @@ namespace PayrollManagement.Forms
         }
         private void UpdateSalaryHourlyTextBoxes()
         {
-            if (SalariedHourlyComboBox.Text == "Salary")
+            switch (SalariedHourlyComboBox.Text)
             {
-                SalariedPayPerDayTextBox.Enabled = true;
-                HourlyPayTextbox.Enabled = false;
-                HourlyPayTextbox.Text = "";
-                AddErrorProvider.SetError(HourlyPayTextbox, "");
-            }
-            else if (SalariedHourlyComboBox.Text == "Hourly")
-            {
-                HourlyPayTextbox.Enabled = true;
-                SalariedPayPerDayTextBox.Enabled = false;
-                SalariedPayPerDayTextBox.Text = "";
-                AddErrorProvider.SetError(SalariedPayPerDayTextBox, "");
+                case "Salary":
+                    SalariedPayPerDayTextBox.Enabled = true;
+                    HourlyPayTextbox.Enabled = false;
+                    HourlyPayTextbox.Text = "";
+                    AddErrorProvider.SetError(HourlyPayTextbox, "");
+                    break;
+                case "Hourly":
+                    HourlyPayTextbox.Enabled = true;
+                    SalariedPayPerDayTextBox.Enabled = false;
+                    SalariedPayPerDayTextBox.Text = "";
+                    AddErrorProvider.SetError(SalariedPayPerDayTextBox, "");
+                    break;
             }
         }
         #endregion

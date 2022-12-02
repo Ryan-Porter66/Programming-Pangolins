@@ -39,24 +39,22 @@ namespace PayrollManagement.Forms
         {
             try
             {
-                if(this.ValidateChildren())
-                {
-                    string name = NameTextBox.Text;
-                    string address = AddressTextBox.Text; ;
-                    string city = CityTextBox.Text;
-                    string state = StateComboBox.Text;
-                    string zipCode = ZipCodeTextBox.Text;
-                    string phoneNumb = PhoneTextBox.Text;
-                    string fedID = FedIDTextBox.Text;
-                    string bankName = BankNameTextBox.Text;
-                    string bankRN = BankRNTextBox.Text;
-                    string bankAN = BankANTextBox.Text;
-                    BankAccount bankToAdd = new BankAccount(bankRN, bankAN, bankName);
-                    Company compToAdd = new Company(name, bankToAdd, fedID, address, city, state, zipCode, phoneNumb);
-                    Database.UpdateComany(Username, Password, compToAdd);
-                    MessageBox.Show("Company information successfully updated.");
-                    this.LoadInformationToScreen();
-                }
+                if (!this.ValidateChildren()) return;
+                string name = NameTextBox.Text;
+                string address = AddressTextBox.Text;
+                string city = CityTextBox.Text;
+                string state = StateComboBox.Text;
+                string zipCode = ZipCodeTextBox.Text;
+                string phoneNumb = PhoneTextBox.Text;
+                string fedID = FedIDTextBox.Text;
+                string bankName = BankNameTextBox.Text;
+                string bankRN = BankRNTextBox.Text;
+                string bankAN = BankANTextBox.Text;
+                BankAccount bankToAdd = new BankAccount(bankRN, bankAN, bankName);
+                Company compToAdd = new Company(name, bankToAdd, fedID, address, city, state, zipCode, phoneNumb);
+                Database.UpdateComany(Username, Password, compToAdd);
+                MessageBox.Show(@"Company information successfully updated.");
+                this.LoadInformationToScreen();
             }
             catch(Exception ex)
             {

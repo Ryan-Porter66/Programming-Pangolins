@@ -42,7 +42,7 @@ namespace PayrollManagement.Classes
         {
             if (this.Company == null || this.GetSizeOfList() < 1)
             {
-                throw new ArgumentNullException($"Employee List is Empty");
+                throw new ArgumentNullException("Employee List is Empty");
             }
             return Employees.Sum(emp => emp.CalculateNetPay(emp.CalculateGrossPay()));
         }
@@ -54,7 +54,7 @@ namespace PayrollManagement.Classes
         {
             if(this.Company == null || this.GetSizeOfList() < 1)
             {
-                throw new ArgumentNullException($"Employee List is Empty");
+                throw new ArgumentNullException("Employee List is Empty");
             }
 
             long totalOfDigits = Employees.Sum(emp => long.Parse(emp.Bank.ReturnFirstEightOfRoute()));

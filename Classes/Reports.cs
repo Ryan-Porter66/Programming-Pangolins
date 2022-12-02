@@ -305,7 +305,7 @@ namespace PayrollManagement.Classes
                 throw new ArgumentNullException(stringToTruncate);
             }
 
-            return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
+            return !string.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
                     ? stringToTruncate.Substring(0, digits)
                     : stringToTruncate;
         }
@@ -322,7 +322,7 @@ namespace PayrollManagement.Classes
                 throw new ArgumentException(digits.ToString());
             }
 
-            return !String.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
+            return !string.IsNullOrWhiteSpace(stringToTruncate) && stringToTruncate.Length >= digits
                     ? stringToTruncate.Substring(stringToTruncate.Length - digits)
                     : stringToTruncate;
         }

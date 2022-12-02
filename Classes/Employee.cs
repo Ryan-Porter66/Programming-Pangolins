@@ -30,7 +30,7 @@ namespace PayrollManagement.Classes
         public decimal StateTaxRate { get; set; }
         #endregion
         #region Constructor
-        public Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate)
+        protected Employee(string firstName, string lastName, string address, string city, string postalCode, string state, BankAccount bank, int employeeID, decimal federalTaxRate, string permissions, string ssn, DateTime dob, DateTime hireDate, string phoneNumber, string department, List<Deduction> deductionList, decimal stateTaxRate)
         {
             this.FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             this.LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));

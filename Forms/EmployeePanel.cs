@@ -43,31 +43,33 @@ namespace PayrollManagement.Forms
             BankANTextBox.Text = emp.Bank.BankAccountNumber;
             DepartmentTextBox.Text = emp.Department;
             HireDateTextBox.Text = emp.HireDate.ToString(InputValidation.dateStringPatterns);
-            if (emp is SalaryEmployee se)
+            switch (emp)
             {
-                SalariedHourlyComboBox.Text = "Salary";
-                SalariedPayPerDayTextBox.Text = se.SalaryPerPayPeriod.ToString("0.00");
-            }
-            else if (emp is HourlyEmployee he)
-            {
-                SalariedHourlyComboBox.Text = "Hourly";
-                HourlyPayTextbox.Text = he.PayPerHour.ToString("0.00");
+                case SalaryEmployee se:
+                    SalariedHourlyComboBox.Text = "Salary";
+                    SalariedPayPerDayTextBox.Text = se.SalaryPerPayPeriod.ToString("0.00");
+                    break;
+                case HourlyEmployee he:
+                    SalariedHourlyComboBox.Text = "Hourly";
+                    HourlyPayTextbox.Text = he.PayPerHour.ToString("0.00");
+                    break;
             }
             FedRateTextBox.Text = emp.FederalTaxRate.ToString("0.00");
         }
         private void DeductionsListBox_Format(object sender, ListControlConvertEventArgs e)
         {
-            string name = ((Deduction)e.ListItem).Name.ToString();
+            string name = ((Deduction)e.ListItem).Name;
             string amount = "bad data";
-            if ((Deduction)e.ListItem is FlatDeduction fd)
+            switch ((Deduction)e.ListItem)
             {
-                amount = fd.Flat.ToString("0.00");
+                case FlatDeduction fd:
+                    amount = fd.Flat.ToString("0.00");
+                    break;
+                case PercentageDeduction pd:
+                    amount = pd.Percentage.ToString("0.00");
+                    break;
             }
-            else if ((Deduction)e.ListItem is PercentageDeduction pd)
-            {
-                amount = pd.Percentage.ToString("0.00");
-            }
-            string stringToDisplay = string.Format("{0} {1}", amount.PadRight(10), name);
+            string stringToDisplay = $"{amount.PadRight(10)} {name}";
             e.Value = stringToDisplay;
         }
         #endregion

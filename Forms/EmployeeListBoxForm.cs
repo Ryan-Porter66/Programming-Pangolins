@@ -14,9 +14,9 @@ namespace PayrollManagement.Forms
         private void EmployeeListBoxFormat(object sender, ListControlConvertEventArgs e)
         {
             string empID = ((Employee)e.ListItem).EmployeeID.ToString();
-            string EmpFirst = ((Employee)e.ListItem).FirstName.ToString();
-            string empLast = ((Employee)e.ListItem).LastName.ToString();
-            string stringToDisplay = string.Format("{0} {1} {2}", empID.PadRight(4), EmpFirst, empLast);
+            string EmpFirst = ((Employee)e.ListItem).FirstName;
+            string empLast = ((Employee)e.ListItem).LastName;
+            string stringToDisplay = $"{empID.PadRight(4)} {EmpFirst} {empLast}";
             e.Value = stringToDisplay;
         }
 
