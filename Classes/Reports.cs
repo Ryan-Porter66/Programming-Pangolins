@@ -55,137 +55,149 @@ namespace PayrollManagement.Classes
             PdfWriter writer = new PdfWriter(filePath);
             PdfDocument pdf = new PdfDocument(writer);
             Document document = new Document(pdf);
-
-            Paragraph newline = new Paragraph(new Text("\n"));
-            LineSeparator lineSeparator = new LineSeparator(new SolidLine());
-
-            int loopCounter = 0, numberOfEmployees = empList.GetSizeOfList();
-            foreach (Employee emp in empList.Employees)
+            
+            try
             {
-                loopCounter++;  //used to keep track of last employee so do not add extra page
-                    
-                //display date on top right
-                DateTime todayDate = DateTime.Today;
-                Paragraph timeParagraph = new Paragraph(todayDate.ToString("MM/dd/yyyy")).SetTextAlignment(TextAlignment.RIGHT);
-                document.Add(timeParagraph);
-                document.Add(newline);
+                
 
-                //prints Employee Name and ID
-                Paragraph employeeNameParagraph = new Paragraph(
-                    $"{emp.EmployeeID} - {emp.FirstName} {emp.LastName}");
-                document.Add(employeeNameParagraph);
+                Paragraph newline = new Paragraph(new Text("\n"));
+                LineSeparator lineSeparator = new LineSeparator(new SolidLine());
 
-                //Print Employee Address
-                Paragraph employeeAddressParagraph = new Paragraph(emp.Address).SetFixedLeading(1);
-                document.Add(employeeAddressParagraph);
-
-                //Print Employee City
-                Paragraph employeeCityParagraph = new Paragraph($"{emp.City}, {emp.State} {emp.PostalCode}");
-                document.Add(employeeCityParagraph);
-
-                document.Add(newline);
-
-                //Add Company Name
-                Paragraph companyNameParagraph = new Paragraph(empList.Company.Name).SetFixedLeading(1);
-                document.Add(companyNameParagraph);
-
-                //Add Company Address
-                Paragraph companyAddressParagraph = new Paragraph(empList.Company.Address);
-                document.Add(companyAddressParagraph);
-
-                //Add Company City
-                Paragraph companyCityParagraph = new Paragraph(
-                    $"{empList.Company.City}, {empList.Company.State} {empList.Company.PostalCode}").SetFixedLeading(1);
-                document.Add(companyCityParagraph);
-
-                //Add Company Phone Number
-                Paragraph companyPhoneParagraph = new Paragraph(empList.Company.PhoneNumber);
-                document.Add(companyPhoneParagraph);
-
-                document.Add(lineSeparator);
-
-                //Add Table for Pay Information
-                float[] colWidthsPayrollTable = { 110f, 40f, 60f, 70f };
-                float totalColWidthPayrollTable = colWidthsPayrollTable.Sum();
-                Table payrollTable = new Table(UnitValue.CreatePointArray(colWidthsPayrollTable));
-                payrollTable.SetWidth(totalColWidthPayrollTable);
-
-                PrintCellToTable("Compensation", payrollTable, "left");
-                PrintCellToTable("Hrs.", payrollTable, "right");
-                PrintCellToTable("Rate", payrollTable, "right");
-                PrintCellToTable("Current", payrollTable, "right");
-
-
-                PrintCellToTable("Reg. Hours", payrollTable, "left");
-                switch (emp)
+                int loopCounter = 0, numberOfEmployees = empList.GetSizeOfList();
+                foreach (Employee emp in empList.Employees)
                 {
-                    case SalaryEmployee salaryEmployee:
-                        PrintCellToTable("1.00", payrollTable, "right");
-                        PrintCellToTable(salaryEmployee.SalaryPerPayPeriod.ToString("0.00"), payrollTable, "right");
-                        break;
-                    case HourlyEmployee hourlyEmployee:
-                        PrintCellToTable(hourlyEmployee.HoursWorked.ToString("0.00"), payrollTable, "right");
-                        PrintCellToTable(hourlyEmployee.PayPerHour.ToString("0.00"), payrollTable, "right");
-                        break;
-                }
-                PrintCellToTable(emp.CalculateGrossPay().ToString("0.00"), payrollTable, "right");
+                    loopCounter++;  //used to keep track of last employee so do not add extra page
 
-                PrintCellToTable("Gross Pay", payrollTable, "left");
-                PrintCellToTable(" ", payrollTable, "right");
-                PrintCellToTable(" ", payrollTable, "right");
-                PrintCellToTable(emp.CalculateGrossPay().ToString("0.00"), payrollTable, "right");
+                    //display date on top right
+                    DateTime todayDate = DateTime.Today;
+                    Paragraph timeParagraph = new Paragraph(todayDate.ToString("MM/dd/yyyy")).SetTextAlignment(TextAlignment.RIGHT);
+                    document.Add(timeParagraph);
+                    document.Add(newline);
 
-                PrintCellToTable("Net Adj. Gross", payrollTable, "left");
-                PrintCellToTable(" ", payrollTable, "right");
-                PrintCellToTable(" ", payrollTable, "right");
-                PrintCellToTable(emp.CalculateNetPay(emp.CalculateGrossPay()).ToString("0.00"), payrollTable, "right");
+                    //prints Employee Name and ID
+                    Paragraph employeeNameParagraph = new Paragraph(
+                        $"{emp.EmployeeID} - {emp.FirstName} {emp.LastName}");
+                    document.Add(employeeNameParagraph);
 
-                document.Add(payrollTable);
-                document.Add(lineSeparator);
+                    //Print Employee Address
+                    Paragraph employeeAddressParagraph = new Paragraph(emp.Address).SetFixedLeading(1);
+                    document.Add(employeeAddressParagraph);
 
-                //Add Table for Deduction Information
-                float[] colWidthsDeductionTable = { 110f, 40f };
-                float totalColWidthDeductionTable = colWidthsDeductionTable.Sum();
-                Table deductionTable = new Table(UnitValue.CreatePointArray(colWidthsDeductionTable));
-                deductionTable.SetWidth(totalColWidthDeductionTable);
+                    //Print Employee City
+                    Paragraph employeeCityParagraph = new Paragraph($"{emp.City}, {emp.State} {emp.PostalCode}");
+                    document.Add(employeeCityParagraph);
 
-                PrintCellToTable("Deductions", deductionTable, "left");
-                PrintCellToTable("Current", deductionTable, "center");
+                    document.Add(newline);
 
-                PrintCellToTable("FICA", deductionTable, "left");
-                PrintCellToTable(Math.Round(emp.CalculateFICATax(), 2).ToString("0.00"), deductionTable, "right");
+                    //Add Company Name
+                    Paragraph companyNameParagraph = new Paragraph(empList.Company.Name).SetFixedLeading(1);
+                    document.Add(companyNameParagraph);
 
-                PrintCellToTable("Medical", deductionTable, "left");
-                PrintCellToTable(Math.Round(emp.CalculateMedTax(), 2).ToString("0.00"), deductionTable, "right");
+                    //Add Company Address
+                    Paragraph companyAddressParagraph = new Paragraph(empList.Company.Address);
+                    document.Add(companyAddressParagraph);
 
-                PrintCellToTable("State Tax", deductionTable, "left");
-                PrintCellToTable(Math.Round(emp.CalculateStateTax(), 2).ToString("0.00"), deductionTable, "right");
+                    //Add Company City
+                    Paragraph companyCityParagraph = new Paragraph(
+                        $"{empList.Company.City}, {empList.Company.State} {empList.Company.PostalCode}").SetFixedLeading(1);
+                    document.Add(companyCityParagraph);
 
-                PrintCellToTable("Federal W/H", deductionTable, "left");
-                PrintCellToTable(Math.Round(emp.CalculateFederalTax(), 2).ToString("0.00"), deductionTable, "right");
+                    //Add Company Phone Number
+                    Paragraph companyPhoneParagraph = new Paragraph(empList.Company.PhoneNumber);
+                    document.Add(companyPhoneParagraph);
 
-                PrintCellToTable("Other W/H", deductionTable, "left");
-                PrintCellToTable(Math.Round(emp.CalculateTotalNonTaxDeductionAmount(), 2).ToString("0.00"), deductionTable, "right");
+                    document.Add(lineSeparator);
 
-                document.Add(deductionTable);
+                    //Add Table for Pay Information
+                    float[] colWidthsPayrollTable = { 110f, 40f, 60f, 70f };
+                    float totalColWidthPayrollTable = colWidthsPayrollTable.Sum();
+                    Table payrollTable = new Table(UnitValue.CreatePointArray(colWidthsPayrollTable));
+                    payrollTable.SetWidth(totalColWidthPayrollTable);
 
-                //add bank info and amount of deposited to bottom of page
-                Paragraph header = new Paragraph(
-                    $"{emp.Bank.BankName}:    XXXX{GetLastSubString(emp.Bank.BankAccountNumber, 4)}   {emp.CalculateNetPay(emp.CalculateGrossPay()):0.00}").SetTextAlignment(TextAlignment.RIGHT);
-                PageSize pageSize = pdf.GetDefaultPageSize();
-                header.SetFixedPosition(document.GetLeftMargin(), document.GetBottomMargin(), pageSize.GetWidth() - document.GetLeftMargin() - document.GetRightMargin());
-                document.Add(header);
+                    PrintCellToTable("Compensation", payrollTable, "left");
+                    PrintCellToTable("Hrs.", payrollTable, "right");
+                    PrintCellToTable("Rate", payrollTable, "right");
+                    PrintCellToTable("Current", payrollTable, "right");
 
-                if(loopCounter != numberOfEmployees)
-                {
-                    document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+
+                    PrintCellToTable("Reg. Hours", payrollTable, "left");
+                    switch (emp)
+                    {
+                        case SalaryEmployee salaryEmployee:
+                            PrintCellToTable("1.00", payrollTable, "right");
+                            PrintCellToTable(salaryEmployee.SalaryPerPayPeriod.ToString("0.00"), payrollTable, "right");
+                            break;
+                        case HourlyEmployee hourlyEmployee:
+                            PrintCellToTable(hourlyEmployee.HoursWorked.ToString("0.00"), payrollTable, "right");
+                            PrintCellToTable(hourlyEmployee.PayPerHour.ToString("0.00"), payrollTable, "right");
+                            break;
+                    }
+                    PrintCellToTable(emp.CalculateGrossPay().ToString("0.00"), payrollTable, "right");
+
+                    PrintCellToTable("Gross Pay", payrollTable, "left");
+                    PrintCellToTable(" ", payrollTable, "right");
+                    PrintCellToTable(" ", payrollTable, "right");
+                    PrintCellToTable(emp.CalculateGrossPay().ToString("0.00"), payrollTable, "right");
+
+                    PrintCellToTable("Net Adj. Gross", payrollTable, "left");
+                    PrintCellToTable(" ", payrollTable, "right");
+                    PrintCellToTable(" ", payrollTable, "right");
+                    PrintCellToTable(emp.CalculateNetPay(emp.CalculateGrossPay()).ToString("0.00"), payrollTable, "right");
+
+                    document.Add(payrollTable);
+                    document.Add(lineSeparator);
+
+                    //Add Table for Deduction Information
+                    float[] colWidthsDeductionTable = { 110f, 40f };
+                    float totalColWidthDeductionTable = colWidthsDeductionTable.Sum();
+                    Table deductionTable = new Table(UnitValue.CreatePointArray(colWidthsDeductionTable));
+                    deductionTable.SetWidth(totalColWidthDeductionTable);
+
+                    PrintCellToTable("Deductions", deductionTable, "left");
+                    PrintCellToTable("Current", deductionTable, "center");
+
+                    PrintCellToTable("FICA", deductionTable, "left");
+                    PrintCellToTable(Math.Round(emp.CalculateFICATax(), 2).ToString("0.00"), deductionTable, "right");
+
+                    PrintCellToTable("Medical", deductionTable, "left");
+                    PrintCellToTable(Math.Round(emp.CalculateMedTax(), 2).ToString("0.00"), deductionTable, "right");
+
+                    PrintCellToTable("State Tax", deductionTable, "left");
+                    PrintCellToTable(Math.Round(emp.CalculateStateTax(), 2).ToString("0.00"), deductionTable, "right");
+
+                    PrintCellToTable("Federal W/H", deductionTable, "left");
+                    PrintCellToTable(Math.Round(emp.CalculateFederalTax(), 2).ToString("0.00"), deductionTable, "right");
+
+                    PrintCellToTable("Other W/H", deductionTable, "left");
+                    PrintCellToTable(Math.Round(emp.CalculateTotalNonTaxDeductionAmount(), 2).ToString("0.00"), deductionTable, "right");
+
+                    document.Add(deductionTable);
+
+                    //add bank info and amount of deposited to bottom of page
+                    Paragraph header = new Paragraph(
+                        $"{emp.Bank.BankName}:    XXXX{GetLastSubString(emp.Bank.BankAccountNumber, 4)}   {emp.CalculateNetPay(emp.CalculateGrossPay()):0.00}").SetTextAlignment(TextAlignment.RIGHT);
+                    PageSize pageSize = pdf.GetDefaultPageSize();
+                    header.SetFixedPosition(document.GetLeftMargin(), document.GetBottomMargin(), pageSize.GetWidth() - document.GetLeftMargin() - document.GetRightMargin());
+                    document.Add(header);
+
+                    if (loopCounter != numberOfEmployees)
+                    {
+                        document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+                    }
                 }
             }
-                
-            document.Close();
-            pdf.Close();
-            writer.Close();
-            writer.Dispose();
+            catch(Exception ex)
+            {
+                //https://stackoverflow.com/questions/881473/why-catch-and-rethrow-an-exception-in-c
+                throw new Exception(ex.Message, ex); // wrapped & chained exceptions (just like java).
+            }
+            finally
+            {
+                document.Close();
+                pdf.Close();
+                writer.Close();
+                writer.Dispose();
+            }
         }
 
         //this method creates the NACHA file
