@@ -32,10 +32,10 @@
         <Location left="1172" top="53" />
         <Size width="462" height="230" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">list&lt;Employee&gt; employeeList</Member>
-        <Member type="Field">Company employeesCompany</Member>
+        <Member type="Field">list&lt;Employee&gt; employees</Member>
+        <Member type="Field">Company company</Member>
         <Member type="Method">public void generateEmployeeList(string username, string password)</Member>
-        <Member type="Method">public void displaySelectableEmployeeList()</Member>
+        <Member type="Method">public void displaySelectableEmployeeList(bool singleSelect)</Member>
         <Member type="Method">public decimal getNetPayAllEmployeesInList()</Member>
         <Member type="Method">public int getSizeOfList()</Member>
         <Member type="Method">public string getSumOfFirst8DigitsRoute()</Member>
