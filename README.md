@@ -1,5 +1,7 @@
 # Payroll Management by Ryan Porter, Evan Slominski, Brooks Robison, Blake Humes
 
+Edit: The server is down, so functionality will be limited.
+
 This is the final project for CSC 470 (Mr. Jenkins). This is a payroll management system. You can add employees/admins, delete them, edit them (including giving them deductions), edit the company information, and compile payroll (paystubs PDF and a NACHA file).
 
 1. If any links do not work, contact Ryan Porter to get that corrected
